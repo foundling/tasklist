@@ -1,12 +1,17 @@
 steal(
+        // libs
         'can/view/stache/stache.js',
+
+        // models
         './models/task/task.js',
         './models/tasklist/tasklist.js',
-        '../lib/taskinput/taskinput.js',
+
+        // component
+        '../lib/taskinput/taskinterface.js',
         function(
             stache,
             Task, TaskList,
-            TaskInput
+            TaskInterface
         ) {
 
             var task = new Task({
@@ -16,7 +21,7 @@ steal(
             });
 
             var tasklist = new TaskList([ task ]);
-            var inputTemplate = can.stache('<task-input></task-input>');
-            $('#app').append( inputTemplate() ); 
+            var taskInterfaceTemplate = can.stache('<task-input></task-input>');
+            $('#app').append( taskInterfaceTemplate() ); 
         }
 );
