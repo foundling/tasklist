@@ -1,9 +1,16 @@
 steal(
         '../lib/task/task.js',
+        '../lib/tasklist/tasklist.js',
         function(
-            Task
+            Task, TaskList
         ) {
 
-            console.log( new Task() );
+            var task = new Task({
+                name: 'test', 
+                complete: false, 
+                notes: 'notes'
+            });
+            var tasklist = new TaskList([task]);
+            console.log(tasklist);
         }
 );
