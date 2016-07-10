@@ -3,9 +3,9 @@ steal(
         'can/view/stache/stache.js',
 
         // components
-        '../lib/taskinput/taskinput.js',
-        '../lib/dashboard/dashboard.js',
-        '../lib/sidemenu/sidemenu.js',
+        './components/taskinput/taskinput.js',
+        './components/dashboard/dashboard.js',
+        './components/sidemenu/sidemenu.js',
         function(
             stache,
 
@@ -16,7 +16,7 @@ steal(
             Dashboard 
         ) {
 
-            $('#app').append( can.view('/app/main.stache') );
+            $('#app').append( can.view('/app/app.stache') );
 
         }
 );

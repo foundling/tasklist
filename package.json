@@ -2,7 +2,7 @@
   "name": "tasklist",
   "version": "1.0.0",
   "description": "an HTML5 localStorage based task application.",
-  "main": "app/tasklist",
+  "main": "app/app",
   "directories": {
     "doc": "docs",
     "test": "test"
