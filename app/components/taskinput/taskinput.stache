@@ -6,7 +6,7 @@
     <ul class="task-list"> 
 
         <li class="task-list-title">
-            <i class="add-task fa fa-plus"></i>
+            <i can-click="addTask" class="add-task fa fa-plus"></i>
             <input value="{{tasklists.currentList.name}}" class="task-list-title-input"></input> 
         </li>
 
@@ -15,14 +15,14 @@
        {{#each tasks}}  
         <li class="task">  
             <!-- -->
-            <i can-click="toggleNoteWindow %index" class="open-task-notes fa fa-angle-double-down"></i>
+            <i can-click="toggleNotes" class="open-task-notes fa fa-angle-double-down"></i>
 
             <!-- -->
             <input 
-            can-value="title" 
+            can-value="name" 
             can-focus="saveBackupTitle"
             can-blur="restoreBackupTitle"
-            value="{{title}}" 
+            value="{{ name }}" 
             type="text" 
             class="task-input {{^complete}}in{{/complete}}complete" />
 
@@ -30,7 +30,7 @@
             <i can-click="removeTask" class="remove-task fa fa-times"></i>
 
             <!-- -->
-            <i can-click="toggleCompletedState" class="{{#complete}}task-complete{{/complete}} complete-task fa fa-check"></i>
+            <i can-click="toggleComplete" class="{{#complete}}task-complete{{/complete}} complete-task fa fa-check"></i>
 
             <!-- -->
             <textarea 

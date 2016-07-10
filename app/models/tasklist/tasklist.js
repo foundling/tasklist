@@ -14,7 +14,10 @@ steal(
                     }).length;
 
                     return total - complete;
-                })
+                }),
+                addTask: function() {
+                    this.tasks.push(new Task());
+                }
             };
 
             return can.Map.extend(tasklist);
