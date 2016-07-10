@@ -6,6 +6,8 @@ steal(
         './components/taskinput/taskinput.js',
         './components/dashboard/dashboard.js',
         './components/sidemenu/sidemenu.js',
+        './styles/vendor/font-awesome-4.6.3/css/font-awesome.css!',
+        './main.less!',
         function(
             stache,
 
