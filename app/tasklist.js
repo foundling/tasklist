@@ -15,10 +15,7 @@ steal(
             Dashboard 
         ) {
 
-            var taskInputTemplate = can.stache('<task-input></task-input>');
-            $('#app').append( taskInputTemplate() ); 
-            
-            var dashboardTemplate = can.stache('<task-dashboard></task-dashboard>');
-            $('#app').append( dashboardTemplate() );
+            $('#app').append( can.view('/app/main.stache') );
+
         }
 );
