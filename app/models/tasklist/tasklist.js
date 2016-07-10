@@ -4,7 +4,8 @@ steal(
         function(can, Task) {
 
             var tasklist = {
-                tasks: new can.List([ new Task() ]),
+                name: '', 
+                tasks: null,
                 remaining: can.compute(function() {
                     var complete, total;
                     total = this.tasks.length;

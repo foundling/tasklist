@@ -2,13 +2,43 @@
 
 <div class="task-list-wrapper "> 
 
-    {{!with currentList}}
+    {{#with tasklists.currentList}}
     <ul class="task-list"> 
+
         <li class="task-list-title">
             <i class="add-task fa fa-plus"></i>
-            <input value="Task" class="task-list-title-input"></input> 
+            <input value="{{tasklists.currentList.name}}" class="task-list-title-input"></input> 
         </li>
+
         <hr class="task-list-title-underline"></hr>
+
+       {{#each tasks}}  
+        <li class="task">  
+            <!-- -->
+            <i can-click="toggleNoteWindow %index" class="open-task-notes fa fa-angle-double-down"></i>
+
+            <!-- -->
+            <input 
+            can-value="title" 
+            can-focus="saveBackupTitle"
+            can-blur="restoreBackupTitle"
+            value="{{title}}" 
+            type="text" 
+            class="task-input {{^complete}}in{{/complete}}complete" />
+
+            <!-- -->
+            <i can-click="removeTask" class="remove-task fa fa-times"></i>
+
+            <!-- -->
+            <i can-click="toggleCompletedState" class="{{#complete}}task-complete{{/complete}} complete-task fa fa-check"></i>
+
+            <!-- -->
+            <textarea 
+            class="task-notes-input {{#notesOpen}}open{{else}}closed{{/notesOpen}}" 
+            {{#needsPlaceholder %index}} value="{{placeholderText}}" {{else}} value="{{notes}}" {{/needsPlaceholder}}/>
+        {{/each}}  
+
     </ul> 
+    {{/with}}
 
 </div>
