@@ -1,0 +1,16 @@
+<!-- Task List Wrapper -->
+
+<div class="task-list-wrapper "> 
+
+    <ul class="task-list"> 
+
+        <!-- -->
+        <li class="task-list-title">
+            <i can-click="abc" class="add-task fa fa-plus"></i>
+            <input 
+            class="task-list-title-input" /> 
+        </li>
+        <hr class="task-list-title-underline"></hr>
+    </ul> 
+
+</div>

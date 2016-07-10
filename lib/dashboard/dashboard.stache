@@ -1,0 +1,4 @@
+<!-- Dashboard Toggle -->
+<h1 class="settings">
+    <i can-click="toggleDashboard" class="fa fa-cog"></i> 
+</h1>

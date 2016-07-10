@@ -2,26 +2,23 @@ steal(
         // libs
         'can/view/stache/stache.js',
 
-        // models
-        './models/task/task.js',
-        './models/tasklist/tasklist.js',
-
-        // component
-        '../lib/taskinput/taskinterface.js',
+        // components
+        '../lib/taskinput/taskinput.js',
+        '../lib/dashboard/dashboard.js',
         function(
             stache,
-            Task, TaskList,
-            TaskInterface
+
+            /* can.Components don't need manual instantiation,
+             * they get instantiated as soon as you bring them in 
+             */
+            TaskInput, 
+            Dashboard 
         ) {
 
-            var task = new Task({
-                name:       'test', 
-                complete:   false, 
-                notes:      'notes'
-            });
-
-            var tasklist = new TaskList([ task ]);
-            var taskInterfaceTemplate = can.stache('<task-input></task-input>');
-            $('#app').append( taskInterfaceTemplate() ); 
+            var taskInputTemplate = can.stache('<task-input></task-input>');
+            $('#app').append( taskInputTemplate() ); 
+            
+            var dashboardTemplate = can.stache('<task-dashboard></task-dashboard>');
+            $('#app').append( dashboardTemplate() );
         }
 );
