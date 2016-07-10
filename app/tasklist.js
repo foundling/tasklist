@@ -5,6 +5,7 @@ steal(
         // components
         '../lib/taskinput/taskinput.js',
         '../lib/dashboard/dashboard.js',
+        '../lib/sidemenu/sidemenu.js',
         function(
             stache,
 

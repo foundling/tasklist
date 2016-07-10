@@ -1,0 +1,87 @@
+<!-- Task Side Menu -->
+<div class="side-menu-wrapper {{#dashboardActive}}blur{{/dashboardActive}}">
+
+    <div class="add-task-list-wrapper">
+        <i can-click="addTaskList" class="add-task-list fa fa-plus"></i>
+    </div>
+
+    {{#each taskLists}}
+    <ul can-click="setCurrentList" class="side-menu {{#isActiveMenu %index}}{{else}}in{{/isActiveMenu}}active-menu-list">
+
+        <i can-click="removeTaskList" class="menu-list-delete fa fa-times"></i>
+        <li>
+            <i can-click="toggleSideTasks" class="fa fa-angle-{{#open}}down{{else}}right{{/open}} open-close-toggle"></i>
+            <input 
+            can-focus="saveBackupTitle"
+            can-blur="restoreBackupTitle"
+            can-value="title" 
+            class="side-menu-list-title {{#isActiveMenu %index}}active-menu-list-title{{/isActiveMenu}}" />
+
+            {{#open}}
+            {{#each tasks}}
+            <li>
+                <input 
+                can-focus="saveBackupTitle"
+                can-blur="restoreBackupTitle"
+                can-value="title"
+                class="side-menu-item" />
+            </li>
+            {{/each}}
+            {{/open}}
+
+    </ul>
+    {{/each}}
+
+</div>
+
+<!-- Task List Wrapper -->
+
+<div class="task-list-wrapper {{#dashboardActive}}blur{{/dashboardActive}}"> 
+
+    {{#with currentList}}
+    <ul class="task-list"> 
+
+        <!-- -->
+        <li class="task-list-title">
+            <i can-click="addTask" class="add-task fa fa-plus"></i>
+            <input 
+            can-value="currentList.title"
+            can-focus="saveBackupTitle"
+            can-blur="restoreBackupTitle"
+            class="task-list-title-input" /> 
+        </li>
+        <hr class="task-list-title-underline"></hr>
+
+
+        {{#each tasks}}  
+            <li class="task">  
+
+
+                <!-- -->
+                <i can-click="toggleNoteWindow %index" class="open-task-notes fa fa-angle-double-down"></i>
+
+                <!-- -->
+                <input 
+                can-value="title" 
+                can-focus="saveBackupTitle"
+                can-blur="restoreBackupTitle"
+                value="{{title}}" 
+                type="text" 
+                class="task-input {{^complete}}in{{/complete}}complete" />
+
+                <!-- -->
+                <i can-click="removeTask" class="remove-task fa fa-times"></i>
+
+                <!-- -->
+                <i can-click="toggleCompletedState" class="{{#complete}}task-complete{{/complete}} complete-task fa fa-check"></i>
+
+                <!-- -->
+                <textarea 
+                class="task-notes-input {{#notesOpen}}open{{else}}closed{{/notesOpen}}" 
+                {{#needsPlaceholder %index}} value="{{placeholderText}}" {{else}} value="{{notes}}" {{/needsPlaceholder}}/>
+        {{/each}}  
+
+    </ul> 
+    {{/with}}
+
+</div>
