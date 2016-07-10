@@ -2,13 +2,11 @@
 
 <div class="task-list-wrapper "> 
 
+    {{!with currentList}}
     <ul class="task-list"> 
-
-        <!-- -->
         <li class="task-list-title">
-            <i can-click="abc" class="add-task fa fa-plus"></i>
-            <input 
-            class="task-list-title-input" /> 
+            <i class="add-task fa fa-plus"></i>
+            <input value="Task" class="task-list-title-input"></input> 
         </li>
         <hr class="task-list-title-underline"></hr>
     </ul> 

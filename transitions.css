@@ -1,0 +1,25 @@
+i.add-task {
+    transition: border 1s, color 0.2s;
+}
+
+i.add-task-list.fa.fa-plus {
+}
+
+i.complete-task {
+    transition: border .5s, color .5s;
+}
+
+i.remove-task {
+    transition: border .5s, color .5s;
+}
+
+i.open-task-notes {
+    transition: display 0.9s ease;
+}
+
+i.fa.fa-minus.menu-list-delete {
+    transition: 0.2s color ease;
+} 
+.open-close-toggle {
+    transition: 0.5s background ease;
+}
