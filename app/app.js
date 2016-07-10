@@ -18,7 +18,8 @@ steal(
             Dashboard 
         ) {
 
-            $('#app').append( can.view('/app/app.stache') );
+            var tpl = can.view('/app/app.stache');
+            $('#app').append(tpl());
 
         }
 );
