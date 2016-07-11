@@ -26,26 +26,10 @@ steal(
             Dashboard 
         ) {
 
-            var task = new Task({
-                name:       'Task', 
-                complete:   false, 
-                notes:      'Task Notes'
-            });
+            var appTemplate = can.view('/app/app.stache');
 
-            var tasklist = new TaskList({ 
-                name:   'Task List',
-                tasks:  new can.List([ task ])
-            });
-
-            var tasklists = new TaskLists({
-                tasklists: new can.List([ tasklist ]),
-                currentList: tasklist 
-            });
-
-            var tpl = can.view('/app/app.stache');
-
-            $('#app').append(tpl({ 
-                tasklists: tasklists 
+            $('#app').append(appTemplate({ 
+                tasklists: new TaskLists()
             }));
 
         }

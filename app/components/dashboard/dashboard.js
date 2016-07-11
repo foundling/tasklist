@@ -8,9 +8,9 @@ steal(
             tag: 'task-dashboard',
             template: can.view('/app/components/dashboard/dashboard.stache'),
             viewModel: {
-                dashboardActive: false,
+                active: false,
                 toggleDashboard: function() {
-                    this.attr('dashboardActive', !this.attr('dashboardActive'));
+                    this.attr('active', !this.attr('active'));
                 },
             },
             events: {

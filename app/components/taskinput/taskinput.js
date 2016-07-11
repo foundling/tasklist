@@ -9,17 +9,7 @@ steal(
 
             tag: 'task-input',
             template: can.view('/app/components/taskinput/taskinput.stache'),
-            viewModel: {
-                currentList: new TaskList([ 
-
-                    new Task({
-                        name:       'task', 
-                        notes:      'notes', 
-                        complete:   false
-                    })
-
-                ]),
-            },
+            viewModel: null,
             events: {
                 'inserted': function(el, ev) {
                     console.log('taskinput inserted');

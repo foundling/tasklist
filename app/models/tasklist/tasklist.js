@@ -4,8 +4,9 @@ steal(
         function(can, Task) {
 
             var tasklist = {
-                name: '', 
-                tasks: null,
+                name: 'Task List', 
+                tasks: new can.List([ new Task() ]),
+                open: false,
                 remaining: can.compute(function() {
                     var complete, total;
                     total = this.tasks.length;
@@ -17,6 +18,9 @@ steal(
                 }),
                 addTask: function() {
                     this.tasks.push(new Task());
+                },
+                toggleOpen: function() {
+                    this.attr('open', !this.attr('open'));
                 }
             };
 

@@ -1,7 +1,7 @@
 <!-- Show Number of Remaining Tasks for the active list -->
 {{#with tasklists.currentList}}
     <!-- Remaining Tasks Computed Count -->
-    <h1 class="remaining {{#dashboardActive}}blur{{/dashboardActive}}"> {{remaining}} </h1>
+    <h1 class="remaining {{#active}}blur{{/active}}"> {{remaining}} </h1>
 {{/with}}
 
 <!-- Dashboard Toggle -->
@@ -9,7 +9,7 @@
     <i can-click="toggleDashboard" class="fa fa-cog"></i> 
 </h1>
 
-{{#dashboardActive}}
+{{#active}}
 <div class="dashboard-bg-layer">
     <div class="dashboard-controls">
         <ul class="dashboard-control-list">
