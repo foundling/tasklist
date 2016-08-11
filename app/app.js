@@ -13,17 +13,12 @@ steal(
         './components/sidemenu/sidemenu.js',
         './styles/vendor/font-awesome-4.6.3/css/font-awesome.css!',
         './main.less!',
-        function(
-            stache,
-            Task,
-            TaskList,
-            TaskLists,
 
-            /* can.Components don't need manual instantiation,
-             * they get instantiated as soon as you bring them in 
-             */
-            TaskInput, 
-            Dashboard 
+        function(
+
+            stache,
+            Task, TaskList, TaskLists, TaskInput, Dashboard 
+
         ) {
 
             var appTemplate = can.view('/app/app.stache');
