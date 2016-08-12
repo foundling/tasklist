@@ -1,4 +1,4 @@
-<div class="side-menu-wrapper">
+<div class="menu-wrapper">
 
 {{#with tasklists}} 
     <div class="add-task-list-wrapper">
@@ -7,7 +7,7 @@
 
 
     {{#each tasklists}}
-        <ul can-click="setCurrentList" class="side-menu {{#isActiveMenu %index}}{{else}}in{{/isActiveMenu}}active-menu-list">
+        <ul can-click="setCurrentList" class="menu {{#isActiveMenu %index}}{{else}}in{{/isActiveMenu}}active-menu-list">
 
             <i can-click="removeTaskList" class="menu-list-delete fa fa-times"></i>
             <li>
@@ -17,7 +17,7 @@
                 can-focus="saveBackupTitle"
                 can-blur="restoreBackupTitle"
                 can-value="title" 
-                class="side-menu-list-title {{#isActiveMenu %index}}active-menu-list-title{{/isActiveMenu}}" />
+                class="menu-list-title {{#isActiveMenu %index}}active-menu-list-title{{/isActiveMenu}}" />
 
                 {{#open}}
                 {{#each tasks}}
@@ -27,7 +27,7 @@
                         can-blur="restoreBackupTitle"
                         can-value="title"
                         value="{{ name }}"
-                        class="side-menu-item" />
+                        class="menu-item" />
                     </li>
                 {{/each}}
                 {{/open}}

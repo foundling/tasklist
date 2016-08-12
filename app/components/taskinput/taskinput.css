@@ -36,7 +36,7 @@ ul.task-list {
  * 
  */
 
-div.side-menu-wrapper {
+div.menu-wrapper {
     box-sizing: border-box;
     position:       absolute;
     top:            0px;
@@ -50,14 +50,14 @@ div.side-menu-wrapper {
 }
 
 
-ul.side-menu {
+ul.menu {
     position: relative;
     padding: 25px;
     margin: 0px;
     list-style-type: none;
 }
 
-ul.side-menu:hover {
+ul.menu:hover {
     background: rgba(162, 228, 225, 0.2);
 }
 
@@ -81,22 +81,22 @@ ul.active-menu-list input.active-menu-list-title {
     background:     transparent;
 }
 
-input.side-menu-item {
+input.menu-item {
     list-style-type:    none;
     margin:             2px 0px 2px 40px;
     border:             none;
 }
 
-input.side-menu-item.active-side-menu-item {
+input.menu-item.active-menu-item {
     background:     rgba(245,245,245,0.3);
 }
 
 
-li.side-menu-item:before {
+li.menu-item:before {
 }
 
 
-input.side-menu-list-title {
+input.menu-list-title {
     position: relative;
     display: inline-block;
     border: none;
