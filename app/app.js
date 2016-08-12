@@ -10,14 +10,15 @@ steal(
         // components
         './components/taskinput/taskinput.js',
         './components/dashboard/dashboard.js',
-        './components/sidemenu/sidemenu.js',
+        './components/menu/menu.js',
         './styles/vendor/font-awesome-4.6.3/css/font-awesome.css!',
         './main.less!',
 
         function(
 
             stache,
-            Task, TaskList, TaskLists, TaskInput, Dashboard 
+            Task, TaskList, TaskLists, 
+            TaskInput, Dashboard 
 
         ) {
 

@@ -1,4 +1,3 @@
-<!-- Dashboard Toggle -->
 <task-dashboard></task-dashboard> 
 <task-input></task-input>
-<task-sidemenu></task-sidemenu>
+<sidemenu></sidemenu>
