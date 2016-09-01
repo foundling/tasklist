@@ -12,12 +12,10 @@ steal(
         can.Component.extend({
             tag: 'app-list-manager',
             template: ListManagerView, 
-            viewModel: {
-                taskLists: null
-            },
+            viewModel: {},
             events: {
                 'inserted': function() {
-                    console.log('listManager inserted');
+                    console.log(this.viewModel);
                 }
             }
         });

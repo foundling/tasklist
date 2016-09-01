@@ -1,9 +1,9 @@
 <app-header title="Your Lists"></app-header>
 
 <app-content-window>
-    <app-list-manager>
+    <app-list-manager taskLists="{taskLists}">
 
-        {{#each lists}}
+        {{#each taskLists}}
         <app-list>
 
             {{#each tasks}}
