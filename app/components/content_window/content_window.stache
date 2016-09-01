@@ -4,7 +4,7 @@
         <h1 class="app-content-window-title">{{title}}</h1>
     {{/else}}
         <div class="app-content-window-main">
-            <content>
+            <content/>
         </div>
     {{/if}}
 </div>

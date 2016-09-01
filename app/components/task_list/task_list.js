@@ -1,7 +1,6 @@
 steal(
 
     'can',
-
     './task_list.stache!',
 
     function(
