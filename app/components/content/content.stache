@@ -1,0 +1,7 @@
+<div class="app-content">
+    {{#if title}}
+        <h1 class="app-content-title">{{title}}</h1>
+    {{/else}}
+        
+    {{/if}}
+</div>
