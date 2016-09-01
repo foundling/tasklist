@@ -1,4 +1,4 @@
 <footer class="app-utils">
-    <h1>Settings</h1>
-    <h1>Lists</h1>
+    <i class="fa fa-cog"></i>
+    <i class="fa fa-list-ul"></i>
 </footer>
