@@ -3,8 +3,8 @@ steal(
     function(can){
 
         return can.Map({
-            title: '',
-            tasks: [], 
+            text: '',
+            complete: false
         });
 
 })

@@ -1,4 +1,6 @@
 <ul>
-    {{#each list}}
+    {{#each lists}}
+        <li>list</li>
     {{/each}}
 </ul>
+<i can-click="addNewList" class="fa fa-plus"></i>

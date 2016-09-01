@@ -5,9 +5,8 @@
         <h1 class="app-content-title">{{title}}</h1>
 
     {{/else}}
-
         <div class="app-content-main">
-            <i class="fa fa-plus"></i>
+            <content>
         </div>
 
     {{/if}}

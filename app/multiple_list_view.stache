@@ -1,3 +1,5 @@
 <app-header title="Your Lists"></app-header>
-<app-content></app-content>
+<app-content>
+    <app-list-manager></list-manager>
+</app-content>
 <app-utils></app-utils>

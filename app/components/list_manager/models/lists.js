@@ -1,8 +1,0 @@
-steal(
-
-    'can',
-
-    function(can) {
-
-    });
-
