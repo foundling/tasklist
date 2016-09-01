@@ -21,16 +21,31 @@ steal(
         can,
         HeaderComponent, ContentWindowComponent, UtilsComponent, TaskComponent, TaskListComponent,
         TaskListModel, TaskModel,
-        titleView, singleListView, multipleListView,
+        TitleView, SingleListView, MultipleListView,
         appStyle
     ) {
-        var taskList = new TaskListModel({ 
-            tasks: [ new TaskModel({ text: 'blank task' }) ] 
+
+        var ViewModel = can.Map.extend({
+            views: {
+                title: TitleView,
+                multipleLists: MultipleListView, 
+                singleList: SingleListView 
+            },
+            taskLists: [ 
+                new TaskListModel({ 
+                    tasks: [ new TaskModel({ text: 'blank task' }) ] 
+                })
+            ], 
+            switchView: function (viewName) {
+                var nextView = this.views[viewName](vm);
+                $('#app').html(nextView);
+            }
+
         });
 
-        var compiledTemplate = multipleListView({ 
-            taskLists: [ taskList ] 
-        }); 
+        var vm = new ViewModel();
 
-        $('#app').append(compiledTemplate);
+        var compiledTemplate = TitleView(vm);
+
+        $('#app').html(compiledTemplate);
 });
