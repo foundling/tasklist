@@ -12,6 +12,8 @@ steal(
             template: ListView,
             viewModel: {
                 toggleOpen: function() {
+                    console.log('toggleOpen');
+                    this.open = (this.open === 'true' ? 'false' : 'true');
                 }
             },
             events: {}

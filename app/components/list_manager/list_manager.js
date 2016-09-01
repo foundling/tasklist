@@ -6,6 +6,7 @@ steal(
     'app/models/task.js',
 
     './list_manager.stache!',
+    './list_manager.less!',
 
     function(
         can,

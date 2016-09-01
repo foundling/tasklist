@@ -1,2 +1,4 @@
-<content/>
-<i can-click="addNewList" class="fa fa-plus"></i>
+<div class="list-manager">
+    <content/>
+    <i can-click="addNewList" class="fa fa-plus"></i>
+</div>
