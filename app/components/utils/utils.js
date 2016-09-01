@@ -12,11 +12,10 @@ steal(
         can.Component.extend({
             tag: 'app-utils',
             template: utilsView,
-            viewModel: {
-                title: "",
-            },
+            viewModel: {},
             events: {
                 'inserted': function() {
+                    console.log(this.viewModel);
                 } 
             }
         });

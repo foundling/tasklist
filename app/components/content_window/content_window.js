@@ -16,11 +16,10 @@ steal(
         can.Component.extend({
             tag: 'app-content-window',
             template: contentView,
-            viewModel: {
-                title: "",
-            },
+            viewModel: {},
             events: {
                 'inserted': function() {
+                    console.log(this.viewModel);
                 } 
             }
         });
