@@ -3,8 +3,11 @@ steal(
     'can',
 
     './components/header/header.js',
-    './components/content/content.js',
+    './components/content_window/content_window.js',
     './components/utils/utils.js',
+
+    './components/task/task.js',
+    './components/task_list/task_list.js',
 
 
     './title_view.stache!',
@@ -15,7 +18,8 @@ steal(
 
     function(
         can,
-        Header, Content, Utils,
+        Header, ContentWindow, Utils,
+        Task, TaskList,
         titleView, singleListView, multipleListView,
         appStyle
     ) {

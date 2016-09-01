@@ -4,8 +4,8 @@ steal(
 
     '../list_manager/list_manager.js',
 
-    './content.stache!',
-    './content.less!',
+    './content_window.stache!',
+    './content_window.less!',
 
     function(
         can, 
@@ -14,7 +14,7 @@ steal(
     ) {
 
         can.Component.extend({
-            tag: 'app-content',
+            tag: 'app-content-window',
             template: contentView,
             viewModel: {
                 title: "",

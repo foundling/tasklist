@@ -2,14 +2,10 @@ steal(
 
     'can',
 
-    './components/list/list.js',
-    './components/task/task.js',
-
     './list_manager.stache!',
 
     function(
         can,
-        List, Task,
         ListManagerView
     ) {
 
@@ -17,6 +13,7 @@ steal(
             tag: 'app-list-manager',
             template: ListManagerView, 
             viewModel: {
+                taskLists: null
             },
             events: {
                 'inserted': function() {

@@ -2,17 +2,16 @@ steal(
 
     'can',
 
-    './models/list.js',
-    './list.stache!',
+    './task_list.stache!',
 
     function(
         can, 
-        List, ListView
+        ListView
     ){
         can.Component.extend({
             tag: 'app-list',
             template: ListView,
-            viewModel: new List(),
+            viewModel: {},
             events: {}
         });
 });
