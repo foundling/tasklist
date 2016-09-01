@@ -1,13 +1,15 @@
 steal(
 
     'can',
-    './../components/lists/lists.js',
+
+    '../list_manager/list_manager.js',
+
     './content.stache!',
     './content.less!',
 
     function(
         can, 
-        lists,
+        ListManager,
         contentView
     ) {
 

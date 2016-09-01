@@ -4,5 +4,5 @@ steal('can',function(can){
         tasks: [], 
     };
 
-    return can.Map(list);
+    return can.Map.extend(list);
 })

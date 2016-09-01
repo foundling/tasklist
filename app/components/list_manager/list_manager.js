@@ -3,14 +3,13 @@ steal(
     'can',
 
     './models/list.js',
-    './models/lists.js',
 
-    './list_view.stache!',
+    './list_manager.stache!',
 
 
     function(
         can,
-        List, ListManager,
+        List,
         ListView
     ) {
 
@@ -18,13 +17,6 @@ steal(
             tag: 'app-list-view',
             template: ListView, 
             viewModel: {
-                define: {
-                    listManager: {
-                        value: new ListManager({
-                            lists: new List();
-                        })
-                    },
-                }
             },
             events: {
             }
