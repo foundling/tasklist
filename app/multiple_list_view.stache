@@ -1,5 +1,13 @@
 <app-header title="Your Lists"></app-header>
 <app-content>
-    <app-list-manager></list-manager>
+    <app-list-manager>
+        {{#each lists}}
+            <app-list>
+                {{#each tasks}}
+                    <app-task></app-task>
+                {{/each}}
+            </app-list>
+        {{/each}}
+    </list-manager>
 </app-content>
 <app-utils></app-utils>

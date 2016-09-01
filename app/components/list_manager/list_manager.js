@@ -2,8 +2,8 @@ steal(
 
     'can',
 
-    './models/list.js',
-    './models/task.js',
+    './components/list/list.js',
+    './components/task/task.js',
 
     './list_manager.stache!',
 
@@ -17,12 +17,6 @@ steal(
             tag: 'app-list-manager',
             template: ListManagerView, 
             viewModel: {
-                lists: new can.List([ 
-                    new List() 
-                ]),
-                addNewList: function() {
-                    this.lists.push( new List() );
-                }
             },
             events: {
                 'inserted': function() {
