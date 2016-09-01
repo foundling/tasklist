@@ -15,7 +15,6 @@ steal(
             viewModel: {},
             events: {
                 'inserted': function() {
-                    console.log(this.viewModel);
                 } 
             }
         });

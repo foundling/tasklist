@@ -1,3 +1,5 @@
-<ul>
+<ul can-click="toggleOpen">
+    {{#if open}}
     <content/>
+    {{/if}}
 </ul>

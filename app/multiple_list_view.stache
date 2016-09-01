@@ -1,16 +1,16 @@
 <app-header title="Your Lists"></app-header>
 
 <app-content-window>
-    <app-list-manager taskLists="{taskLists}">
+    <app-list-manager>
 
         {{#each taskLists}}
-        <app-list>
+        <app-task-list open>
 
             {{#each tasks}}
             <app-task/>
             {{/each}}
 
-        </app-list>
+        </app-task-list>
         {{/each}}
 
     </app-list-manager>

@@ -8,9 +8,12 @@ steal(
         ListView
     ){
         can.Component.extend({
-            tag: 'app-list',
+            tag: 'app-task-list',
             template: ListView,
-            viewModel: {},
+            viewModel: {
+                toggleOpen: function() {
+                }
+            },
             events: {}
         });
 });
