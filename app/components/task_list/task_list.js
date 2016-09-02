@@ -2,6 +2,7 @@ steal(
 
     'can',
     './task_list.stache!',
+    './task_list.less!',
 
     function(
         can, 

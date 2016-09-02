@@ -1,5 +1,5 @@
-<ul can-click="toggleOpen">
-    <li>{{ title }}</li>
+<ul class="task-list" can-click="toggleOpen">
+    <li class="task-list-title">{{ title }}</li>
     {{#is open 'true'}}
     <content/>
     {{/if}}
