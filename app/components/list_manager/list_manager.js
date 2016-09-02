@@ -19,8 +19,9 @@ steal(
             tag: 'app-list-manager',
             template: ListManagerView, 
             viewModel: {
-                taskLists: [ 
+                taskLists: new can.List([ 
                     new TaskListModel({ 
+                        parent: this,
                         title: 'Camping Trip',
                         tasks: [ 
                             new TaskModel({ text: 'Buy a Tent.' }), 
@@ -42,8 +43,7 @@ steal(
                             new TaskModel({ text: 'Follow up on Claim.' }) 
                         ] 
                     })
-
-                ], 
+                ]), 
                 addNewList: function() {
                     var newList = new TaskListModel({ 
                         title: 'New List',

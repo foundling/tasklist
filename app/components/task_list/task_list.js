@@ -16,15 +16,12 @@ steal(
                 listManager: null,
                 toggleOpen: function() {
                     this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
-                },
-                isMostRecent: function() {
-                    console.log(this.attr('parent'));
-                },
-                isActive: function(taskList) {
-                    console.log(this.attr('parent'));
-                    var index = this.attr('parent').indexOf(taskList);
                 }
             },
-            events: {}
+            events: {
+                'inserted': function() {
+                    console.log(this.viewModel.attr('listManager'));
+                }
+            }
         });
 })

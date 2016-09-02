@@ -1,4 +1,4 @@
-<app-header title="Your Lists"></app-header>
+<app-header></app-header>
 
 <app-content-window>
     <app-list-manager>
@@ -6,7 +6,6 @@
         {{#each taskLists}}
         <app-task-list {listManager}="taskLists" {tasklist}="." {open}="false">
 
-            {{ log }}
             {{#each tasks}}
             <app-task/>
             {{/each}}

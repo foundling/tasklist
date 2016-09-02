@@ -1,3 +1,4 @@
 <header class="app-header" class="{{#is colorscheme 'title' }}title-view-color{{/is}}"> 
-    <h1>{{ title }}</h1> 
+    {{#is colorscheme 'title'}}
+    <h1>{{#is colorscheme 'title'}} <!-- Nothing --> {{else}} {{ title }} {{/is }}</h1> 
 </header>

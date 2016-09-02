@@ -16,7 +16,9 @@ steal(
         can.Component.extend({
             tag: 'app-content-window',
             template: contentView,
-            viewModel: {},
+            viewModel: {
+                title: 'Task List'
+            },
             events: {
                 'inserted': function() {
                 } 

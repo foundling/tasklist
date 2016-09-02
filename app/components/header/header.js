@@ -9,7 +9,9 @@ steal(
         can.Component.extend({
             tag: 'app-header',
             template: headerView,
-            viewModel: {},
+            viewModel: {
+                title: 'Your Lists',
+            },
             events: {
                 'inserted': function() {
                     console.log('app-header inserted');
