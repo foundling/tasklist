@@ -1,0 +1,10 @@
+CSS animations:
+
+Initial color animation.
+Fade in/out animations on view changes.
+
+Task list manager:
+
+smoother scrolling.
+Auto scroll to bottom when a new task is added.
+up and down shortcuts.
