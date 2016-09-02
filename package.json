@@ -4,7 +4,10 @@
   "description": "HTML5 mobile-centric tasklist",
   "main": "app/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "steal-tools"
+  },
+  "system": {
+    "npmAlgorithm": "flat"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,10 @@
   "homepage": "https://github.com/foundling/tasklist#readme",
   "dependencies": {
     "can": "^2.3.26",
+    "fastclick": "^1.0.6",
     "steal": "^0.16.35"
+  },
+  "devDependencies": {
+    "steal-tools": "^0.16.8"
   }
 }

@@ -1,6 +1,7 @@
 steal(
 
     'can',
+    'fastclick/lib/fastclick.js',
 
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
@@ -17,10 +18,13 @@ steal(
 
     function(
         can,
+        Fastclick,
         Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
         TitleView, SingleListView, MultiListView,
         appStyle
     ) {
+
+        Fastclick.attach(document.body);
 
         var ViewModel = can.Map.extend({
             view: 'title',
