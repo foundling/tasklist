@@ -1,18 +1,23 @@
-CSS animations:
+CSS ANIMATIONS:
 
 Initial color animation.
 Fade in/out animations on view changes.
 
-Task list manager:
+TASK LIST MANAGER:
 
 smoother scrolling.
 Auto scroll to bottom when a new task is added.
 up and down shortcuts.
 
-checkboxes:
+CHECKBOXES:
 
 build nicer custom checkboxes.
 
-views:
+VIEWS:
 
 settings view
+
+CRUD:
+
+Modify task title
+hookup local storage
