@@ -13,9 +13,6 @@ steal(
                 title: 'Your Lists',
             },
             events: {
-                'inserted': function() {
-                    console.log('app-header inserted');
-                } 
             }
         });
 });

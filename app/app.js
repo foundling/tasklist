@@ -2,40 +2,42 @@ steal(
 
     'can',
 
-    './components/header/header.js',
-    './components/content_window/content_window.js',
-    './components/dashboard/dashboard.js',
-    './components/task/task.js',
-    './components/task_list/task_list.js',
+    'app/components/header/header.js',
+    'app/components/content_window/content_window.js',
+    'app/components/dashboard/dashboard.js',
+    'app/components/list_manager/list_manager.js',
+    'app/components/task_list/task_list.js',
+    'app/components/task/task.js',
 
     './views/title_view.stache!',
     './views/single_list_view.stache!',
-    './views/multiple_list_view.stache!',
+    './views/multi_list_view.stache!',
 
     './app.less!',
 
     function(
         can,
-        HeaderComponent, ContentWindowComponent, DashboardComponent, TaskComponent, TaskListComponent,
-        TitleView, SingleListView, MultipleListView,
+        Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
+        TitleView, SingleListView, MultiListView,
         appStyle
     ) {
 
         var ViewModel = can.Map.extend({
-            view: null,
+            view: 'title',
             views: {
                 title:          TitleView,
-                multipleLists:  MultipleListView, 
-                singleList:     SingleListView 
+                singlelist:     SingleListView, 
+                multilist:      MultiListView
             },
             switchView: function (viewName) {
-                this.attr('colorscheme', (viewName === 'title') ? viewName : '');
-                var nextView = this.views[viewName](vm);
-                $('#app').html(nextView);
+                var nextView = this.attr('views')[viewName];
+                var compiledView = nextView();
+                $('#app').empty();
+                $('#app').append(compiledView);
             }
         });
 
-        var vm = new ViewModel({ view: 'title' });
-        var compiledTemplate = TitleView(vm);
-        $('#app').html(compiledTemplate);
+        var vm = new ViewModel();
+        var compiledView = TitleView(vm);
+        $('#app').html(compiledView);
 });

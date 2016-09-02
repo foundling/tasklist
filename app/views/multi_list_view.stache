@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header {view}='view'/>
 
 <app-content-window>
     <app-list-manager>
@@ -16,4 +16,4 @@
     </app-list-manager>
 </app-content-window>
 
-<app-dashboard></app-dashboard>
+<app-dashboard {view}='view'/>

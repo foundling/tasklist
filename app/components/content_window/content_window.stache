@@ -1,7 +1,7 @@
+{{ log }} 
 <div class="app-content-window">
-
-    {{#if title}}
-        <h1 class="app-content-window-title">{{title}}</h1>
+    {{#is view 'title'}}
+        <h1 can-click="switchView 'multilist'" class="app-content-window-title">{{title}}</h1>
     {{/else}}
         <content/>
     {{/if}}
