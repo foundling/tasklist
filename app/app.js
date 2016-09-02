@@ -4,7 +4,7 @@ steal(
 
     './components/header/header.js',
     './components/content_window/content_window.js',
-    './components/utils/utils.js',
+    './components/dashboard/dashboard.js',
     './components/task/task.js',
     './components/task_list/task_list.js',
 
@@ -16,7 +16,7 @@ steal(
 
     function(
         can,
-        HeaderComponent, ContentWindowComponent, UtilsComponent, TaskComponent, TaskListComponent,
+        HeaderComponent, ContentWindowComponent, DashboardComponent, TaskComponent, TaskListComponent,
         TitleView, SingleListView, MultipleListView,
         appStyle
     ) {
