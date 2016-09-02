@@ -12,8 +12,18 @@ steal(
             tag: 'app-task-list',
             template: ListView,
             viewModel: {
+                parent: null,
                 toggleOpen: function() {
                     this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
+                },
+                isMostRecent: function() {
+                    console.log(arguments);
+                },
+                isActive: function(taskList) {
+                    console.log(arguments);
+                    console.log(taskList);
+                    console.log(this.attr('parent'));
+                    var index = this.attr('parent').indexOf(taskList);
                 }
             },
             events: {}
