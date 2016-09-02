@@ -21,8 +21,11 @@ steal(
                     var taskList = scope.attr('taskList');
                     return listManager.indexOf(taskList) === listManager.length - 1;
                 },
-                removeTaskList: function(index) {
-                    console.log(index);
+                removeTaskList: function(scope) {
+                    var listManager = scope.attr('listManager');
+                    var taskList = scope.attr('taskList');
+                    var index = listManager.indexOf(taskList);
+                    listManager.splice(index,1);
                 }
             },
             events: {
