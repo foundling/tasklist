@@ -13,7 +13,7 @@ steal(
             tag: 'app-task-list',
             template: ListView,
             viewModel: {
-                parent: null,
+                listManager: null,
                 toggleOpen: function() {
                     this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
                 },
@@ -27,4 +27,4 @@ steal(
             },
             events: {}
         });
-});
+})
