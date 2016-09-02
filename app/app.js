@@ -29,11 +29,7 @@ steal(
                 singleList:     SingleListView 
             },
             switchView: function (viewName) {
-                if (viewName === 'title') {
-                    this.attr('colorscheme', 'title');
-                } else {
-                    this.attr('colorscheme', '');
-                }
+                this.attr('colorscheme', viewName === 'title' ? viewName : '');
                 var nextView = this.views[viewName](vm);
                 $('#app').html(nextView);
             }
