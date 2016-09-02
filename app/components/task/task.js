@@ -2,6 +2,7 @@ steal(
 
     'can',
     './task.stache!',
+    './task.less!',
 
     function(
         can, 
@@ -10,7 +11,13 @@ steal(
         can.Component.extend({
             tag: 'app-task',
             template: TaskView,
-            viewModel: {},
+            viewModel: {
+                editing: false,
+                toggleEditing: function() {
+                    this.attr('editing', !this.attr('editing'));
+                }
+
+            },
             events: {}
         });
 });

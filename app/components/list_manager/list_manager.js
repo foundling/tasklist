@@ -21,12 +21,37 @@ steal(
             viewModel: {
                 taskLists: [ 
                     new TaskListModel({ 
-                        title: 'New List',
-                        tasks: [ new TaskModel({ text: 'new task' }) ], 
+                        title: 'Camping Trip',
+                        tasks: [ 
+                            new TaskModel({ text: 'Buy a Tent.' }), 
+                            new TaskModel({ text: 'Get a Map.' }), 
+                            new TaskModel({ text: 'Get Gas.' })
+                        ], 
+                        isFirst: function(index) {
+                            console.log(index, typeof index);
+                        }
+                    }),
+                    new TaskListModel({ 
+                        title: 'Music List',
+                        tasks: [ 
+                            new TaskModel({ text: 'Short Guitar Cables X4.' }), 
+                            new TaskModel({ text: 'Midi Cables.' })
+                        ], 
+                        isFirst: function(index) {
+                            console.log(index, typeof index);
+                        }
+                    }),
+                    new TaskListModel({ 
+                        title: 'Car Stuff',
+                        tasks: [ 
+                            new TaskModel({ text: 'Register Car.' }), 
+                            new TaskModel({ text: 'Follow up on Claim.' }) 
+                        ], 
                         isFirst: function(index) {
                             console.log(index, typeof index);
                         }
                     })
+
                 ], 
                 addNewList: function() {
                     var newList = new TaskListModel({ 

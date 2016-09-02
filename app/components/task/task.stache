@@ -1,2 +1,4 @@
-<input type="checkbox"></input>
-<input></input>
+<div class="task-wrapper">
+    <input can-click="toggleComplete" class="task-complete" type="checkbox"></input>
+    <input can-focus="toggleEditing" class="task-input {{#editing}}editing{{/editing}}"></input>
+</div>

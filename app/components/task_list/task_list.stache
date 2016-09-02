@@ -1,7 +1,11 @@
-{{ log }}
 <ul class="task-list">
-    <li can-click="toggleOpen" class="task-list-title">{{ title }}</li>
+
+    <li can-click="toggleOpen" class="task-list-title">
+        <span>{{ title }}</span><span class="task-list-caret"><i class="fa fa-caret-{{#is open 'true'}}down{{else}}right{{/is}}"/></span>
+    </li>
+
     {{#is open 'true'}}
     <content/>
     {{/is}}
+
 </ul>
