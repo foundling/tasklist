@@ -12,7 +12,9 @@ steal(
         can.Component.extend({
             tag: 'app-dashboard',
             template: dashboardView,
+            overlayIsActive: false,
             viewModel: {},
             events: {}
         });
+
 });
