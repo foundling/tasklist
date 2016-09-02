@@ -8,9 +8,9 @@ steal(
     './components/task/task.js',
     './components/task_list/task_list.js',
 
-    './title_view.stache!',
-    './single_list_view.stache!',
-    './multiple_list_view.stache!',
+    './views/title_view.stache!',
+    './views/single_list_view.stache!',
+    './views/multiple_list_view.stache!',
 
     './app.less!',
 
