@@ -2,16 +2,22 @@ app-task-list {
 
     ul.task-list {
 
-        background: #00bcd4;
+        background: lightgray;
         width: 100%;
         height: auto;
         margin: 0;
         padding: 0;
 
         li.task-list-title {
+            span {
+                display: inline-block;
+                height: 100%;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 20px;
-            padding-bottom: 40px;
+            padding: 30px;
             background: white;
         }
 

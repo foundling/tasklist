@@ -13,14 +13,17 @@ steal(
             tag: 'app-task-list',
             template: ListView,
             viewModel: {
-                listManager: null,
                 toggleOpen: function() {
                     this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
+                },
+                isActive: function(scope) {
+                    var listManager = scope.attr('listManager');
+                    var taskList = scope.attr('taskList');
+                    return listManager.indexOf(taskList) === listManager.length - 1;
                 }
             },
             events: {
                 'inserted': function() {
-                    console.log(this.viewModel.attr('listManager'));
                 }
             }
         });

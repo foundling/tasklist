@@ -21,7 +21,6 @@ steal(
             viewModel: {
                 taskLists: new can.List([ 
                     new TaskListModel({ 
-                        parent: this,
                         title: 'Camping Trip',
                         tasks: [ 
                             new TaskModel({ text: 'Buy a Tent.' }), 
@@ -55,6 +54,7 @@ steal(
             },
             events: {
                 'inserted': function() {
+                    console.log(this.viewModel);
                 }
             }
         });
