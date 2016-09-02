@@ -1,7 +1,7 @@
 <app-header title="Your Lists"></app-header>
 
 <app-content-window>
-    <app-list-manager>
+    <app-list-manager {isfirst}="isFirst">
 
         {{#each taskLists}}
         <app-task-list {tasklist}="." open="false">

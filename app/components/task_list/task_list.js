@@ -12,6 +12,7 @@ steal(
             tag: 'app-task-list',
             template: ListView,
             viewModel: {
+                active: false,
                 toggleOpen: function() {
                     console.log('toggleOpen');
                     this.open = (this.open === 'true' ? 'false' : 'true');

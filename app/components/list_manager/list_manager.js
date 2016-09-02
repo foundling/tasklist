@@ -22,12 +22,17 @@ steal(
                 taskLists: [ 
                     new TaskListModel({ 
                         title: 'New List',
-                        tasks: [ new TaskModel({ text: 'blank task' }) ] 
+                        tasks: [ new TaskModel({ text: 'new task' }) ], 
                     })
                 ], 
                 addNewList: function() {
-                    this.taskLists.push( [ new TaskModel({ text: '' }) ]);
+                    var newList = new TaskListModel({ 
+                        title: 'New List',
+                        tasks: [ new TaskModel({ text: 'new task' }) ] 
+                    });
+                    this.taskLists.push(newList)
                 }
+
             },
             events: {
                 'inserted': function() {

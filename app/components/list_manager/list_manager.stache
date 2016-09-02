@@ -1,4 +1,6 @@
 <div class="list-manager">
-    <content/>
+    <div class="lists-wrapper">
+        <content/>
+    </div>
     <i can-click="addNewList" class="fa fa-plus"></i>
 </div>
