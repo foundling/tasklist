@@ -1,4 +1,4 @@
-<footer class="app-utils {{#is colorscheme 'title' }}title-view-color{{/is}}">
+<footer class="app-utils">
     <i class="fa fa-cog"></i>
     <i class="fa fa-list-ul"></i>
 </footer>

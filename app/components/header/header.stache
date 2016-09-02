@@ -1,4 +1,3 @@
-<header class="app-header" class="{{#is colorscheme 'title' }}title-view-color{{/is}}"> 
-    {{#is colorscheme 'title'}}
-    <h1>{{#is colorscheme 'title'}} <!-- Nothing --> {{else}} {{ title }} {{/is }}</h1> 
+<header class="app-header" class="colorscheme-{{view}}"> 
+    <h1>{{^is view 'title'}}Your Lists{{/is}}</h1>
 </header>

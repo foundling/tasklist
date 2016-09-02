@@ -22,22 +22,20 @@ steal(
     ) {
 
         var ViewModel = can.Map.extend({
-            colorscheme: '',
+            view: null,
             views: {
                 title:          TitleView,
                 multipleLists:  MultipleListView, 
                 singleList:     SingleListView 
             },
             switchView: function (viewName) {
-                this.attr('colorscheme', viewName === 'title' ? viewName : '');
+                this.attr('colorscheme', (viewName === 'title') ? viewName : '');
                 var nextView = this.views[viewName](vm);
                 $('#app').html(nextView);
             }
-
         });
-        var vm = new ViewModel({ colorscheme: 'title' });
 
+        var vm = new ViewModel({ view: 'title' });
         var compiledTemplate = TitleView(vm);
-
         $('#app').html(compiledTemplate);
 });
