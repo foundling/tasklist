@@ -17,4 +17,4 @@
     </app-list-manager>
 </app-content-window>
 
-<app-utils></app-utils>
+<app-dashboard></app-dashboard>
