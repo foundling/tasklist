@@ -8,3 +8,11 @@ Task list manager:
 smoother scrolling.
 Auto scroll to bottom when a new task is added.
 up and down shortcuts.
+
+checkboxes:
+
+build nicer custom checkboxes.
+
+views:
+
+settings view
