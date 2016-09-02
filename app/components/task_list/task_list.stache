@@ -1,10 +1,10 @@
 <ul class="task-list">
-    <li can-click="toggleOpen" class="task-list-title  {{#isActive}}active{{/isActive}}">
-        <span>{{ title }}</span>
+    <li class="task-list-title  {{#isActive}}active{{/isActive}}">
+        <span can-click="toggleOpen">{{ title }}</span>
+        <i can-click="removeTaskList ." class="fa fa-minus-square"></i>
     </li>
 
-    {{#is open 'true'}}
-    <content/>
-    {{/is}}
+    <!-- this is not great, should be just '#is open' ... find a way to convert string values to boolean through component template -->
+    {{#is open 'true'}}<content/>{{/is}}
 
 </ul>

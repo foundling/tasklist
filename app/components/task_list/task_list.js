@@ -20,6 +20,9 @@ steal(
                     var listManager = scope.attr('listManager');
                     var taskList = scope.attr('taskList');
                     return listManager.indexOf(taskList) === listManager.length - 1;
+                },
+                removeTaskList: function(index) {
+                    console.log(index);
                 }
             },
             events: {
