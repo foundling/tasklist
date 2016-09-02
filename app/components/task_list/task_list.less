@@ -2,20 +2,41 @@ app-task-list {
 
     ul.task-list {
 
-        background: white;
+        background: #00bcd4;
         width: 100%;
         height: auto;
         margin: 0;
+        padding: 0;
 
         li.task-list-title {
             width: 100%;
             padding: 20px;
+            padding-bottom: 40px;
+            background: white;
         }
+
         li.active {
             background: #00bcd4;
         }
-        span.task-list-chevron {
-            margin-left: 20px;
+
+        input.task-input {
+            height: 40px;
+            padding-left: 15px;
+        }
+        input[type=checkbox] {
+              /* Double-sized Checkboxes */
+              -ms-transform: scale(2); /* IE */
+              -moz-transform: scale(2); /* FF */
+              -webkit-transform: scale(2); /* Safari and Chrome */
+              -o-transform: scale(2); /* Opera */
+              padding: 10px;
+              margin-right: 20px;
+        }
+        .task-wrapper { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
     }
 
