@@ -1,4 +1,5 @@
 <ul can-click="toggleOpen">
+    <li>{{ title }}</li>
     {{#is open 'true'}}
     <content/>
     {{/if}}

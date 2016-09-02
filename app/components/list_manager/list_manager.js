@@ -21,6 +21,7 @@ steal(
             viewModel: {
                 taskLists: [ 
                     new TaskListModel({ 
+                        title: 'New List',
                         tasks: [ new TaskModel({ text: 'blank task' }) ] 
                     })
                 ], 
