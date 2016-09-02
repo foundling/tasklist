@@ -23,6 +23,9 @@ steal(
                     new TaskListModel({ 
                         title: 'New List',
                         tasks: [ new TaskModel({ text: 'new task' }) ], 
+                        isFirst: function(index) {
+                            console.log(index, typeof index);
+                        }
                     })
                 ], 
                 addNewList: function() {

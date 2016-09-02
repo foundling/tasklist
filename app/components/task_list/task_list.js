@@ -14,8 +14,9 @@ steal(
             viewModel: {
                 active: false,
                 toggleOpen: function() {
-                    console.log('toggleOpen');
-                    this.open = (this.open === 'true' ? 'false' : 'true');
+                    this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
+                    console.log(this.open);
+                    console.log(this);
                 }
             },
             events: {}
