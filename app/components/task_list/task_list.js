@@ -1,6 +1,7 @@
 steal(
 
     'can',
+
     './task_list.stache!',
     './task_list.less!',
 
@@ -17,11 +18,9 @@ steal(
                     this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
                 },
                 isMostRecent: function() {
-                    console.log(arguments);
+                    console.log(this.attr('parent'));
                 },
                 isActive: function(taskList) {
-                    console.log(arguments);
-                    console.log(taskList);
                     console.log(this.attr('parent'));
                     var index = this.attr('parent').indexOf(taskList);
                 }

@@ -4,10 +4,11 @@
     <app-list-manager {isfirst}="isFirst">
 
         {{#each taskLists}}
+
         <app-task-list {parent}="taskLists" {tasklist}="." {open}="false">
 
             {{#each tasks}}
-            <app-task/>
+            <app-task />
             {{/each}}
 
         </app-task-list>

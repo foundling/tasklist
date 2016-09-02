@@ -1,4 +1,5 @@
-<ul class="task-list {{#active}} {{#mostRecent}}">
+{{ log }} 
+<ul class="task-list {{#isMostRecent}}active{{/isMostRecent}}">
 
     <li can-click="toggleOpen" class="task-list-title">
         <span>{{ title }}</span>
