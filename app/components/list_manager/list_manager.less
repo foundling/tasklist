@@ -1,5 +1,6 @@
 app-list-manager {
 
+    position: relative;
     height: 100%;
     width: 100%;
     position: relative;
@@ -15,7 +16,35 @@ app-list-manager {
             left: 20px;
             height: 10%;
             font-size: 40px;
+            z-index: 1;
         }
+    }
+
+    .direction-down {
+    }
+
+    .direction-up {
+    }
+
+    .fa-caret-up,
+    .fa-caret-down {
+        position: absolute;
+        right: 60px;
+        color: rgba(255, 0, 0, 0.74);
+        font-size: 6em;
+        z-index: 2;
+    }
+
+    .fa-caret-up {
+        top: -20%; 
+    }
+
+    .fa-caret-down {
+        bottom: -15%; 
+    }
+
+    .active {
+
     }
 
 }

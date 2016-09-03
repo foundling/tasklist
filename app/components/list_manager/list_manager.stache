@@ -1,6 +1,8 @@
 <div class="list-manager">
 
     <div class="lists-wrapper">
+        <i class="fa fa-caret-up"/>
+        <i class="fa fa-caret-down"/>
         <content/>
     </div>
 
