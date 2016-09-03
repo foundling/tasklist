@@ -1,6 +1,12 @@
 steal(
 
     'can',
+
+    './views/title_view.stache!',
+    './views/single_list_view.stache!',
+    './views/multi_list_view.stache!',
+    './app.less!',
+
     'fastclick/lib/fastclick.js',
 
     'app/components/header/header.js',
@@ -12,19 +18,13 @@ steal(
 
     'app/plugins/local_storage.js',
 
-    './views/title_view.stache!',
-    './views/single_list_view.stache!',
-    './views/multi_list_view.stache!',
-
-    './app.less!',
-
     function(
         can,
+        TitleView, SingleListView, MultiListView,
+        appStyle,
         Fastclick,
         Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
-        localStorage,
-        TitleView, SingleListView, MultiListView,
-        appStyle
+        localStorage
     ) {
 
         Fastclick.attach(document.body);

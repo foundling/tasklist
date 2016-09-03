@@ -13,7 +13,6 @@ app-task-list {
             z-index: 1;
             position: relative;
             width: 100%;
-            padding: 30px;
             background: white;
             cursor: pointer;
 
@@ -27,6 +26,7 @@ app-task-list {
                 height: 100%;
                 width: 300px;
                 margin-left: 25px + 20px; // 2em + icon margin
+                padding: 30px;
             }
         }
         li.expanded {
@@ -37,16 +37,13 @@ app-task-list {
             background: rgba(0, 188, 212, 0.49);
         }
         div.task-list-wrapper {
+            padding: 40px;
             background: whitesmoke;
             position: relative; 
             z-index: 0;
 
         }
 
-        input.task-input {
-            height: 40px;
-            padding-left: 15px;
-        }
         input[type=checkbox] {
               /* Double-sized Checkboxes */
               -ms-transform: scale(2); /* IE */

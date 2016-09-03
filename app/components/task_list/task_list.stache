@@ -1,6 +1,6 @@
 <ul class="task-list">
-    <li class="task-list-title {{#isActive}}active{{/isActive}} {{#is open 'true'}}expanded{{/is}}">
-        <span can-click="toggleOpen">{{ title }}</span>
+    <li  can-click="toggleOpen" class="task-list-title {{#isActive}}active{{/isActive}} {{#is open 'true'}}expanded{{/is}}">
+        <span>{{ title }}</span>
         <i can-click="removeTaskList ." class="fa fa-trash"></i>
     </li>
 

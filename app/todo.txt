@@ -1,3 +1,8 @@
+Task UI Design:
+
+build nicer custom checkboxes.
+https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes
+
 CSS ANIMATIONS:
 
 Initial color animation.
@@ -8,10 +13,6 @@ TASK LIST MANAGER:
 smoother scrolling.
 Auto scroll to bottom when a new task is added.
 up and down shortcuts.
-
-CHECKBOXES:
-
-build nicer custom checkboxes.
 
 VIEWS:
 
