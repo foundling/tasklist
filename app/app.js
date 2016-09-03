@@ -39,13 +39,11 @@ steal(
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];
                 var compiledView = nextView();
-                $('#app').empty();
-                $('#app').append(compiledView);
+                $('#app').html(compiledView);
             }
         });
 
-        var vm = new ViewModel({});
-        var compiledView = TitleView(vm);
+        var compiledView = TitleView(new ViewModel({}));
         $('#app').html(compiledView);
 
 });
