@@ -43,7 +43,8 @@ steal(
             }
         });
 
-        var compiledView = TitleView(new ViewModel({}));
+        var vm = new ViewModel({});
+        var compiledView = TitleView(vm);
         $('#app').html(compiledView);
 
 });
