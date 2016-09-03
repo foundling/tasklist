@@ -10,6 +10,8 @@ steal(
     'app/components/task_list/task_list.js',
     'app/components/task/task.js',
 
+    'app/plugins/local_storage.js',
+
     './views/title_view.stache!',
     './views/single_list_view.stache!',
     './views/multi_list_view.stache!',
@@ -20,6 +22,7 @@ steal(
         can,
         Fastclick,
         Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
+        localStorage,
         TitleView, SingleListView, MultiListView,
         appStyle
     ) {
@@ -41,7 +44,8 @@ steal(
             }
         });
 
-        var vm = new ViewModel();
+        var vm = new ViewModel({});
         var compiledView = TitleView(vm);
         $('#app').html(compiledView);
+
 });

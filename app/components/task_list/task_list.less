@@ -9,20 +9,38 @@ app-task-list {
         padding: 0;
 
         li.task-list-title {
-            span {
-                display: inline-block;
-                height: 100%;
-            }
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+            z-index: 1;
+            position: relative;
             width: 100%;
             padding: 30px;
             background: white;
+            cursor: pointer;
+
+            /* flex settings */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                display: inline-block;
+                height: 100%;
+                width: 300px;
+                margin-left: 25px + 20px; // 2em + icon margin
+            }
+        }
+        li.expanded {
+            box-shadow: 0px 4px 1px 0px lightgray;
         }
 
-        li.active {
-            background: #00bcd4;
+        li.task-list-title.active {
+            background: rgba(0, 188, 212, 0.49);
+        }
+        div.task-list-wrapper {
+            background: whitesmoke;
+            position: relative; 
+            z-index: 0;
+
         }
 
         input.task-input {
@@ -44,8 +62,14 @@ app-task-list {
             justify-content: center;
             padding: 20px;
         }
-        .fa.fa-minus-square {
-            padding-left: 10px;
+        .fa.fa-trash {
+            color: rgba(255, 0, 0, 0.89);
+            font-size: 2em;
+            text-align: right;
+            margin-left: 20px;
+        }
+        .fa.fa-trash:hover {
+            color: rgba(255, 0, 0, 0.5);
         }
     }
 
