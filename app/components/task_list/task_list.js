@@ -14,7 +14,8 @@ steal(
             template: ListView,
             viewModel: {
                 toggleOpen: function() {
-                    this.attr('open', this.attr('open') === 'true' ? 'false' : 'true');
+                    var newState = this.attr('open') === 'true' ? 'false' : 'true';
+                    this.attr('open', newState);
                 },
                 isActive: function(scope) {
                     var listManager = scope.attr('listManager');

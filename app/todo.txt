@@ -1,5 +1,7 @@
 Task UI Design:
 
+Convert as much as possible to relative h/w. 
+
 Make tasklist some even multiple of the heights of each task, no weird gap between the plus/bottom area and a task, expanded or contracted.
 
 build nicer custom checkboxes.
