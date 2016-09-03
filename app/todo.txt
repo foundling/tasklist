@@ -1,5 +1,6 @@
-Task UI Design:
+UI Design:
 
+Modal Windows, for tasklist delete confirmation,  
 Convert as much as possible to relative h/w. 
 
 Make tasklist some even multiple of the heights of each task, no weird gap between the plus/bottom area and a task, expanded or contracted.
@@ -8,6 +9,10 @@ build nicer custom checkboxes.
 https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes
 
 move trashcans to the left
+
+INPUT USABILITY:
+
+if you click/ touch an input, clear out and save its contents.  the new input replaces it and tapping outside of the input area restores it.
 
 CSS ANIMATIONS:
 
@@ -28,3 +33,4 @@ CRUD:
 
 Modify task title
 hookup local storage
+
