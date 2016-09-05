@@ -20,15 +20,11 @@ steal(
                     this.attr('open', newState);
                 },
                 isActive: function(scope) {
-                    var listManager = scope.attr('listManager');
-                    var taskList = scope.attr('taskList');
-                    return listManager.indexOf(taskList) === listManager.length - 1;
-                },
-                removeTaskList: function(scope) {
+                    console.log(scope);
                     var listManager = scope.attr('listManager');
                     var taskList = scope.attr('taskList');
                     var index = listManager.indexOf(taskList);
-                    listManager.splice(index,1);
+                    return index === listManager.length - 1;
                 },
                 addNewTask: function(scope) {
                     var taskList = scope.attr('taskList');
@@ -46,6 +42,9 @@ steal(
                 },
                 commitTitle: function(scope) {
                     var taskList = scope.attr('taskList');
+                    if (!taskList.attr('editing')) {
+                        return;
+                    }
                     var title = taskList.attr('title').trim();
                     var newTitle = title ? title : taskList.attr('backupTitle');
                     taskList.attr('title', newTitle);

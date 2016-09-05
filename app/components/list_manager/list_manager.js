@@ -37,12 +37,13 @@ steal(
                         tasks: [ new Task({ text: 'new task' }) ] 
                     });
                     this.taskLists.push(newList)
+                },
+                removeList: function(index) {
+                    this.attr('taskLists').splice(index,1);
                 }
 
             },
             events: {
-                'inserted': function() {
-                }
             }
         });
 });

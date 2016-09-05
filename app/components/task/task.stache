@@ -15,4 +15,6 @@
         class="task-input {{#editingTask}}editing{{/editingTask}}"
         {{#unless editingTask}}readonly{{/unless}}
         />
+    <i can-click="switchView 'singlelist'"
+        class="fa fa-ellipsis-h" />
 </div>

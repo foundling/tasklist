@@ -5,9 +5,9 @@ steal(
     './views/title_view.stache!',
     './views/single_list_view.stache!',
     './views/multi_list_view.stache!',
+
     './app.less!',
 
-    'fastclick/lib/fastclick.js',
 
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
@@ -17,20 +17,21 @@ steal(
     'app/components/task/task.js',
 
     'app/plugins/local_storage.js',
+    'fastclick/lib/fastclick.js',
 
     function(
         can,
         TitleView, SingleListView, MultiListView,
         appStyle,
-        Fastclick,
         Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
-        localStorage
+        localStorage,
+        Fastclick
     ) {
 
         Fastclick.attach(document.body);
 
-        var ViewModel = can.Map.extend({
-            view: 'title',
+        var ViewModel = can.Map({
+            view: '',
             views: {
                 title:          TitleView,
                 singlelist:     SingleListView, 
@@ -38,12 +39,17 @@ steal(
             },
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];
-                var compiledView = nextView();
+                var compiledView = nextView(new ViewModel({view: nextView}));
                 $('#app').html(compiledView);
+            },
+            events: {
+                'inserted': function() {
+                console.log('abc');
+                }
             }
         });
 
-        var vm = new ViewModel({});
+        var vm = new ViewModel({view: 'title'});
         var compiledView = TitleView(vm);
         $('#app').html(compiledView);
 

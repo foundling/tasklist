@@ -1,8 +1,8 @@
 <ul class="task-list">
 
+
     <li 
         class="task-list-title 
-               {{#isActive}}active{{/isActive}} 
                {{#is open 'true'}}expanded{{/is}}">
         <i can-click="toggleOpen" class="fa fa-arrow-down"></i>
         <input 
@@ -13,14 +13,14 @@
             value="{{ title }}" 
             class="{{#editing}}editing{{/editing}}"
             {{#unless editing}}readonly{{/unless}}/>
-        <i can-click="removeTaskList ." class="fa fa-trash"></i>
+        <i can-click="removeList %index" class="fa fa-trash"></i>
     </li>
 
     <!-- this is not great, could be just '#is open' -->
     {{#is open 'true'}}
     <div class="task-list-wrapper">
+        <i can-click="addNewTask" class="add-list fa fa-plus"></i>
         <content/>
-        <i can-click="addNewTask" class="fa fa-plus"></i>
     </div>
     {{/is}}
 

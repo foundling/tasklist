@@ -3,6 +3,7 @@ app-task-list {
     ul.task-list {
 
         background: lightgray;
+        border-bottom: 0.3px solid lightgray;
         width: 100%;
         height: auto;
         margin: 0;
@@ -44,10 +45,22 @@ app-task-list {
         }
 
         div.task-list-wrapper {
+
             padding: 40px;
             background: whitesmoke;
             position: relative; 
             z-index: 0;
+
+            .add-list {
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                color: rgba(24,24,24,0.16);
+                font-size: 2em;
+            }
+            .add-list:hover {
+                color: rgba(24,24,24,1);
+            }
 
         }
 
@@ -60,7 +73,7 @@ app-task-list {
               padding: 10px;
               margin-right: 20px;
         }
-        .task-wrapper { 
+        div.task-wrapper { 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -78,6 +91,9 @@ app-task-list {
         .fa.fa-arrow-down:hover, 
         .fa.fa-trash:hover {
             color: rgba(255, 0, 0, 0.5);
+        }
+        .fa.fa-trash {
+            margin-right: 20px;
         }
     }
 
