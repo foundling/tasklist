@@ -23,12 +23,12 @@ app-task-list {
             justify-content: center;
             
             input {
-                background: transparent;
+                background: transparent; // rgba(245, 245, 245, 0.58);
                 display: inline-block;
                 height: 100%;
-                width: 237px;
+                width: auto;
                 margin-left: 25px + 20px; // 2em + icon margin
-                margin: 30px;
+                margin: 30px 10px;
             }
             input.editing {
                 background: lightgray;
@@ -66,12 +66,16 @@ app-task-list {
             justify-content: center;
             padding: 20px;
         }
-        .fa.fa-trash {
+        .fa.fa-arrow-down {
+            margin-left: 20px;
+        }
+        .fa.fa-trash,
+        .fa.fa-arrow-down {
             color: rgba(255, 0, 0, 0.89);
             font-size: 2em;
             text-align: right;
-            margin-left: 20px;
         }
+        .fa.fa-arrow-down:hover, 
         .fa.fa-trash:hover {
             color: rgba(255, 0, 0, 0.5);
         }
