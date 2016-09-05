@@ -19,7 +19,6 @@ steal(
             tag: 'app-list-manager',
             template: ListManagerView, 
             viewModel: {
-                overflow: 'true',
                 taskLists: new can.List([ 
                     new TaskListModel({ 
                         title: 'Camping Trip',
