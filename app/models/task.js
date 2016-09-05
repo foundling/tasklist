@@ -3,7 +3,9 @@ steal(
     function(can){
 
         return can.Map({
-            text: '',
+            text: 'New Task',
+            backupText: '',
+            editingTask: false,
             complete: false
         });
 

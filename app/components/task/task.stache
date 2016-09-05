@@ -8,8 +8,11 @@
 
     <input 
         can-value="text"
-        can-focus="toggleEditing" 
-        can-blur="toggleEditing" 
+        can-focus="editText ." 
+        can-blur="commitText ."
+        can-enter="commitText ."
         value="{{text}}"
-        class="task-input {{#editing}}editing{{/editing}}"/>
+        class="task-input {{#editingTask}}editing{{/editingTask}}"
+        {{#unless editingTask}}readonly{{/unless}}
+        />
 </div>

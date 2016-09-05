@@ -12,7 +12,7 @@ steal(
             tasks: [ 
                 new Task({ text: 'New Task' })
             ],   
-            editing: false
+            editingList: false
         }); 
 
 })

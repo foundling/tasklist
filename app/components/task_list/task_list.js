@@ -2,11 +2,13 @@ steal(
 
     'can',
 
+    'app/models/task.js',
     './task_list.stache!',
     './task_list.less!',
 
     function(
         can, 
+        Task,
         ListView
     ){
         can.Component.extend({
@@ -28,6 +30,11 @@ steal(
                     var index = listManager.indexOf(taskList);
                     listManager.splice(index,1);
                 },
+                addNewTask: function(scope) {
+                    var taskList = scope.attr('taskList');
+                    var tasks = taskList.attr('tasks');
+                    tasks.push(new Task({})); 
+                },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
                     if (taskList.attr('editing')) {
@@ -47,8 +54,6 @@ steal(
 
             },
             events: {
-                'inserted': function() {
-                }
             }
         });
 })
