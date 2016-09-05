@@ -11,7 +11,8 @@ steal(
             backupTitle: '',
             tasks: [ 
                 new Task({ text: 'New Task' })
-            ]   
+            ],   
+            editing: false
         }); 
 
 })

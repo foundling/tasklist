@@ -28,8 +28,21 @@ steal(
                     var index = listManager.indexOf(taskList);
                     listManager.splice(index,1);
                 },
-                toggleEdit: function(scope) {
-                    console.log(scope.attr('taskList'));
+                editTitle: function(scope) {
+                    var taskList = scope.attr('taskList');
+                    if (taskList.attr('editing')) {
+                        return;
+                    }
+                    taskList.attr('backupTitle', taskList.attr('title'));
+                    taskList.attr('title', '');
+                    taskList.attr('editing', !taskList.attr('editing'));
+                },
+                commitTitle: function(scope) {
+                    var taskList = scope.attr('taskList');
+                    var title = taskList.attr('title').trim();
+                    var newTitle = title ? title : taskList.attr('backupTitle');
+                    taskList.attr('editing', !taskList.attr('editing'));
+                    console.log(title);
                 },
 
             },
