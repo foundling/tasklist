@@ -25,9 +25,9 @@ steal(
                         title: 'Camping Trip',
                         backupTitle: '',
                         tasks: [ 
-                            new can.Map({ text: 'Buy a Tent.' }), 
-                            new can.Map({ text: 'Get a Map.' }), 
-                            new can.Map({ text: 'Get Gas.' })
+                            new Task({ text: 'Buy a Tent.' }), 
+                            new Task({ text: 'Get a Map.' }), 
+                            new Task({ text: 'Get Gas.' })
                         ] 
                     })
                 ], 
