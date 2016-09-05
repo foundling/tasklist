@@ -41,8 +41,8 @@ steal(
                     var taskList = scope.attr('taskList');
                     var title = taskList.attr('title').trim();
                     var newTitle = title ? title : taskList.attr('backupTitle');
+                    taskList.attr('title', newTitle);
                     taskList.attr('editing', !taskList.attr('editing'));
-                    console.log(title);
                 },
 
             },
