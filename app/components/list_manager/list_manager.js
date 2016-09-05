@@ -54,7 +54,6 @@ steal(
             },
             events: {
                 'inserted': function() {
-                    console.log(this.viewModel);
                 }
             }
         });

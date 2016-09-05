@@ -27,7 +27,11 @@ steal(
                     var taskList = scope.attr('taskList');
                     var index = listManager.indexOf(taskList);
                     listManager.splice(index,1);
-                }
+                },
+                toggleEdit: function(scope) {
+                    console.log(scope.attr('taskList'));
+                },
+
             },
             events: {
                 'inserted': function() {
