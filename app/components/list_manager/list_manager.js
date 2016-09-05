@@ -10,8 +10,8 @@ steal(
 
     function(
         can,
-        TaskListModel,
-        TaskModel,
+        TaskList,
+        Task,
         ListManagerView
     ) {
 
@@ -19,34 +19,22 @@ steal(
             tag: 'app-list-manager',
             template: ListManagerView, 
             viewModel: {
-                taskLists: new can.List([ 
-                    new TaskListModel({ 
+                taskLists: [ 
+                    new TaskList({ 
+                        active: false,
                         title: 'Camping Trip',
+                        backupTitle: '',
                         tasks: [ 
-                            new TaskModel({ text: 'Buy a Tent.' }), 
-                            new TaskModel({ text: 'Get a Map.' }), 
-                            new TaskModel({ text: 'Get Gas.' })
-                        ] 
-                    }),
-                    new TaskListModel({ 
-                        title: 'Music List',
-                        tasks: [ 
-                            new TaskModel({ text: 'Short Guitar Cables X4.' }), 
-                            new TaskModel({ text: 'Midi Cables.' })
-                        ] 
-                    }),
-                    new TaskListModel({ 
-                        title: 'Car Stuff',
-                        tasks: [ 
-                            new TaskModel({ text: 'Register Car.' }), 
-                            new TaskModel({ text: 'Follow up on Claim.' }) 
+                            new can.Map({ text: 'Buy a Tent.' }), 
+                            new can.Map({ text: 'Get a Map.' }), 
+                            new can.Map({ text: 'Get Gas.' })
                         ] 
                     })
-                ]), 
+                ], 
                 addNewList: function() {
-                    var newList = new TaskListModel({ 
+                    var newList = new TaskList({ 
                         title: 'New List',
-                        tasks: [ new TaskModel({ text: 'new task' }) ] 
+                        tasks: [ new Task({ text: 'new task' }) ] 
                     });
                     this.taskLists.push(newList)
                 }

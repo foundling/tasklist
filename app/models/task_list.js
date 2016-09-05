@@ -1,10 +1,17 @@
 steal(
     'can',
-    function(can){
+    'app/models/task.js',
+    function(
+        can,
+        Task
+    ){
 
-        return can.Map.extend({
-            title: '',
-            tasks: [], 
-        });
+        return can.Map({
+            title: 'New Task List',
+            backupTitle: '',
+            tasks: [ 
+                new Task({ text: 'New Task' })
+            ]   
+        }); 
 
 })

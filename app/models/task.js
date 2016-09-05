@@ -2,7 +2,7 @@ steal(
     'can',
     function(can){
 
-        return can.Map.extend({
+        return can.Map({
             text: '',
             complete: false
         });
