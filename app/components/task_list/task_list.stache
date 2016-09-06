@@ -20,7 +20,7 @@
     {{#is open 'true'}}
     <div class="task-list-wrapper">
         <i can-click="addNewTask" class="add-list fa fa-plus"></i>
-        <content/>
+        <content>
     </div>
     {{/is}}
 
