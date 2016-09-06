@@ -1,4 +1,5 @@
 <div class="task-wrapper">
+
     <!--
     <input 
         can-click="toggleComplete" 
@@ -7,14 +8,14 @@
     -->
 
     <input 
-        can-value="text"
+        {{#unless editingTask}}readonly{{/unless}}
         can-focus="editText ." 
         can-blur="commitText ."
         can-enter="commitText ."
-        value="{{text}}"
-        class="task-input {{#editingTask}}editing{{/editingTask}}"
-        {{#unless editingTask}}readonly{{/unless}}
-        />
+        can-value="text"
+        value="{{ text }}"
+        class="task-input {{#editingTask}}editing{{/editingTask}}"/>
+
     <i can-click="switchView 'singlelist'"
         class="fa fa-ellipsis-h" />
 </div>
