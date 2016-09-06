@@ -1,6 +1,5 @@
 <div class="list-manager">
 
-{{ log }}
     <div class="lists-wrapper">
         {{#if overflow}}
         <i class="fa fa-caret-up"></i> 
@@ -9,5 +8,4 @@
     </div>
 
     <i can-click="addNewList" class="add-task-list fa fa-plus"></i>
-
 </div>

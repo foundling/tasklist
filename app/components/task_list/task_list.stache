@@ -4,6 +4,7 @@
         class="task-list-title 
                {{focus}}
                {{#is open 'true'}}expanded{{/is}}">
+
         <i can-click="toggleOpen" class="fa fa-arrow-down"></i>
         <input 
             can-dblclick="editTitle ."
@@ -14,6 +15,7 @@
             class="{{#editing}}editing{{/editing}}"
             {{#unless editing}}readonly{{/unless}}/>
         <i can-click="removeList %index" class="fa fa-trash"></i>
+
     </li>
 
     <!-- this is not great, could be just '#is open' -->

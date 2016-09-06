@@ -24,6 +24,9 @@ steal(
                     var tasks = taskList.attr('tasks');
                     tasks.push(new Task({})); 
                 },
+                removeTask: function(index) {
+                    this.attr('taskList.tasks').splice(index, 1);
+                },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
                     if (taskList.attr('editing')) {

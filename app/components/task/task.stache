@@ -7,6 +7,7 @@
         type="checkbox"/>
     -->
 
+    <i can-click="removeTask %index" class="remove-task fa fa-minus" ></i>
     <input 
         {{#unless editingTask}}readonly{{/unless}}
         can-focus="editText ." 
@@ -16,6 +17,5 @@
         value="{{ text }}"
         class="task-input {{#editingTask}}editing{{/editingTask}}"/>
 
-    <i can-click="switchView 'singlelist'"
-        class="fa fa-ellipsis-h" />
+    <i can-click="switchView 'singlelist'" class="fa fa-ellipsis-h" ></i>
 </div>
