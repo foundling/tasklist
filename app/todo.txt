@@ -34,6 +34,8 @@ Todos:
     VIEWS:
 
     settings view
+        export to markdown
+    
 
     single task view:
       + add icon next to individual task to trigger single task view. 
