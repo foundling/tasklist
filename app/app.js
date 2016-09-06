@@ -7,6 +7,7 @@ steal(
     './views/multi_list_view.stache!',
 
     './app.less!',
+    'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
 
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
@@ -21,7 +22,7 @@ steal(
     function(
         can,
         TitleView, SingleListView, MultiListView,
-        appStyle,
+        appStyle, fontAwesome,
         Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
         localStorage,
         Fastclick
