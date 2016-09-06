@@ -20,6 +20,7 @@ steal(
             template: ListManagerView, 
             viewModel: {
                 activeIndex: null,
+                overflow: null,
                 taskLists: [ 
                     new TaskList({ 
                         active: false,
@@ -64,8 +65,11 @@ steal(
                     var targetIndex = taskLists.length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
                 },
-                '{activeList} change': function() {
-                    console.log(arguments);
+                '{taskLists} change': function() {
+                    var diff = $('.list-manager').height() - $('.lists-wrapper').height();
+                    var overflowed = diff < 0 ? true : false; 
+                    this.viewModel.attr('overflow', overflowed);
+
                 }
             }
         });

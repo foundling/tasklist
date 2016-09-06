@@ -1,8 +1,11 @@
 <div class="list-manager">
 
+{{ log }}
     <div class="lists-wrapper">
-        <!-- <i class="fa fa-caret-up"/> 
-        <i class="fa fa-caret-down"/> -->
+        {{#if overflow}}
+        <i class="fa fa-caret-up"></i> 
+        <i class="fa fa-caret-down"></i>
+        {{/if}}
         <content/>
     </div>
 
