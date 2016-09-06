@@ -8,7 +8,6 @@ steal(
 
     './app.less!',
 
-
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
     'app/components/dashboard/dashboard.js',
@@ -31,7 +30,7 @@ steal(
         Fastclick.attach(document.body);
 
         var ViewModel = can.Map({
-            view: '',
+            view: null,
             views: {
                 title:          TitleView,
                 singlelist:     SingleListView, 
@@ -41,11 +40,6 @@ steal(
                 var nextView = this.attr('views')[viewName];
                 var compiledView = nextView(new ViewModel({view: nextView}));
                 $('#app').html(compiledView);
-            },
-            events: {
-                'inserted': function() {
-                console.log('abc');
-                }
             }
         });
 

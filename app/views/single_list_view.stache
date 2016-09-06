@@ -4,6 +4,7 @@
     <app-task-list>
 
         {{#each tasks}}
+        {{ log }}
         <app-task {task}="." />
         {{/each}}
 

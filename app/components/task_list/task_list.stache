@@ -1,8 +1,8 @@
 <ul class="task-list">
 
-
     <li 
         class="task-list-title 
+               {{focus}}
                {{#is open 'true'}}expanded{{/is}}">
         <i can-click="toggleOpen" class="fa fa-arrow-down"></i>
         <input 

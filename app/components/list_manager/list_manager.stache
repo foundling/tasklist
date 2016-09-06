@@ -6,6 +6,6 @@
         <content/>
     </div>
 
-    <i can-click="addNewList" class="fa fa-plus"></i>
+    <i can-click="addNewList" class="add-task-list fa fa-plus"></i>
 
 </div>

@@ -19,13 +19,6 @@ steal(
                     var newState = this.attr('open') === 'true' ? 'false' : 'true';
                     this.attr('open', newState);
                 },
-                isActive: function(scope) {
-                    console.log(scope);
-                    var listManager = scope.attr('listManager');
-                    var taskList = scope.attr('taskList');
-                    var index = listManager.indexOf(taskList);
-                    return index === listManager.length - 1;
-                },
                 addNewTask: function(scope) {
                     var taskList = scope.attr('taskList');
                     var tasks = taskList.attr('tasks');
