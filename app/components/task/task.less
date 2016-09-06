@@ -1,14 +1,6 @@
-.task-wrapper {
+div.task-wrapper {
     padding: 5px 20px 30px 20px;
     position: relative;
-}
-
-input.task-input {
-    height: 40px;
-    padding-left: 15px;
-}
-
-.task-complete {
 }
 
 input {
@@ -19,11 +11,29 @@ input {
     text-align: center;
 }
 
+input.task-input {
+    height: 40px;
+    padding-left: 15px;
+}
+
 input.editing {
     background: lightgray;
 }
 
-.fa.fa-ellipsis-h {
+i.fa.fa-ellipsis-h {
     margin-left: 10px;
 }
 
+i.remove-task {
+}
+
+i.remove-task,
+i.fa.fa-ellipsis-h { 
+    color: rgba(24, 24, 24, 0.16);
+    font-size: 1.7em;
+}
+
+i.remove-task:hover,
+i.fa.fa-ellipsis-h:hover { 
+    color: black;
+}

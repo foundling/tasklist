@@ -68,6 +68,7 @@ steal(
                     var taskLists = this.viewModel.attr('taskLists');
                     var targetIndex = taskLists.length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
+
                 },
 
                 '{taskLists} change': function() {

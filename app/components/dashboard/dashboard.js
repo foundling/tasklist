@@ -18,7 +18,8 @@ steal(
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 }
             },
-            events: {}
+            events: {
+            }
         });
 
 });

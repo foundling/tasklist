@@ -1,10 +1,5 @@
 <footer class="app-utils colorscheme-{{view}}">
     <i can-click="toggleSettings" class="settings fa fa-cog"></i>
-    {{#is view 'singlelist' }} 
-    <i class="fa fa-list-ul"></i>
-    {{/is}}
 </footer>
 
-{{#if settingsActive}}
-<content/>
-{{/if}}
+{{#if settingsActive}}<content/>{{/if}}

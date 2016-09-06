@@ -7,7 +7,7 @@
         type="checkbox"/>
     -->
 
-    <i can-click="removeTask %index" class="remove-task fa fa-minus" ></i>
+    <i can-click="removeTask %index" class="remove-task fa fa-trash" ></i>
     <input 
         {{#unless editingTask}}readonly{{/unless}}
         can-focus="editText ." 
