@@ -12,6 +12,7 @@ steal(
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
     'app/components/dashboard/dashboard.js',
+    'app/components/settings/settings.js',
     'app/components/list_manager/list_manager.js',
     'app/components/task_list/task_list.js',
     'app/components/task/task.js',
@@ -23,7 +24,7 @@ steal(
         can,
         TitleView, SingleListView, MultiListView,
         appStyle, fontAwesome,
-        Header, ContentWindow, Dashboard, ListManager, TaskList, Task,
+        Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         localStorage,
         Fastclick
     ) {

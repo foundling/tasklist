@@ -16,4 +16,6 @@
     </app-list-manager>
 </app-content-window>
 
-<app-dashboard {view}='view'/>
+<app-dashboard {view}='view'>
+    <app-settings/>
+</app-dashboard>

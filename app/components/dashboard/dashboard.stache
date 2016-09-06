@@ -1,6 +1,10 @@
 <footer class="app-utils colorscheme-{{view}}">
-    <i class="fa fa-cog"></i>
-    {{#is view 'singlelist' }} <i class="fa fa-list-ul"></i>{{/is}}
+    <i can-click="toggleSettings" class="settings fa fa-cog"></i>
+    {{#is view 'singlelist' }} 
+    <i class="fa fa-list-ul"></i>
+    {{/is}}
 </footer>
 
-{{#if overlayIsActive}}<overlay/>{{/if}}
+{{#if settingsActive}}
+<content/>
+{{/if}}

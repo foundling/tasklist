@@ -12,8 +12,12 @@ steal(
         can.Component.extend({
             tag: 'app-dashboard',
             template: dashboardView,
-            overlayIsActive: false,
-            viewModel: {},
+            viewModel: {
+                settingsActive: false,
+                toggleSettings: function() {
+                    this.attr('settingsActive', !this.attr('settingsActive'));
+                }
+            },
             events: {}
         });
 
