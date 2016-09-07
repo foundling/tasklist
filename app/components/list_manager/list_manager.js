@@ -55,9 +55,6 @@ steal(
                     var taskLists = this.attr('taskLists'); 
                     taskLists.splice(index, 1);
 
-                    if (taskLists.length) {
-                        taskLists.attr(taskLists.length + '.active' , true);
-                    }
                 }
             },
             events: {
@@ -75,8 +72,8 @@ steal(
 
                     /* if tasks exceed wrapper, show an arrow */
                     var diff = $('.list-manager').height() - $('.lists-wrapper').height();
-                    var overflowed = diff < 0 ? true : false; 
-                    this.viewModel.attr('overflow', overflowed);
+                    var isOverflowed = diff < 0 ? true : false; 
+                    this.viewModel.attr('overflow', isOverflowed);
 
                 }
             }
