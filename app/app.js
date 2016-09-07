@@ -6,7 +6,8 @@ steal(
     './views/single_list_view.stache!',
     './views/multi_list_view.stache!',
 
-    './app.less!',
+    'app/assets/styles/app.less!',
+    'app/assets/styles/z-index.less!',
     'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
 
     'app/components/header/header.js',
@@ -19,14 +20,14 @@ steal(
 
     'app/plugins/local_storage.js',
     'fastclick/lib/fastclick.js',
+    'interact.js/interact.js',
 
     function(
         can,
         TitleView, SingleListView, MultiListView,
-        appStyle, fontAwesome,
+        appStyle, fontAwesome, zIndexes,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        localStorage,
-        Fastclick
+        localStorage, Fastclick, interact
     ) {
 
         Fastclick.attach(document.body);

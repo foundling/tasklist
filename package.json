@@ -26,6 +26,7 @@
   "dependencies": {
     "can": "^2.3.26",
     "fastclick": "^1.0.6",
+    "interact.js": "^1.2.6",
     "steal": "^0.16.35"
   },
   "devDependencies": {

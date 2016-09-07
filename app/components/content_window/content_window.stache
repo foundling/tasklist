@@ -1,4 +1,4 @@
-<div class="app-content-window">
+<div class="content-window">
     {{#is view 'title'}}
         <h1 can-click="switchView 'multilist'" class="app-content-window-title">{{title}}</h1>
     {{/else}}

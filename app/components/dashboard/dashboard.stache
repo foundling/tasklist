@@ -1,4 +1,4 @@
-<footer class="app-utils colorscheme-{{ view }}">
+<footer class="dashboard colorscheme-{{ view }}">
     <i can-click="toggleSettings" class="settings fa fa-cog"></i>
 </footer>
 
