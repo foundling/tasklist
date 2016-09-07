@@ -1,25 +1,21 @@
-<app-app>
+<app-header {view}='view'/>
 
-    <app-header {view}='view'/>
+<app-content-window>
+    <app-list-manager {^list-manager}="taskLists">
 
-    <app-content-window>
-        <app-list-manager {^list-manager}="taskLists">
+        {{#each taskLists}}
+        <app-task-list {list-manager}="taskLists" {task-list}="." {open}="false">
 
-            {{#each taskLists}}
-            <app-task-list {list-manager}="taskLists" {task-list}="." {open}="false">
-
-                {{#each tasks}}
-                <app-task {task}="." />
-                {{/each}}
-
-            </app-task-list>
+            {{#each tasks}}
+            <app-task {task}="." />
             {{/each}}
 
-        </app-list-manager>
-    </app-content-window>
+        </app-task-list>
+        {{/each}}
 
-    <app-dashboard {view}='view'>
-        <app-settings/>
-    </app-dashboard>
+    </app-list-manager>
+</app-content-window>
 
-</app-app>
+<app-dashboard {view}='view'>
+    <app-settings/>
+</app-dashboard>
