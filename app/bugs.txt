@@ -1,0 +1,1 @@
+editingList attribute not working right when editing list title. 
