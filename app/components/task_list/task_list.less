@@ -24,7 +24,7 @@ app-task-list {
             justify-content: center;
             
             input {
-                background: transparent; // rgba(245, 245, 245, 0.58);
+                background: transparent; 
                 display: inline-block;
                 height: 50px;
                 width: auto;
@@ -41,7 +41,6 @@ app-task-list {
 
 
         li.task-list-title.active {
-            background: rgba(0, 188, 212, 0.49);
         }
 
         div.task-list-wrapper {
@@ -50,17 +49,6 @@ app-task-list {
             position: relative; 
             margin-top: 4px;
             height: auto;
-
-            i.add-list {
-                position: absolute;
-                top: 21px;
-                left: 27px;
-                /*color: rgba(24,24,24,0.16); */
-                color: rgba(24,24,24,1);
-                font-size: 2em;
-            }
-            i.add-list:hover {
-            }
 
         }
 
@@ -84,7 +72,8 @@ app-task-list {
         }
         .remove-list,
         .fa.fa-arrow-down {
-            color: rgba(255, 0, 0, 0.89);
+            color: red;
+            opacity: 0.89;
             font-size: 2em;
             text-align: right;
         }

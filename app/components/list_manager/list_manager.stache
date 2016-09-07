@@ -2,10 +2,10 @@
 
     <div class="lists-wrapper">
         {{#if overflow}}
-        <i class="fa fa-caret-up"></i> 
+        <i class="to-top fa fa-caret-up"></i> 
         {{/if}}
         <content/>
     </div>
 
-    <i can-click="addNewList" class="add-task-list fa fa-plus"></i>
+    <i can-click="addNewList" class="add-list fa fa-plus"></i>
 </div>

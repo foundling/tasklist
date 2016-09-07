@@ -17,5 +17,5 @@
         value="{{ text }}"
         class="task-input {{#editingTask}}editing{{/editingTask}}"/>
 
-    <i can-click="switchView 'singlelist'" class="fa fa-ellipsis-h" ></i>
+    <i can-click="switchView 'singlelist'" class="more-info fa fa-ellipsis-h" ></i>
 </div>

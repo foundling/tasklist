@@ -9,6 +9,7 @@ steal(
 
     'app/assets/styles/app.less!',
     'app/assets/styles/z-index.less!',
+    'app/assets/styles/icons.less!',
     'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
 
     'app/components/header/header.js',
@@ -26,9 +27,9 @@ steal(
     function(
         can,
         TitleView, SingleListView, MultiListView, SettingsView,
-        appStyle, fontAwesome, zIndexes,
+        appStyle, fontAwesome, zIndexes, iconStyles,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        localStorage, Fastclick, interact
+        localStorage, Fastclick, interact 
     ) {
 
         Fastclick.attach(document.body);

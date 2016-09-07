@@ -5,7 +5,7 @@
                {{focus}}
                {{#is open 'true'}}expanded{{/is}}">
 
-        <i can-click="toggleOpen" class="fa fa-arrow-down"></i>
+        <i can-click="toggleOpen" class="toggle-list-expand fa fa-arrow-down"></i>
         <input 
             can-dblclick="editTitle ."
             can-blur="commitTitle ."
@@ -21,7 +21,7 @@
     <!-- this is not great, could be just '#is open' -->
     {{#is open 'true'}}
     <div class="task-list-wrapper">
-        <i can-click="addNewTask" class="add-list fa fa-plus"></i>
+        <i can-click="addNewTask" class="add-task fa fa-plus"></i>
         <content>
     </div>
     {{/is}}

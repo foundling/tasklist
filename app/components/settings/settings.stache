@@ -17,6 +17,6 @@
             </select>
         </li>
     </ul>
-    <i can-click="switchView 'multilist'" class="fa fa-cog settings"/> 
+    <i can-click="switchView 'multilist'" class="settings fa fa-cog"/> 
 
 </div>
