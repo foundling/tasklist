@@ -29,22 +29,22 @@ steal(
                 },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
-                    if (taskList.attr('editing')) {
+                    if (taskList.attr('editingList')) {
                         return;
                     }
                     taskList.attr('backupTitle', taskList.attr('title'));
                     taskList.attr('title', '');
-                    taskList.attr('editing', !taskList.attr('editing'));
+                    taskList.attr('editingList', !taskList.attr('editingList'));
                 },
                 commitTitle: function(scope) {
                     var taskList = scope.attr('taskList');
-                    if (!taskList.attr('editing')) {
+                    if (!taskList.attr('editingList')) {
                         return;
                     }
                     var title = taskList.attr('title').trim();
                     var newTitle = title ? title : taskList.attr('backupTitle');
                     taskList.attr('title', newTitle);
-                    taskList.attr('editing', !taskList.attr('editing'));
+                    taskList.attr('editingList', !taskList.attr('editingList'));
                 },
 
             },

@@ -16,4 +16,7 @@
                 <option value="Dropbox">Dropbox</option>
             </select>
         </li>
+    </ul>
+    <i can-click="switchView 'multilist'" class="fa fa-cog settings"/> 
+
 </div>

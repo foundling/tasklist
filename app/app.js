@@ -5,6 +5,7 @@ steal(
     './views/title_view.stache!',
     './views/single_list_view.stache!',
     './views/multi_list_view.stache!',
+    './views/settings_view.stache!',
 
     'app/assets/styles/app.less!',
     'app/assets/styles/z-index.less!',
@@ -24,7 +25,7 @@ steal(
 
     function(
         can,
-        TitleView, SingleListView, MultiListView,
+        TitleView, SingleListView, MultiListView, SettingsView,
         appStyle, fontAwesome, zIndexes,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         localStorage, Fastclick, interact
@@ -37,7 +38,8 @@ steal(
             views: {
                 title:          TitleView,
                 singlelist:     SingleListView, 
-                multilist:      MultiListView
+                multilist:      MultiListView,
+                settings:       SettingsView 
             },
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];

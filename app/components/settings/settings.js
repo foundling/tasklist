@@ -12,7 +12,6 @@ steal(
         can.Component.extend({
             tag: 'app-settings',
             template: settingsView,
-            active: false,
             viewModel: {
                 exportFormat: 'markdown', 
                 cloudProvider: 'Google Drive', 

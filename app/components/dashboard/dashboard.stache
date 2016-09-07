@@ -1,5 +1,3 @@
 <footer class="dashboard colorscheme-{{ view }}">
-    <i can-click="toggleSettings" class="settings fa fa-cog"></i>
+    <i can-click="switchView 'settings'" class="settings fa fa-cog"></i>
 </footer>
-
-{{#if settingsActive}}<content/>{{/if}}
