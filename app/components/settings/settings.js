@@ -13,7 +13,7 @@ steal(
             tag: 'app-settings',
             template: settingsView,
             viewModel: {
-                exportFormat: 'Markdown', 
+                exportFormat: 'markdown', 
                 cloudProvider: 'Google Drive', 
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
