@@ -68,6 +68,13 @@ steal(
 
                 },
 
+                'i.add-list click' : function() {
+                    console.log('scrolling!');
+                    var listManager = $('.list-manager'); 
+                    var listManagerBottom = $('.list-manager').height() + $('.list-manager').offset().top;
+                    listManager.animate({ scrollTop: listManagerBottom }, 'fast');
+                },
+
                 '{taskLists} change': function() {
 
                     /* if tasks exceed wrapper, show an arrow */

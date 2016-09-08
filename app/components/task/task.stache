@@ -4,7 +4,7 @@
 
     <input 
         value="{{ text }}"
-        class="task-input {{#editing}}editing{{/editing}}"
+        class="task-input {{#editing}}editing{{/editing}} {{#lastTask}}last-task{{/lastTask}}"
         {{#unless editing}}readonly{{/unless}}
         can-focus="editText ." 
         can-blur="commitText ."

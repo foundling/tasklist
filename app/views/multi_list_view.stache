@@ -7,7 +7,7 @@
         <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
 
             {{#each tasks}}
-            <app-task {task}="." />
+            <app-task {task}="." {task-list}="taskList" />
             {{/each}}
 
         </app-task-list>
