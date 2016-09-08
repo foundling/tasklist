@@ -16,4 +16,8 @@
     </app-list-manager>
 </app-content-window>
 
-<app-dashboard view="multilist"/>
+<app-dashboard {(settings-active)}="settingsActive" view="multilist"/>
+
+{{#if settingsActive}}
+<app-settings {(settings-active)}="settingsActive"/>
+{{/if}}
