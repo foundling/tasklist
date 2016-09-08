@@ -4,7 +4,7 @@
     <app-list-manager>
 
         {{#each taskLists}}
-        <app-task-list {list-manager}="taskLists" {task-list}="." {open}="false">
+        <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
 
             {{#each tasks}}
             <app-task {task}="." />

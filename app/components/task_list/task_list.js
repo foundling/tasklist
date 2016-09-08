@@ -19,6 +19,7 @@ steal(
                 open: false,
                 active: false,
                 editing: false,
+                listWrapperEl: $('.task-list-wrapper'),
                 toggleOpen: function() {
                     this.attr('open', !this.attr('open'));
                 },
@@ -45,6 +46,25 @@ steal(
 
             },
             events: {
+                '{taskList} change': function(vm, ev, changedProp, action) {
+
+                    /* Determine if the change is an 'add'.
+                     * Find index of taskList that changed.
+                     * Find index of task that was added.
+                     * find the corresponding task element in the view, get the position of its top.
+                     * scroll the task-list-wrapper that position.
+                     */
+                    var actionType = action.split('.')[0];
+                    var thisTaskListIndex = this.viewModle.attr('taskLists').indexOf(this.viewModel('taskList'));
+                    var indexChanged = action.split('.')[1];
+                    var wrapper = this.viewModel.listWrapperEl;
+                    var taskYLocation;
+
+                    if (actionType === 'add') {
+                        taskYLocation = 
+                        wrapper.animate({ scrollTop: 
+                    }
+                }
             }
         });
 })
