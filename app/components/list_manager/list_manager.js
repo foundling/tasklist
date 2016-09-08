@@ -71,8 +71,9 @@ steal(
                 'i.add-list click' : function() {
                     console.log('scrolling!');
                     var listManager = $('.list-manager'); 
-                    var listManagerBottom = $('.list-manager').height() + $('.list-manager').offset().top;
-                    listManager.animate({ scrollTop: listManagerBottom }, 'fast');
+                    //var listManagerBottom = $('.list-manager').height() + $('.list-manager').offset().top;
+                    var amt = $('.task-list').height() * $('.task-list').length;
+                    listManager.animate({ scrollTop: amt }, 'fast');
                 },
 
                 '{taskLists} change': function() {
