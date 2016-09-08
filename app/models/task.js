@@ -5,7 +5,6 @@ steal(
         return can.Map({
             text: 'New Task',
             backupText: '',
-            editingTask: false,
             complete: false
         });
 

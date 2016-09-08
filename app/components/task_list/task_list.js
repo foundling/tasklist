@@ -23,6 +23,7 @@ steal(
                     this.attr('open', !this.attr('open'));
                 },
                 addNewTask: function(scope) {
+                                console.log(scope);
                     var taskList = scope.attr('taskList');
                     var tasks = taskList.attr('tasks');
                     tasks.push(new Task({})); 

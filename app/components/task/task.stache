@@ -1,21 +1,16 @@
 <div class="task-wrapper">
 
-    <!--
-    <input 
-        can-click="toggleComplete" 
-        class="task-complete" 
-        type="checkbox"/>
-    -->
-
     <i can-click="removeTask %index" class="remove-task fa fa-trash" ></i>
+
     <input 
-        {{#unless editingTask}}readonly{{/unless}}
+        value="{{ text }}"
+        class="task-input {{#editing}}editing{{/editing}}"
+        {{#unless editing}}readonly{{/unless}}
         can-focus="editText ." 
         can-blur="commitText ."
         can-enter="commitText ."
-        can-value="text"
-        value="{{ text }}"
-        class="task-input {{#editingTask}}editing{{/editingTask}}"/>
+        can-value="text" />
 
     <i can-click="switchView 'singlelist'" class="more-info fa fa-ellipsis-h" ></i>
+
 </div>

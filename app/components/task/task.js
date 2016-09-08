@@ -12,24 +12,19 @@ steal(
             tag: 'app-task',
             template: TaskView,
             viewModel: {
+                editing: false,
                 editText: function(scope) {
                     var task = scope.attr('task');
-                    if (task.attr('editingTask')) {
-                        return;
-                    }
                     task.attr('backupText', task.attr('text'));
                     task.attr('text', '');
-                    task.attr('editingTask', !task.attr('editingTask'));
+                    this.attr('editing', true);
                 },
                 commitText: function(scope) {
                     var task = scope.attr('task');
-                    if (!task.attr('editingTask')) {
-                        return;
-                    }
                     var text = task.attr('text').trim();
                     var newTitle = text ? text : task.attr('backupText');
                     task.attr('text', newTitle);
-                    task.attr('editingTask', !task.attr('editingTask'));
+                    this.attr('editing', false);
                 },
             },
             events: {}
