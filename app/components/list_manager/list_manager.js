@@ -68,10 +68,15 @@ steal(
 
                 },
 
-                'i.add-list click' : function() {
-                    console.log('scrolling!');
+                // scroll events
+
+                'i.toggle-list-expand:last click': function() {
                     var listManager = $('.list-manager'); 
-                    //var listManagerBottom = $('.list-manager').height() + $('.list-manager').offset().top;
+                    var amt = $('.task-list').height() * $('.task-list').length;
+                    listManager.animate({ scrollTop: amt }, 'fast');
+                },
+                'i.add-list click' : function() {
+                    var listManager = $('.list-manager'); 
                     var amt = $('.task-list').height() * $('.task-list').length;
                     listManager.animate({ scrollTop: amt }, 'fast');
                 },
