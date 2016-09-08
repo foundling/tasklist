@@ -15,11 +15,11 @@
 
     </li>
 
-    {{#open}}
+    {{#if open}}
     <div class="task-list-wrapper">
-        <i can-click="addNewTask" class="add-task fa fa-plus"></i>
+        <i can-click="addTask" class="add-task fa fa-plus"></i>
         <content>
     </div>
-    {{/open}}
+    {{/is}}
 
 </ul>

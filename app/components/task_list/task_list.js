@@ -22,11 +22,9 @@ steal(
                 toggleOpen: function() {
                     this.attr('open', !this.attr('open'));
                 },
-                addNewTask: function(scope) {
-                                console.log(scope);
-                    var taskList = scope.attr('taskList');
-                    var tasks = taskList.attr('tasks');
-                    tasks.push(new Task({})); 
+                addTask: function(scope) {
+                    var tasks = scope.attr('taskList.tasks');
+                    tasks.push(new Task({}));
                 },
                 removeTask: function(index) {
                     this.attr('taskList.tasks').splice(index, 1);
