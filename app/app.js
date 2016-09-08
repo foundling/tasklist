@@ -5,7 +5,6 @@ steal(
     './views/title_view.stache!',
     './views/single_list_view.stache!',
     './views/multi_list_view.stache!',
-    './views/settings_view.stache!',
 
     'app/assets/styles/app.less!',
     'app/assets/styles/z-index.less!',
@@ -26,7 +25,7 @@ steal(
 
     function(
         can,
-        TitleView, SingleListView, MultiListView, SettingsView,
+        TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         localStorage, Fastclick, interact 
@@ -35,12 +34,12 @@ steal(
         Fastclick.attach(document.body);
 
         var ViewModel = can.Map({
-            view: null,
+            settingsActive: false,
+            view:           null,
             views: {
-                title:          TitleView,
-                singlelist:     SingleListView, 
-                multilist:      MultiListView,
-                settings:       SettingsView 
+                title:      TitleView,
+                singlelist: SingleListView, 
+                multilist:  MultiListView,
             },
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];

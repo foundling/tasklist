@@ -13,8 +13,11 @@ steal(
             tag: 'app-settings',
             template: settingsView,
             viewModel: {
-                exportFormat: 'markdown', 
+                exportFormat: 'Markdown', 
                 cloudProvider: 'Google Drive', 
+                toggleSettings: function() {
+                    this.attr('settingsActive', !this.attr('settingsActive'));
+                }
             },
             events: {}
         });

@@ -1,5 +1,7 @@
 <div class="settings-wrapper">
+
     <ul>
+
         <li>
             <h1>Export to:</h1>
             <select can-value="exportFormat" value="{{ exportFormat }}">
@@ -16,7 +18,9 @@
                 <option value="Dropbox">Dropbox</option>
             </select>
         </li>
+
     </ul>
-    <i can-click="switchView 'multilist'" class="settings fa fa-cog"/> 
+
+    <i can-click="toggleSettings" class="settings fa fa-cog"/> 
 
 </div>
