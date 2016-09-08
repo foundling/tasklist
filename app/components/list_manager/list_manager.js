@@ -53,7 +53,14 @@ steal(
                 removeList: function(index) {
 
                     var taskLists = this.attr('taskLists'); 
-                    taskLists.splice(index, 1);
+                    if (taskLists.length > 1) {
+                        taskLists.splice(index, 1);
+                    } else {
+                        taskLists.attr(0 + '.title', '');
+                        taskLists.attr(0 + '.tasks').splice(1, taskLists.attr('0.tasks').length);
+                        taskLists.attr(0 + '.tasks.0.text','');
+                    }
+
 
                 }
             },
@@ -68,13 +75,14 @@ steal(
 
                 },
 
-                // scroll events
+                // Scroll Events when adding new list or expanding list 
 
                 'i.toggle-list-expand:last click': function() {
                     var listManager = $('.list-manager'); 
                     var amt = $('.task-list').height() * $('.task-list').length;
                     listManager.animate({ scrollTop: amt }, 'fast');
                 },
+
                 'i.add-list click' : function() {
                     var listManager = $('.list-manager'); 
                     var amt = $('.task-list').height() * $('.task-list').length;

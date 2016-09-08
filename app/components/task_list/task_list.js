@@ -27,7 +27,14 @@ steal(
                     tasks.push(new Task({}));
                 },
                 removeTask: function(index) {
-                    this.attr('taskList.tasks').splice(index, 1);
+                    var taskList = this.attr('taskList');
+                    var tasks = taskList.attr('tasks');
+                    if (tasks.length > 1) {
+                        tasks.splice(index, 1);
+                    }
+                    else {
+                        tasks.attr(index + '.text', '');
+                    }
                 },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
@@ -46,8 +53,15 @@ steal(
             },
             events: {
                 '{taskList} change': function(newTaskList, ev, changedProp, action) {
-
+                },
+                'i.add-task click': function(el, ev) {
+                    var taskList = el.closest('.task-list');
+                    var taskWrapper = $('.task-wrapper');
+                    var taskHeight = taskWrapper.height();
+                    var taskCount = taskWrapper.length; 
+                    taskList.animate({ scrollTop: taskHeight * taskCount }, 'slow');
                 }
+
             }
         });
 })
