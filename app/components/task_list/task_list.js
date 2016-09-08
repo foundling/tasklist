@@ -61,8 +61,6 @@ steal(
                     var taskYLocation;
 
                     if (actionType === 'add') {
-                        taskYLocation = 
-                        wrapper.animate({ scrollTop: 
                     }
                 }
             }
