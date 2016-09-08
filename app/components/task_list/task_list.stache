@@ -1,29 +1,25 @@
 <ul class="task-list">
 
-    <li 
-        class="task-list-title 
-               {{focus}}
-               {{#is open 'true'}}expanded{{/is}}">
+    <li class="task-list-title {{#is open 'true'}}expanded{{/is}}">
 
         <i can-click="toggleOpen" class="toggle-list-expand fa fa-arrow-down"></i>
         <input 
-            can-dblclick="editTitle ."
+            value="{{ title }}" 
+            class="task-list-title-input {{#editing}}editing{{/editing}}"
+            can-click="editTitle ."
             can-blur="commitTitle ."
             can-enter="commitTitle ."
             can-value="title"
-            value="{{ title }}" 
-            class="task-list-title-input {{#editingList}}editing-list{{/editingList}}"
-            {{#unless editing}}readonly{{/unless}}/>
+            {{#unless editing}}readonly{{/unless}} />
         <i can-click="removeList %index" class="remove-list fa fa-trash"></i>
 
     </li>
 
-    <!-- this is not great, could be just '#is open' -->
-    {{#is open 'true'}}
+    {{#open}}
     <div class="task-list-wrapper">
         <i can-click="addNewTask" class="add-task fa fa-plus"></i>
         <content>
     </div>
-    {{/is}}
+    {{/open}}
 
 </ul>

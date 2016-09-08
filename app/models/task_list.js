@@ -9,13 +9,11 @@ steal(
     ){
 
         return can.Map({
-            active: false,
-            title: 'New Task List',
-            backupTitle: '',
+            title:          'New Task List',
+            backupTitle:    '',
             tasks: [ 
-                new Task()
-            ],   
-            editingList: false
+                new Task({}) 
+            ]
         }); 
 
 })

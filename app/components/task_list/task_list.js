@@ -3,6 +3,7 @@ steal(
     'can',
 
     'app/models/task.js',
+
     './task_list.stache!',
     './task_list.less!',
 
@@ -15,9 +16,11 @@ steal(
             tag: 'app-task-list',
             template: ListView,
             viewModel: {
+                open: false,
+                active: false,
+                editing: false,
                 toggleOpen: function() {
-                    var newState = this.attr('open') === 'true' ? 'false' : 'true';
-                    this.attr('open', newState);
+                    this.attr('open', !this.attr('open'));
                 },
                 addNewTask: function(scope) {
                     var taskList = scope.attr('taskList');
@@ -29,23 +32,17 @@ steal(
                 },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
-                    if (taskList.attr('editingList')) {
-                        return;
-                    }
                     taskList.attr('backupTitle', taskList.attr('title'));
                     taskList.attr('title', '');
-                    taskList.attr('editingList', !taskList.attr('editingList'));
+                    this.attr('editing', true);
                 },
                 commitTitle: function(scope) {
                     var taskList = scope.attr('taskList');
-                    if (!taskList.attr('editingList')) {
-                        return;
-                    }
                     var title = taskList.attr('title').trim();
                     var newTitle = title ? title : taskList.attr('backupTitle');
                     taskList.attr('title', newTitle);
-                    taskList.attr('editingList', !taskList.attr('editingList'));
-                },
+                    this.attr('editing', false);
+                }
 
             },
             events: {
