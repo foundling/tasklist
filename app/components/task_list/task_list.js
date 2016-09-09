@@ -27,13 +27,13 @@ steal(
                     tasks.push(new Task({}));
                 },
                 removeTask: function(index) {
+                    var taskLists = this.attr('taskLists');
                     var taskList = this.attr('taskList');
                     var tasks = taskList.attr('tasks');
                     if (tasks.length > 1) {
                         tasks.splice(index, 1);
-                    }
-                    else {
-                        tasks.attr(index + '.text', '');
+                    } else if (taskLists.length > 1) {
+                        taskLists.splice(taskLists.indexOf(taskList), 1);
                     }
                 },
                 editTitle: function(scope) {

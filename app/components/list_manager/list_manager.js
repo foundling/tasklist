@@ -57,9 +57,9 @@ steal(
                     if (taskLists.length > 1) {
                         taskLists.splice(index, 1);
                     } else {
-                        taskLists.attr(0 + '.title', '');
+                        taskLists.attr(0 + '.title', 'New Task List');
                         taskLists.attr(0 + '.tasks').splice(1, taskLists.attr('0.tasks').length);
-                        taskLists.attr(0 + '.tasks.0.text','');
+                        taskLists.attr(0 + '.tasks.0.text','New Task');
                     }
 
 
