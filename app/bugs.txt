@@ -1,2 +1,3 @@
 editingList attribute not working right when editing list title. 
 clicking on 1 task list title and blurring without entering anything turns title blank.
+deleting last task: it should just delete the list, not blank out title.
