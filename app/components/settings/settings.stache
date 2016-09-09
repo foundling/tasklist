@@ -1,3 +1,17 @@
+{{#if exportModalActive }}
+
+<div class="export-modal">
+    <button can-click="initClipboard" class="btn" data-clipboard-target="#copytarget" >Copy To Clipboard</button>
+    <button can-click="toggleSettings">Back!</button>
+    <div class="export-content-wrapper">
+        <pre id="copytarget" class="export-content">
+            {{ exportContent }}
+        </pre>
+    </div>
+</div>
+
+{{ else }}
+
 <div class="settings-wrapper">
     <ul>
 
@@ -6,7 +20,6 @@
             <select class="select-export-format" can-value="exportFormat" value="{{ exportFormat }}">
                 <option value="markdown">Markdown</option>
                 <option value="json">JSON</option>
-                <option value="csv">CSV</option>
                 <option value="txt">TXT</option>
                 <option value="xml">XML</option>
             </select>
@@ -25,10 +38,6 @@
 
     <i can-click="toggleSettings" class="settings fa fa-cog"></i>
 
-    {{#if exportModalActive }}
-    <div class="export-modal">
-        {{ exportContent }}
-    </div>
-    {{/if}}
-
 </div>
+
+{{/if}}

@@ -74,6 +74,9 @@ steal(
                     var targetIndex = taskLists.length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
 
+                    var taskLists = this.viewModel.attr('taskLists');
+                    can.store.set('tasklist', taskLists.serialize());
+                    console.log('init tasklist storage', can.store.get('tasklist'));
                 },
 
                 // Scroll Events when adding new list or expanding list 
@@ -93,6 +96,7 @@ steal(
                 '{taskLists} change': function() {
                     var taskLists = this.viewModel.attr('taskLists');
                     can.store.set('tasklist', taskLists.serialize());
+                    console.log('update tasklist storage', can.store.get('tasklist'));
                 }
             }
         });

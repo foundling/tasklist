@@ -2,21 +2,23 @@ steal(
 
     'can',
 
-    'app/plugins/jsonToMd.js',
+    './converters.js',
+    'clipboard/dist/clipboard.min.js',
 
     './settings.stache!',
     './settings.less!',
 
     function(
         can, 
-        jsonToMd,
-        settingsView
+        converter,
+        Clipboard,
+        SettingsView
     ) {
 
         can.Component.extend({
 
             tag: 'app-settings',
-            template: settingsView,
+            template: SettingsView,
             viewModel: {
 
                 exportModalActive: false, 
@@ -27,10 +29,14 @@ steal(
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 },
                 exportTaskLists: function() {
-                    var exportContentRaw = can.store.get('taskLists');
-                    jsonToMd(exportContentRaw);
-                    this.attr('exportContent', exportContentRaw);
+                    var exportFormat = this.attr('exportFormat');
+                    var exportContent = can.store.get('tasklist');
+                    var convertedContent = converter.convert(exportContent, exportFormat);
+                    this.attr('exportContent', convertedContent);
                     this.attr('exportModalActive', !this.attr('exportModalActive'));
+                },
+                initClipboard: function() {
+                    var clipboard = new Clipboard('.btn');
                 }
             },
             events: {

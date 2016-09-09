@@ -1,3 +1,5 @@
 <footer class="dashboard colorscheme-{{ view }}">
+{{^is view 'title'}}
     <i can-click="toggleSettings" class="settings fa fa-cog"></i>
+{{/is}}
 </footer>

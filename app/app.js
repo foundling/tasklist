@@ -36,7 +36,7 @@ steal(
 
         var ViewModel = can.Map({
             settingsActive: false,
-            view:           null,
+            view: null,
             views: {
                 title:      TitleView,
                 singlelist: SingleListView, 
