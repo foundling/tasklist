@@ -1,5 +1,4 @@
 <div class="settings-wrapper">
-
     <ul>
 
         <li>
@@ -21,6 +20,7 @@
 
     </ul>
 
-    <i can-click="toggleSettings" class="settings fa fa-cog"/> 
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <i can-click="toggleSettings" class="settings fa fa-cog"/>
 
 </div>
