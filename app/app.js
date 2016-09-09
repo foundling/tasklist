@@ -2,9 +2,9 @@ steal(
 
     'can',
 
-    './views/title_view.stache!',
-    './views/single_list_view.stache!',
-    './views/multi_list_view.stache!',
+    './app_views/title_view.stache!',
+    './app_views/single_list_view.stache!',
+    './app_views/multi_list_view.stache!',
 
     'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
     'app/assets/styles/app.less!',
