@@ -3,12 +3,14 @@
 
         <li>
             <h1>Export to:</h1>
-            <select can-value="exportFormat" value="{{ exportFormat }}">
+            <select class="select-export-format" can-value="exportFormat" value="{{ exportFormat }}">
                 <option value="markdown">Markdown</option>
+                <option value="json">JSON</option>
                 <option value="csv">CSV</option>
                 <option value="txt">TXT</option>
-                <option value="json">JSON</option>
+                <option value="xml">XML</option>
             </select>
+            <button can-click="exportTaskLists">export</button>
         </li>
 
         <li>
@@ -21,7 +23,12 @@
 
     </ul>
 
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <i can-click="toggleSettings" class="settings fa fa-cog"/>
+    <i can-click="toggleSettings" class="settings fa fa-cog"></i>
+
+    {{#if exportModalActive }}
+    <div class="export-modal">
+        {{ exportContent }}
+    </div>
+    {{/if}}
 
 </div>
