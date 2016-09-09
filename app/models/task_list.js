@@ -8,12 +8,14 @@ steal(
         Task
     ){
 
-        return can.Map({
+        var TaskList = can.Map({
             title:          'New Task List',
             backupTitle:    '',
             tasks: [ 
                 new Task({}) 
             ]
         }); 
+
+        return TaskList;
 
 })

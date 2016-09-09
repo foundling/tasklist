@@ -10,9 +10,9 @@ steal(
 
     function(
         can,
-        TaskList,
-        Task,
-        ListManagerView
+        TaskList, Task,
+        ListManagerView,
+        ListManagerStyle
     ) {
 
         can.Component.extend({
@@ -22,20 +22,21 @@ steal(
             viewModel: {
 
                 activeIndex: null,
-                overflow: null,
+                overflow: false,
                 taskLists: [ 
 
                     new TaskList({ 
+
                         active: false,
                         title: 'Camping Trip',
                         backupTitle: '',
                         tasks: [ 
+
                             new Task({ text: 'Buy a Tent.' }), 
                             new Task({ text: 'Get a Map.' }), 
                             new Task({ text: 'Get Gas.' })
                         ] 
                     })
-
                 ], 
 
                 addNewList: function() {
@@ -90,12 +91,8 @@ steal(
                 },
 
                 '{taskLists} change': function() {
-
-                    /* if tasks exceed wrapper, show an arrow */
-                    var diff = $('.list-manager').height() - $('.lists-wrapper').height();
-                    var isOverflowed = diff < 0 ? true : false; 
-                    this.viewModel.attr('overflow', isOverflowed);
-
+                    var taskLists = this.viewModel.attr('taskLists');
+                    can.store.set('tasklist', taskLists.serialize());
                 }
             }
         });

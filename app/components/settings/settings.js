@@ -1,6 +1,7 @@
 steal(
 
     'can',
+
     './settings.stache!',
     './settings.less!',
 
@@ -19,7 +20,11 @@ steal(
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 }
             },
-            events: {}
+            events: {
+                'inserted': function() {
+                    console.log('inserted settings');
+                }
+            } 
         });
 
 });

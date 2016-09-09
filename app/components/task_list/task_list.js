@@ -52,14 +52,21 @@ steal(
 
             },
             events: {
+
                 '{taskList} change': function(newTaskList, ev, changedProp, action) {
                 },
+
                 'i.add-task click': function(el, ev) {
+
                     var taskList = el.closest('.task-list');
                     var taskWrapper = $('.task-wrapper');
                     var taskHeight = taskWrapper.height();
                     var taskCount = taskWrapper.length; 
-                    taskList.animate({ scrollTop: taskHeight * taskCount }, 'slow');
+
+                    taskList.animate({ 
+                        scrollTop: taskHeight * taskCount 
+                    }, 'slow');
+
                 }
 
             }

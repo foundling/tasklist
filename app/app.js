@@ -2,9 +2,9 @@ steal(
 
     'can',
 
-    './app_views/title_view.stache!',
-    './app_views/single_list_view.stache!',
-    './app_views/multi_list_view.stache!',
+    'app/views/title_view.stache!',
+    'app/views/single_list_view.stache!',
+    'app/views/multi_list_view.stache!',
 
     'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
     'app/assets/styles/app.less!',
@@ -20,8 +20,7 @@ steal(
     'app/components/task_list/task_list.js',
     'app/components/task/task.js',
 
-    'app/plugins/local_storage.js',
-    'fastclick/lib/fastclick.js',
+    'store/store.js',
     'interact.js/interact.js',
 
     function(
@@ -29,29 +28,11 @@ steal(
         TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        localStorage, Fastclick, interact 
+        Store, Interact 
     ) {
 
-        Fastclick.attach(document.body);
-
-        function hideAddressBar()
-        {
-          if(!window.location.hash)
-          {
-              if(document.height < window.outerHeight)
-              {
-                  document.body.style.height = (window.outerHeight + 50) + 'px';
-                  console.log('hide');
-              }
-
-              setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
-          }
-        }
-
-        if(!window.pageYOffset) { 
-            hideAddressBar(); 
-        }
-        window.addEventListener("orientationchange", hideAddressBar );
+        can.store = Store;
+        can.store.set('tasklist', {});
 
         var ViewModel = can.Map({
             settingsActive: false,
