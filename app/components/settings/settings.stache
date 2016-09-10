@@ -3,8 +3,8 @@
 <div class="export-modal">
 
     <header>
-        <button can-click="initClipboard" class="btn" data-clipboard-target="#copytarget" >Copy To Clipboard</button>
-        <button can-click="toggleSettings">Back!</button>
+        <i can-click="initClipboard" class="copy fa fa-clipboard" data-clipboard-target="#copytarget"></i>
+        <i can-click="toggleSettings" class="back fa fa-chevron-left"></i>
     </header>
     
     <div class="export-content-wrapper">

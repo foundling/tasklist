@@ -36,7 +36,7 @@ steal(
                     this.attr('exportModalActive', !this.attr('exportModalActive'));
                 },
                 initClipboard: function() {
-                    var clipboard = new Clipboard('.btn');
+                    var clipboard = new Clipboard('.copy');
                 }
             },
             events: {
