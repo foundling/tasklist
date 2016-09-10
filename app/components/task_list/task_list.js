@@ -48,8 +48,7 @@ steal(
                     var newTitle = title ? title : taskList.attr('backupTitle');
                     taskList.attr('title', newTitle);
                     this.attr('editing', false);
-                }
-
+                },
             },
             events: {
 
@@ -67,7 +66,8 @@ steal(
                         scrollTop: taskHeight * taskCount 
                     }, 'slow');
 
-                }
+                },
+
 
             }
         });

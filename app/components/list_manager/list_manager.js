@@ -5,12 +5,15 @@ steal(
     'app/models/task_list.js',
     'app/models/task.js',
 
+    'interact.js/interact.js',
+
     './list_manager.stache!',
     './list_manager.less!',
 
     function(
         can,
         TaskList, Task,
+        interact,
         ListManagerView,
         ListManagerStyle
     ) {
@@ -46,7 +49,7 @@ steal(
                     var activeIndex = this.attr('activeIndex');
 
                     taskLists.attr(activeIndex + '.active', false);
-                    taskLists.push(newList)
+                    taskLists.push(newList);
                     taskLists.attr('activeIndex', taskLists.indexOf(newList));
 
                 },
@@ -77,6 +80,44 @@ steal(
                     var taskLists = this.viewModel.attr('taskLists');
                     can.store.set('tasklist', taskLists.serialize());
                     console.log('init tasklist storage', can.store.get('tasklist'));
+
+                    var draggedIndex;
+                    var self = this;
+
+                    interact('.task-list')
+                        .draggable(true)
+                        .dropzone({
+                            accept: '.task-list',
+                        })
+                        .on('dragstart', function(e) {
+                            console.log('drag start.');
+
+                            var $target = $(e.target);
+                            var index = $target.parent().index();
+
+                            console.log('start index', index);
+                        })
+                        .on('dragover', function() {
+                            console.log('drag over.');
+                        })
+                        .on('dragenter', function() {
+                            // toggle css on
+                        })
+                        .on('dragleave', function() {
+                            // toggle css off
+                        })
+                        .on('drop', function(e) {
+                            console.log('drag drop.');
+
+                            var $target = $(e.target);
+                            var droppedIndex = $target.parent().index();
+
+                            var task = taskLists.splice(draggedIndex, 1);
+                            taskLists.splice(droppedIndex, 0, task[0]);
+
+                            console.log('drop index', droppedIndex);
+                        });
+
                 },
 
                 // Scroll Events when adding new list or expanding list 

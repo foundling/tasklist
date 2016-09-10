@@ -28,7 +28,7 @@ steal(
         TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        Store, Interact 
+        Store, interact 
     ) {
 
         can.store = Store;
