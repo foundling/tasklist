@@ -1,12 +1,14 @@
 {{#if exportModalActive }}
 
 <div class="export-modal">
-    <button can-click="initClipboard" class="btn" data-clipboard-target="#copytarget" >Copy To Clipboard</button>
-    <button can-click="toggleSettings">Back!</button>
+
+    <header>
+        <button can-click="initClipboard" class="btn" data-clipboard-target="#copytarget" >Copy To Clipboard</button>
+        <button can-click="toggleSettings">Back!</button>
+    </header>
+    
     <div class="export-content-wrapper">
-        <pre id="copytarget" class="export-content">
-            {{ exportContent }}
-        </pre>
+        <pre id="copytarget" class="export-content">{{ exportContent }}</pre>
     </div>
 </div>
 

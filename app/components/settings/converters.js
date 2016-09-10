@@ -17,7 +17,7 @@ steal(
                     x2js.json2xml_str(data);
                 },
                 json: function(data) {
-                    return JSON.stringify(data, null, 4);
+                    return JSON.stringify(data, undefined, 4);
                 },
                 txt: function(data) {},
                 markdown: function(data) {},
