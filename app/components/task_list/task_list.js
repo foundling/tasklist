@@ -38,22 +38,21 @@ steal(
                 },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
-                    taskList.attr('backupTitle', taskList.attr('title'));
+                    var title = taskList.attr('title');
+                    taskList.attr('backupTitle', title);
                     taskList.attr('title', '');
                     this.attr('editing', true);
                 },
                 commitTitle: function(scope) {
                     var taskList = scope.attr('taskList');
                     var title = taskList.attr('title').trim();
-                    var newTitle = title ? title : taskList.attr('backupTitle');
+                    var backupTitle = taskList.attr('backupTitle');
+                    var newTitle = title ? title : backupTitle;
                     taskList.attr('title', newTitle);
                     this.attr('editing', false);
                 },
             },
             events: {
-
-                '{taskList} change': function(newTaskList, ev, changedProp, action) {
-                },
 
                 'i.add-task click': function(el, ev) {
 

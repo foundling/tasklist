@@ -4,13 +4,12 @@
 
         <i can-click="toggleOpen" class="toggle-list-expand fa fa-arrow-down"></i>
         <input 
-            value="{{ title }}" 
             class="task-list-title-input {{#editing}}editing{{/editing}}"
+            value="{{ title }}" 
+            can-value="title"
             can-click="editTitle ."
             can-focus="editTitle ."
             can-blur="commitTitle ."
-            can-enter="commitTitle ."
-            can-value="title"
             {{#unless editing}}readonly{{/unless}} />
         <i can-click="removeList %index" class="remove-list fa fa-trash"></i>
 

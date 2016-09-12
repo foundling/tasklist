@@ -21,14 +21,13 @@ steal(
     'app/components/task/task.js',
 
     'store/store.js',
-    'interact.js/interact.js',
 
     function(
         can,
         TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
         Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        Store, interact 
+        Store 
     ) {
 
         can.store = Store;
