@@ -2,4 +2,5 @@
 {{^is view 'title'}}
     <i can-click="toggleSettings" class="settings fa fa-cog"></i>
 {{/is}}
+{{#if overflow}}<i class="to-top fa fa-caret-up"></i>{{/if}}
 </footer>

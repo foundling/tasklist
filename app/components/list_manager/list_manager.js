@@ -95,10 +95,18 @@ steal(
                 },
 
                 '{taskLists} change': function() {
+                    /* update storage */
                     var taskLists = this.viewModel.attr('taskLists');
                     can.store.set('tasklist', taskLists.serialize());
-                    console.log('update tasklist storage', can.store.get('tasklist'));
-                }
+                },
+                'i click': function() {
+                    var taskLists = this.viewModel.attr('taskLists');
+                    if ($('.task-list').height() * taskLists.length > $('.lists-wrapper').height()) {
+                        this.viewModel.attr('overflow', true);
+                    } else {
+                        this.viewModel.attr('overflow', false);
+                    }
+                } 
             }
         });
 });

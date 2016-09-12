@@ -1,12 +1,9 @@
 <div class="list-manager">
 
     <div class="lists-wrapper">
-        {{#if overflow}}
-        <i class="to-top fa fa-caret-up"></i> 
-        {{/if}}
-        <content/>
+        <content>
     </div>
 
-    <!-- I hope to figure out how to move this into the dashboard -->
+    <!-- Try to figure out how to move this into the dashboard -->
     <i can-click="addNewList" class="add-list fa fa-plus"></i>
 </div>

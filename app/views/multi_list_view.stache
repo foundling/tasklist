@@ -1,23 +1,27 @@
-<app-header view="multilist"/>
+<app-container {overflow}="overflow">
 
-<app-content-window>
-    <app-list-manager>
+    <app-header view="multilist"/>
 
-        {{#each taskLists}}
-        <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
+    <app-content-window {^overflow}="overflow">
+        <app-list-manager {^overflow}="overflow">
 
-            {{#each tasks}}
-            <app-task {task}="." {task-list}="taskList" />
+            {{#each taskLists}}
+            <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
+
+                {{#each tasks}}
+                <app-task {task}="." {task-list}="taskList" />
+                {{/each}}
+
+            </app-task-list>
             {{/each}}
 
-        </app-task-list>
-        {{/each}}
+        </app-list-manager>
+    </app-content-window>
 
-    </app-list-manager>
-</app-content-window>
+    <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
 
-<app-dashboard {(settings-active)}="settingsActive" view="multilist"/>
+    {{#if settingsActive}}
+    <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings"/>
+    {{/if}}
 
-{{#if settingsActive}}
-<app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings"/>
-{{/if}}
+</app-container>

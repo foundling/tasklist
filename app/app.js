@@ -12,6 +12,7 @@ steal(
     'app/assets/styles/icons.less!',
     'app/assets/styles/fonts.less!',
 
+    'app/components/app_container/app_container.js',
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
     'app/components/dashboard/dashboard.js',
@@ -23,10 +24,10 @@ steal(
     'store/store.js',
 
     function(
-        can,
+        can, 
         TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
-        Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
+        Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         Store 
     ) {
 
