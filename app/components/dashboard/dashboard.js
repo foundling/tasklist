@@ -19,6 +19,10 @@ steal(
 
             },
             events: {
+                'i.to-top click': function() {
+                    $('.list-manager').animate({ scrollTop: 0 });
+                }
+
             }
         });
 
