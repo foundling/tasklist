@@ -43,7 +43,7 @@ i {
 
 /* Component-Level Styles  */
 
-.title-view-wrapper {
+div.title-view-wrapper {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -54,7 +54,15 @@ i {
 
     h1.app-content-window-title {
         color: white;
+        letter-spacing: 1px;
+        transition: color 1s ease-in;
+        text-shadow: 1px 3px 0px black;
     }
+
+    .color-fade-in {
+        color: red;  
+    }
+
 }
 
 app-header,
@@ -112,9 +120,9 @@ app-settings {
 }
 
 @media screen and (max-width: 700px) {
+
     input.task-input { 
         width: 40%;
     }
         
 }
-

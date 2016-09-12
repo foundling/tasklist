@@ -85,7 +85,10 @@ steal(
                     var self = this;
 
                     interact('.task-list')
-                        .draggable(true)
+                        .draggable({
+                            cursor: 'move',
+                            helper: 'clone',
+                        })
                         .dropzone({
                             accept: '.task-list',
                         })

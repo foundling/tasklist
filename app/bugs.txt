@@ -2,3 +2,4 @@ clicking on 1 task list title and blurring without entering anything turns title
 deleting last task: it should just delete the list, not blank out title.
 tasks are swapped when a drag happens, this is wrong. task should insert itself before the target task.
 tasklist/task title editing process needs to be checked.
+
