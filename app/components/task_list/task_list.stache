@@ -8,8 +8,8 @@
             value="{{ title }}" 
             can-value="title"
             can-click="editTitle ."
-            can-focus="editTitle ."
             can-blur="commitTitle ."
+            can-enter="commitTitle ."
             {{#unless editing}}readonly{{/unless}} />
         <i can-click="removeList %index" class="remove-list fa fa-trash"></i>
 

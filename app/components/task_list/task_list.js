@@ -38,6 +38,9 @@ steal(
                 },
                 editTitle: function(scope) {
                     var taskList = scope.attr('taskList');
+                    if (taskList.attr('editing')){
+                        return;
+                    }
                     var title = taskList.attr('title');
                     taskList.attr('backupTitle', title);
                     taskList.attr('title', '');
@@ -66,7 +69,12 @@ steal(
                     }, 'slow');
 
                 },
+                'input.task-list-title-input click': function(el, ev) {
+                    var taskIndex = el.closest('app-task-list').index();
+                    var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
+                    console.log(taskList);
 
+                }
 
             }
         });
