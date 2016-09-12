@@ -7,7 +7,7 @@
             class="task-list-title-input {{#editing}}editing{{/editing}}"
             value="{{ title }}" 
             can-value="title"
-            can-click="editTitle ."
+            can-focus="editTitle ."
             can-blur="commitTitle ."
             can-enter="commitTitle ."
             {{#unless editing}}readonly{{/unless}} />

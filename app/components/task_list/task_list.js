@@ -70,9 +70,11 @@ steal(
 
                 },
                 'input.task-list-title-input click': function(el, ev) {
+                    ev.stopPropagation();
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
-                    console.log(taskList);
+                    console.log(this.viewModel.attr('editing'));
+
 
                 }
 

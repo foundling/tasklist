@@ -77,7 +77,6 @@ steal(
                     var taskLists = this.viewModel.attr('taskLists');
                     can.store.set('tasklist', taskLists.serialize());
                     console.log('init tasklist storage', can.store.get('tasklist'));
-setTimeout(function () {   window.scrollTo(0, 1); }, 1000);
 
                 },
 
