@@ -88,10 +88,13 @@ steal(
                     listManager.animate({ scrollTop: amt }, 'fast');
                 },
 
-                'i.add-list click' : function() {
+                'i.add-list, i.add-task click': function() {
                     var listManager = $('.list-manager'); 
                     var amt = $('.task-list').height() * $('.task-list').length;
                     listManager.animate({ scrollTop: amt }, 'fast');
+                },
+
+                'i.add-task click': function() {
                 },
 
                 '{taskLists} change': function() {
