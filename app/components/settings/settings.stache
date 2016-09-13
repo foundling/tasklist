@@ -27,15 +27,13 @@
                             <div class="color-chip" style="background:{{.}}"></div>
                         {{/each}}
                         <input  class="colorscheme-selection" 
+                                type="radio"
                                 name="colorscheme" 
-                                type="radio" 
-                                value="{{ colorscheme }}"
-                                {{#is %key colorscheme}}checked{{/is}}
-                                can-value="colorscheme" />
+                                {{#is %key ../colorscheme}}checked{{/is}} />
                     </div>
                 </li>
-                {{/each}}
             </ul>
+            {{/each}}
         </li>
 
         <li>

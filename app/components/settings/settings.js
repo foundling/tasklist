@@ -45,7 +45,7 @@ steal(
                 },
                 setColorscheme: function(name) {
                     this.attr('colorscheme', name);
-                },
+                }
             },
             events: {
             } 
