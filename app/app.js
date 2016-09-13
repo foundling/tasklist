@@ -12,6 +12,9 @@ steal(
     'app/assets/styles/icons.less!',
     'app/assets/styles/fonts.less!',
 
+    'app/assets/styles/colors-default.less!',
+    'app/models/colorschemes.js',
+
     'app/components/app_container/app_container.js',
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
@@ -27,7 +30,8 @@ steal(
     function(
         can, 
         TitleView, SingleListView, MultiListView, 
-        appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
+        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles,
+        defaultColors, colorschemes,
         Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         Store, converters 
     ) {
@@ -45,6 +49,7 @@ steal(
         var ViewModel = can.Map({
             settingsActive: false,
             view: null,
+            colorscheme: can.store.get('tasklist')['settings']['colorscheme'],
             views: {
                 title:      TitleView,
                 singlelist: SingleListView, 

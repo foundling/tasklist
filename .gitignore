@@ -3,3 +3,4 @@ node_modules
 *.sw[o,p]
 app/assets/font-awesome*
 dist
+bower_components
