@@ -37,11 +37,6 @@ steal(
             can.store.set('tasklist', {});
         }
 
-        console.log(
-            can.store.get('tasklist'),
-            converters.convert(can.store.get('tasklist'), 'markdown')
-        );
-
         can.store.get('tasklist');
 
         var ViewModel = can.Map({

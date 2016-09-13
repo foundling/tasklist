@@ -17,13 +17,24 @@
 <div class="settings-wrapper">
     <ul>
         <li>
-            <h1>Select a colorscheme:</h1>
-            <ul>
-                <li class="">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+            <h1>Select a Color Scheme:</h1>
+            {{#each colorschemes}}
+            <ul class="colorscheme-list">
+                <li>
+                    <h1>{{ %key }}</h1>
+                    <div class="color-chip-wrapper">
+                        {{#each . }}
+                            <div class="color-chip" style="background:{{.}}"></div>
+                        {{/each}}
+                        <input  class="colorscheme-selection" 
+                                name="colorscheme" 
+                                type="radio" 
+                                value="{{ colorscheme }}"
+                                {{#is %key colorscheme}}checked{{/is}}
+                                can-value="colorscheme" />
+                    </div>
                 </li>
+                {{/each}}
             </ul>
         </li>
 
