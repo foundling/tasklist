@@ -1,13 +1,25 @@
 steal(function() {
 
-    return function(json) {
-        var parsedObj = JSON.parse(json);
-        var taskLists = parsedObj['taskLists'];
-        var markdown;
+    function h1(s) {
+        return '# ' + s + '\n';
+    }
 
-        console.log(taskLists);
-        
-        return markdown;
+    function listItem(s) {
+        return '+ ' + s + '\n';
+    }
+
+    return function(tasklists) {
+
+        return tasklists.map(function(tasklist) {
+            var title = h1(tasklist.title);
+            var tasks = tasklist.tasks.map(function(task) {
+                return listItem(task.text); 
+            });
+
+            return [ title ].concat(tasks).join('');
+        })
+        .join('\n');
+
     };
 
 });
