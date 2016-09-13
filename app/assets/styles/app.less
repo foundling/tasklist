@@ -43,6 +43,7 @@ i {
 
 /* Component-Level Styles  */
 
+
 div.title-view-wrapper {
     position: fixed;
     height: 100%;
@@ -50,20 +51,36 @@ div.title-view-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: red;
+    background: white;
+    transition: background 1s ease;
 
     h1.app-content-window-title {
         color: white;
+        transition: color 1s ease-in, text-shadow 1s ease-in;
         letter-spacing: 1px;
-        transition: color 1s ease-in;
+        text-shadow: 1px 3px 0px transparent;
+    }
+
+    h1.app-content-window-title.fade-in-text-shadow {
         text-shadow: 1px 3px 0px black;
     }
 
-    .color-fade-in {
-        color: red;  
-    }
-
 }
+
+div.title-view-wrapper.fade-in-bg {
+    background: red;
+}
+
+h1.app-content-window-title.fade-in-text-shadow {
+    text-shadow: 1px 3px 0px black !important;
+}
+
+h1.app-content-window-title.fade-in-color {
+    color: black;
+}
+
+
+
 
 app-header,
 app-content-window,
