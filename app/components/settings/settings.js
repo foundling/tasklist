@@ -2,7 +2,7 @@ steal(
 
     'can',
 
-    './converters.js',
+    'app/plugins/converters/converters.js',
     'clipboard/dist/clipboard.min.js',
 
     './settings.stache!',

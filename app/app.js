@@ -22,17 +22,22 @@ steal(
     'app/components/task/task.js',
 
     'store/store.js',
+    'app/plugins/converters/converters.js',
 
     function(
         can, 
         TitleView, SingleListView, MultiListView, 
         appStyle, fontAwesome, zIndexes, iconStyles, fontStyles,
         Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        Store 
+        Store, converters 
     ) {
 
         can.store = Store;
-        can.store.set('tasklist', {});
+        if (!can.store.get('tasklist')) {
+            can.store.set('tasklist', {});
+        }
+
+        can.store.get('tasklist');
 
         var ViewModel = can.Map({
             settingsActive: false,
