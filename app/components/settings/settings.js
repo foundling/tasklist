@@ -42,12 +42,17 @@ steal(
                 },
                 initClipboard: function() {
                     var clipboard = new Clipboard('.copy');
-                },
-                setColorscheme: function(name) {
-                    this.attr('colorscheme', name);
                 }
             },
             events: {
+
+                'inserted': function() {
+                },
+
+                '{viewModel colorscheme} change': function() {
+                    console.log(this.viewModel.attr('colorscheme'));
+                    console.log(can.store.get('tasklist'));
+                }
             } 
         });
 
