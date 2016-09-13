@@ -16,6 +16,16 @@
 
 <div class="settings-wrapper">
     <ul>
+        <li>
+            <h1>Select a colorscheme:</h1>
+            <ul>
+                <li class="">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </li>
+            </ul>
+        </li>
 
         <li>
             <h1>Export to:</h1>

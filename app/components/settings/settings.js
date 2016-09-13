@@ -2,6 +2,8 @@ steal(
 
     'can',
 
+    'app/models/colorschemes.js',
+
     'app/plugins/converters/converters.js',
     'clipboard/dist/clipboard.min.js',
 
@@ -10,6 +12,7 @@ steal(
 
     function(
         can, 
+        colorschemes,
         converter,
         Clipboard,
         SettingsView
@@ -25,6 +28,8 @@ steal(
                 exportFormat: 'markdown', 
                 exportContent: '',
                 cloudProvider: 'Google Drive', 
+                colorscheme: 'default',
+                colorschemes: colorschemes,
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 },
@@ -37,7 +42,10 @@ steal(
                 },
                 initClipboard: function() {
                     var clipboard = new Clipboard('.copy');
-                }
+                },
+                setColorscheme: function(name) {
+                    this.attr('colorscheme', name);
+                },
             },
             events: {
             } 
