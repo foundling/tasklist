@@ -73,9 +73,10 @@ steal(
                     var taskLists = this.viewModel.attr('taskLists');
                     var targetIndex = taskLists.length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
+                    var appData = can.store.get('tasklist');
 
-                    var taskLists = this.viewModel.attr('taskLists');
-                    can.store.set('tasklist', taskLists.serialize());
+                    appData.taskLists = taskLists.serialize();
+                    can.store.set('tasklist', appData);
                     console.log('init tasklist storage', can.store.get('tasklist'));
 
                 },

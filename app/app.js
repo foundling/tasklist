@@ -34,10 +34,13 @@ steal(
 
         can.store = Store;
         if (!can.store.get('tasklist')) {
-            can.store.set('tasklist', {});
+            can.store.set('tasklist', {
+                'taskLists': [],
+                'settings': {
+                    colorscheme: 'default'
+                }
+            });
         }
-
-        can.store.get('tasklist');
 
         var ViewModel = can.Map({
             settingsActive: false,
