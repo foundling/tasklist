@@ -1,1 +1,2 @@
 overflow detection not working correctly.
+some localstorage state & view model 'colorscheme' property is causing an app crach.
