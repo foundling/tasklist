@@ -1,6 +1,10 @@
 steal(
 
     'can',
+    'jquery',
+    'jquery-ui',
+    'node_modules/jquery-ui-dist/jquery-ui.css!',
+    'node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js',
 
     'app/models/task.js',
 
@@ -8,9 +12,10 @@ steal(
     './task_list.less!',
 
     function(
-        can, 
+        can, $, jqueryUI, jqueryUIStyles, touchPunch, 
         Task,
-        ListView
+        ListView,
+        taskListStyles
     ){
         can.Component.extend({
             tag: 'app-task-list',
@@ -56,7 +61,9 @@ steal(
                 },
             },
             events: {
-
+                'inserted': function(el, ev) {
+                    $('div.tasks-wrapper.draggable').draggable();
+                },
                 'i.add-task click': function(el, ev) {
 
                     var taskList = el.closest('.task-list');
