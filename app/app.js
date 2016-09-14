@@ -45,10 +45,11 @@ steal(
                 }
             });
         }
+        console.log(can.store.get('tasklist'));
 
         var ViewModel = can.Map({
             settingsActive: false,
-            view: null,
+            view: '',
             colorscheme: can.store.get('tasklist')['settings']['colorscheme'],
             views: {
                 title:      TitleView,
