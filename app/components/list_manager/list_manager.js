@@ -57,6 +57,7 @@ steal(
                 'inserted' : function() {
 
 
+                    // init storage
                     if (!store.get('tasklist')) {
                         console.log('initializing tasklist localstorage for first time');
                         store.set('tasklist', {
@@ -86,6 +87,11 @@ steal(
                     this.viewModel.attr('taskLists', taskLists);
                     var targetIndex = this.viewModel.attr('taskLists').length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
+
+                    // init overflow
+                    var taskLists = this.viewModel.attr('taskLists');
+                    var overflowed = $('.task-list').height() * taskLists.length > $('.lists-wrapper').height();
+                    this.viewModel.attr('overflow', overflowed);
                 },
 
                 // Scroll Events when adding new list or expanding list 
@@ -112,8 +118,18 @@ steal(
                 },
 
                 'i click': function() {
+                    console.log('click');
                     var taskLists = this.viewModel.attr('taskLists');
-                    var overflowed = $('.task-list').height() * taskLists.length > $('.lists-wrapper').height();
+
+                    // refactor this. why won't reduce work on the heights array?
+                    var heights = $('.task-list').map(function(index, el) {
+                        return $(el).height();
+                    });
+                    var totalHeight = 0;
+                    for (var i = 0; i < heights.length; ++i) {
+                        totalHeight += heights[i];
+                    }
+                    var overflowed = totalHeight > $('.lists-wrapper').height();
                     this.viewModel.attr('overflow', overflowed);
                 } 
             }
