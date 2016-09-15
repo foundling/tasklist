@@ -1,6 +1,7 @@
 steal(
 
     'can',
+    'store/store.js',
 
     'app/models/task_list.js',
     'app/models/task.js',
@@ -11,7 +12,7 @@ steal(
 
 
     function(
-        can,
+        can, store,
         TaskList, Task,
         ListManagerView, ListManagerStyle
     ) {
@@ -24,21 +25,7 @@ steal(
 
                 activeIndex: null,
                 overflow: false,
-                taskLists: [ 
-
-                    new TaskList({ 
-
-                        active: false,
-                        title: 'Camping Trip',
-                        tasks: [ 
-
-                            new Task({ text: 'Buy a Tent.' }), 
-                            new Task({ text: 'Get a Map.' }), 
-                            new Task({ text: 'Get Gas.' })
-                        ] 
-                    })
-                ], 
-
+                taskLists: null,
                 addNewList: function() {
 
                     var newList = new TaskList({ active: true });
@@ -69,15 +56,36 @@ steal(
 
                 'inserted' : function() {
 
+
+                    if (!store.get('tasklist')) {
+                        console.log('initializing tasklist localstorage for first time');
+                        store.set('tasklist', {
+                            'taskLists': [ new TaskList({}).serialize() ],
+                            'settings': {
+                                colorscheme: 'default'
+                            }
+                        });
+                    } else {
+                        console.log('using existing tasklist localstorage data');
+                    }
+
+ 
+                    var taskLists = store.get('tasklist')['taskLists'].map(function(taskList) {
+                        return new TaskList({
+                            active: taskList.active,
+                            tasks: taskList.tasks.map(function(task) {
+                                return new Task({
+                                    text: task.text,
+                                    complete: task.complete
+                                });
+                            })
+                        });
+                    });
+
                     /* set last task list to active */
-                    var taskLists = this.viewModel.attr('taskLists');
-                    var targetIndex = taskLists.length - 1;
+                    this.viewModel.attr('taskLists', taskLists);
+                    var targetIndex = this.viewModel.attr('taskLists').length - 1;
                     this.viewModel.attr('activeIndex', targetIndex);
-                    var appData = can.store.get('tasklist');
-
-                    appData.taskLists = taskLists.serialize();
-                    can.store.set('tasklist', appData);
-
                 },
 
                 // Scroll Events when adding new list or expanding list 
@@ -97,9 +105,10 @@ steal(
                 '{taskLists} change': function() {
                     /* update storage */
                     var taskLists = this.viewModel.attr('taskLists');
-                    var appData = can.store.get('tasklist');
+                    var appData = store.get('tasklist');
                     appData.taskLists = taskLists.serialize();
-                    can.store.set('tasklist', appData);
+                    store.set('tasklist', appData);
+                    console.log('saving tasklists to local storage ...');
                 },
 
                 'i click': function() {

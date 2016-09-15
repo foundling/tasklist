@@ -35,23 +35,12 @@ steal(
         fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles,
         defaultColors, colorschemes,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        Store, converters 
+        store, converters 
     ) {
-
-        can.store = Store;
-        if (!can.store.get('tasklist')) {
-            can.store.set('tasklist', {
-                'taskLists': [],
-                'settings': {
-                    colorscheme: 'default'
-                }
-            });
-        }
 
         var ViewModel = can.Map({
             settingsActive: false,
             view: '',
-            colorscheme: can.store.get('tasklist')['settings']['colorscheme'],
             views: {
                 title:      TitleView,
                 singlelist: SingleListView, 
@@ -59,18 +48,15 @@ steal(
                 settings:   SettingsView,
             },
             switchView: function (viewName) {
-                var nextView = this.attr('views')[viewName];
-                var compiledView = nextView(new ViewModel({view: nextView}));
-                $('#app').html(compiledView);
-
+                viewName = (typeof viewName === 'function') ?  viewName() : viewName;
+                nextView = this.attr('views')[viewName];
+                nextViewCompiled = nextView(new ViewModel({view: nextView}));
+                $('#app').html(nextViewCompiled);
             }
         });
 
         var vm = new ViewModel({view: 'title'});
         var compiledView = TitleView(vm);
         $('#app').html(compiledView);
-
-        // turn addClass to toggleClass, put the function somewhere more general. in component
-
 
 });
