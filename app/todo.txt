@@ -2,6 +2,8 @@ immediate:
 
 bind touch events in tasklist crud
 build modal windows for desktop and mobile
+add drag icon
+add some fx to icon tap actions
 
 upcoming:
 

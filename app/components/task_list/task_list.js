@@ -67,7 +67,8 @@ steal(
                     $('app-task-list').draggable({
                         helper: 'clone',
                         snap: 'app-task-list',
-                        stack: 'app-task-list'
+                        stack: 'app-task-list',
+                        scroll: true
                     });
 
                     $('app-task-list').on('dragstart', function(ev) {
