@@ -32,8 +32,8 @@
                 </li>
             </ul>
             {{/with}}
-            <div id="colortheme-slider"></div>
         </li>
+        <div id="colortheme-slider"></div>
 
 
         <li>

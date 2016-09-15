@@ -56,6 +56,7 @@ steal(
                         min:    0,
                         max:    this.viewModel.attr('colorschemes').length - 1,
                         step:   1,
+                        animate: 'fast'
                     });
                 },
 
