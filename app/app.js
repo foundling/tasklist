@@ -15,6 +15,7 @@ steal(
     'app/assets/styles/colors-default.less!',
     'app/models/colorschemes.js',
 
+    'app/components/title_page/title_page.js',
     'app/components/app_container/app_container.js',
     'app/components/header/header.js',
     'app/components/content_window/content_window.js',
@@ -32,7 +33,7 @@ steal(
         TitleView, SingleListView, MultiListView, 
         fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles,
         defaultColors, colorschemes,
-        Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
+        TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         Store, converters 
     ) {
 
@@ -59,20 +60,18 @@ steal(
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];
                 var compiledView = nextView(new ViewModel({view: nextView}));
+                // look up current view here
+                // append next view, call callback
                 $('#app').html(compiledView);
+
             }
         });
 
         var vm = new ViewModel({view: 'title'});
         var compiledView = TitleView(vm);
         $('#app').html(compiledView);
-        setTimeout(function() {
-            $('div.title-view-wrapper').addClass('fade-in-bg'); 
-            setTimeout(function() {
-                $('h1.app-content-window-title').addClass('fade-in-text-shadow'); 
-                $('h1.app-content-window-title').addClass('fade-in-color'); 
-            });
-        }, 0);
+
+        // turn addClass to toggleClass, put the function somewhere more general. in component
 
 
 });

@@ -35,7 +35,7 @@ steal(
                 },
                 exportTaskLists: function() {
                     var exportFormat = this.attr('exportFormat');
-                    var exportContent = can.store.get('tasklist');
+                    var exportContent = can.store.get('tasklist')['taskLists'];
                     var convertedContent = converter.convert(exportContent, exportFormat);
                     this.attr('exportContent', convertedContent);
                     this.attr('exportModalActive', !this.attr('exportModalActive'));
@@ -50,8 +50,6 @@ steal(
                 },
 
                 '{viewModel colorscheme} change': function() {
-                    console.log(this.viewModel.attr('colorscheme'));
-                    console.log(can.store.get('tasklist'));
                 }
             } 
         });

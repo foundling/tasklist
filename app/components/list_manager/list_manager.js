@@ -77,7 +77,6 @@ steal(
 
                     appData.taskLists = taskLists.serialize();
                     can.store.set('tasklist', appData);
-                    console.log('init tasklist storage', can.store.get('tasklist'));
 
                 },
 
@@ -101,7 +100,9 @@ steal(
                 '{taskLists} change': function() {
                     /* update storage */
                     var taskLists = this.viewModel.attr('taskLists');
-                    can.store.set('tasklist', taskLists.serialize());
+                    var appData = can.store.get('tasklist');
+                    appData.taskLists = taskLists.serialize();
+                    can.store.set('tasklist', appData);
                 },
 
                 'i click': function() {

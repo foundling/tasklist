@@ -1,0 +1,35 @@
+div.title-view-wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    transition: background 1s ease;
+
+    h1.app-content-window-title {
+        cursor: pointer;
+        color: white;
+        transition: color 1s ease-in, text-shadow 1s ease-in;
+        letter-spacing: 1px;
+        text-shadow: 1px 3px 0px transparent;
+    }
+
+    h1.app-content-window-title.fade-in-text-shadow {
+        text-shadow: 1px 3px 0px black;
+    }
+
+}
+
+div.title-view-wrapper.fade-in-bg {
+    background: red;
+}
+
+h1.app-content-window-title.fade-in-text-shadow {
+    text-shadow: 1px 3px 0px black !important;
+}
+
+h1.app-content-window-title.fade-in-color {
+    color: black;
+}
