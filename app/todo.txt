@@ -1,8 +1,13 @@
 immediate:
 
-bind touch events
+bind touch events in tasklist crud
 
 upcoming:
+
+
+
+
+thoughts:
 
 
 Modal Windows, for tasklist delete confirmation,  
