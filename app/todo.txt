@@ -1,6 +1,7 @@
 immediate:
 
 bind touch events in tasklist crud
+build modal windows for desktop and mobile
 
 upcoming:
 

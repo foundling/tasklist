@@ -80,7 +80,7 @@ steal(
                     }, 'slow');
 
                 },
-                'input.task-list-title-input click': function(el, ev) {
+                'input.task-list-title-input click, input.task-list-title-input touchstart': function(el, ev) {
                     ev.stopPropagation();
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
