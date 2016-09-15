@@ -15,28 +15,26 @@
 {{ else }}
 
 <div class="settings-wrapper">
+
     <ul>
         <li>
             <h1>Select a Color Scheme:</h1>
-            {{#each colorschemes}}
+
+            {{#with colorscheme}}
             <ul class="colorscheme-list">
                 <li>
-                    <h1>{{ %key }}</h1>
+                    <h1>{{ name }}</h1>
                     <div class="color-chip-wrapper">
-                        {{#each . }}
+                        {{#each colors}}
                             <div class="color-chip" style="background:{{.}}"></div>
                         {{/each}}
-                        <input  type="radio"
-                                class="colorscheme-selection" 
-                                name="colorscheme" 
-                                value="{{ %key }}"
-                                can-value="../colorscheme"
-                                {{#is %key ../colorscheme}}checked{{/is}} />
                     </div>
                 </li>
             </ul>
-            {{/each}}
+            {{/with}}
+            <div id="colortheme-slider"></div>
         </li>
+
 
         <li>
             <h1>Export to:</h1>

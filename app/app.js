@@ -46,7 +46,6 @@ steal(
                 }
             });
         }
-        console.log(can.store.get('tasklist'));
 
         var ViewModel = can.Map({
             settingsActive: false,

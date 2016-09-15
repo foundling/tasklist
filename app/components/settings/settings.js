@@ -1,6 +1,9 @@
 steal(
 
     'can',
+    'jquery',
+    'jquery-ui',
+    'node_modules/jquery-ui-dist/jquery-ui.css!',
 
     'app/models/colorschemes.js',
 
@@ -11,7 +14,7 @@ steal(
     './settings.less!',
 
     function(
-        can, 
+        can, $, jqueryUI, jqueryUIStyles,
         colorschemes,
         converter,
         Clipboard,
@@ -28,7 +31,7 @@ steal(
                 exportFormat: 'markdown', 
                 exportContent: '',
                 cloudProvider: 'Google Drive', 
-                colorscheme: 'default',
+                colorscheme: colorschemes[0],
                 colorschemes: colorschemes,
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
@@ -47,8 +50,20 @@ steal(
             events: {
 
                 'inserted': function() {
+
+                    $('#colortheme-slider').slider({
+                        value:  0, 
+                        min:    0,
+                        max:    this.viewModel.attr('colorschemes').length - 1,
+                        step:   1,
+                    });
                 },
 
+                '#colortheme-slider slide': function(el, ev, data) {
+                    var newColorscheme = this.viewModel.attr('colorschemes.' + data.value);
+                    this.viewModel.attr('colorscheme', newColorscheme);
+                    console.log('colorscheme changed to: ', this.viewModel.attr('colorscheme.name'));
+                },
                 '{viewModel colorscheme} change': function() {
                 }
             } 

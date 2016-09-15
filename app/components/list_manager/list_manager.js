@@ -105,7 +105,6 @@ steal(
                 'i click': function() {
                     var taskLists = this.viewModel.attr('taskLists');
                     var overflowed = $('.task-list').height() * taskLists.length > $('.lists-wrapper').height();
-                    console.log(overflowed);
                     this.viewModel.attr('overflow', overflowed);
                 } 
             }
