@@ -57,8 +57,6 @@
 
     </ul>
 
-    <i can-click="toggleSettings" class="settings fa fa-cog"></i>
-
 </div>
 
 {{/if}}

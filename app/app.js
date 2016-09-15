@@ -5,6 +5,7 @@ steal(
     'app/views/title_view.stache!',
     'app/views/single_list_view.stache!',
     'app/views/multi_list_view.stache!',
+    'app/views/settings_view.stache!',
 
     'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
     'app/assets/styles/app.less!',
@@ -30,7 +31,7 @@ steal(
 
     function(
         can, 
-        TitleView, SingleListView, MultiListView, 
+        TitleView, SingleListView, MultiListView, SettingsView, 
         fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles,
         defaultColors, colorschemes,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
@@ -55,12 +56,11 @@ steal(
                 title:      TitleView,
                 singlelist: SingleListView, 
                 multilist:  MultiListView,
+                settings:   SettingsView,
             },
             switchView: function (viewName) {
                 var nextView = this.attr('views')[viewName];
                 var compiledView = nextView(new ViewModel({view: nextView}));
-                // look up current view here
-                // append next view, call callback
                 $('#app').html(compiledView);
 
             }

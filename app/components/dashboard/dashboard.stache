@@ -1,6 +1,15 @@
 <footer class="dashboard colorscheme-{{ view }}">
-{{^is view 'title'}}
-    <i can-click="toggleSettings" class="settings fa fa-cog"></i>
+
+{{#is view 'title'}}
 {{/is}}
+
+{{#is view 'multilist'}}
+    <i can-click="switchView 'settings'" class="settings fa fa-cog"></i>
+{{/is}}
+
+{{#is view 'settings'}}
+    <i can-click="switchView 'multilist'" class="settings fa fa-cog"></i>
+{{/is}}
+
 {{#if overflow}}<i class="to-top fa fa-caret-up"></i>{{/if}}
 </footer>

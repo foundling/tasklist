@@ -1,0 +1,7 @@
+<app-container>
+
+    <app-settings view="settings" />
+
+    <app-dashboard view="settings"/>
+
+</app-container>
