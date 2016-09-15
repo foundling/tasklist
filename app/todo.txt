@@ -1,4 +1,9 @@
-UI Design:
+immediate:
+
+bind touch events
+
+upcoming:
+
 
 Modal Windows, for tasklist delete confirmation,  
 Convert as much as possible to relative h/w. 

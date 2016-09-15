@@ -1,1 +1,2 @@
 overflow detection not working correctly.
+no touch events on task list, handle those.

@@ -94,9 +94,6 @@ steal(
                     listManager.animate({ scrollTop: amt }, 'fast');
                 },
 
-                'i.add-task click': function() {
-                },
-
                 '{taskLists} change': function() {
                     /* update storage */
                     var taskLists = this.viewModel.attr('taskLists');
