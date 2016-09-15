@@ -62,7 +62,11 @@ steal(
             },
             events: {
                 'inserted': function(el, ev) {
-                    $('div.tasks-wrapper.draggable').draggable();
+                    $('app-task-list').draggable({
+                        helper: 'clone',
+                        snap: 'app-task-list',
+                        stack: 'app-task-list'
+                    });
                 },
                 'i.add-task click': function(el, ev) {
 
@@ -80,11 +84,7 @@ steal(
                     ev.stopPropagation();
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
-                    console.log(this.viewModel.attr('editing'));
-
-
                 }
-
             }
         });
 })

@@ -1,4 +1,4 @@
-<ul class="task-list draggable">
+<ul class="task-list">
 
     <li class="task-list-title {{#is open 'true'}}expanded{{/is}}">
 

@@ -1,55 +1,38 @@
-Principles:
+UI Design:
 
-    Great to use, addictive.
-    Free.
-    Syncable with some major cloud storage vendor apis.
-    Offline (no cloud syncing).
+Modal Windows, for tasklist delete confirmation,  
+Convert as much as possible to relative h/w. 
 
-Todos:
+CSS ANIMATIONS:
 
-    UI Design:
+Initial color animation.
+Fade in/out animations on view changes.
 
-    Modal Windows, for tasklist delete confirmation,  
-    Convert as much as possible to relative h/w. 
+TASK LIST MANAGER:
 
-    Usability:
-    Use one plus button in the list manager, but if a list is open, it adds a new task.  
-    when it's closed, a new tasklist is created and added to the end of the tasklists. 
+Smoother scrolling for mobile.
+Auto scroll down to a newly added task. 
+Up and down shortcuts.
 
-    Make tasklist's height some perecentage of the wrapper.
+VIEWS:
 
-    INPUT USABILITY:
+settings view
+    export to markdown
 
-    CSS ANIMATIONS:
 
-    Initial color animation.
-    Fade in/out animations on view changes.
+single task view:
+  + add icon next to individual task to trigger single task view. 
+  + single task view should show task text and have a box for futher data
 
-    TASK LIST MANAGER:
+CRUD:
 
-    Smoother scrolling for mobile.
-    Auto scroll down to a newly added task. 
-    Up and down shortcuts.
+Modify task title
+hookup local storage
 
-    VIEWS:
+ROUTER:
 
-    settings view
-        export to markdown
-    
-
-    single task view:
-      + add icon next to individual task to trigger single task view. 
-      + single task view should show task text and have a box for futher data
-
-    CRUD:
-
-    Modify task title
-    hookup local storage
-
-    ROUTER:
-
-    add routes:
-      /your lists
-      /<list-name>
-      /<task-name>
-      /dashboard
+add routes:
+  /your lists
+  /<list-name>
+  /<task-name>
+  /dashboard

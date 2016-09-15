@@ -1,0 +1,4 @@
+clone element, drag that?
+set z-index of dragged element above other tasks
+snap to other tasks
+
