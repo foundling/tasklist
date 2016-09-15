@@ -11,5 +11,5 @@
     <i can-click="switchView 'multilist'" class="settings fa fa-cog"></i>
 {{/is}}
 
-{{#if overflow}}<i class="to-top fa fa-caret-up"></i>{{/if}}
+<i class="to-top fa {{#unless overflow}}invisible{{/unless}} fa-caret-up"></i>
 </footer>
