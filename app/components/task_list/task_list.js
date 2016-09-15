@@ -62,10 +62,21 @@ steal(
             },
             events: {
                 'inserted': function(el, ev) {
+                    var self = this;
+
                     $('app-task-list').draggable({
                         helper: 'clone',
                         snap: 'app-task-list',
                         stack: 'app-task-list'
+                    });
+
+                    $('app-task-list').on('dragstart', function(ev) {
+                        // learn what returning false and event preventDefault calls do
+                        var taskLists = self.viewModel.attr('taskLists'); 
+                        console.log(taskLists.length);
+                        if (taskLists.length < 2) {
+                            return false;
+                        }
                     });
                 },
                 'i.add-task click': function(el, ev) {
