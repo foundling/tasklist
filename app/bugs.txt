@@ -1,4 +1,3 @@
 1. input focus event - bug in chrome ios, virtual keyboard not active
 
-2. (unclear) CRUD issue resulting from adding/removing tasks/tasklists:
-  when I add a tasklist, adding  map.js:299 Uncaught Error: can.Map: Object does not exist
+2. after going to settings and back: can't add tasklists [map.js:299 Uncaught Error: can.Map: Object does not exist].
