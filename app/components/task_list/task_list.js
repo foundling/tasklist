@@ -62,23 +62,51 @@ steal(
             },
             events: {
                 'inserted': function(el, ev) {
+/*
                     var self = this;
 
-                    $('app-task-list').draggable({
-                        helper: 'clone',
-                        snap: 'app-task-list',
-                        stack: 'app-task-list',
-                        scroll: true
-                    });
+                    $('app-task-list')
+                        .draggable({
+                            helper: 'clone',
+                            snap: 'app-task-list',
+                            stack: 'app-task-list',
+                            scroll: true
+                        })
+                        .on('dragstart', function(ev) {
+                            var taskLists = self.viewModel.attr('taskLists'); 
+                            if (taskLists.length < 2) {
+                                return false;
+                            }
+                            console.log('drag start');
+                        });
 
-                    $('app-task-list').on('dragstart', function(ev) {
-                        // learn what returning false and event preventDefault calls do
-                        var taskLists = self.viewModel.attr('taskLists'); 
-                        if (taskLists.length < 2) {
-                            return false;
-                        }
-                    });
+                    $('app-task-list')
+                        .droppable({
+                            accept: 'app-task-list'
+                        });
+                    $('app-task-list')
+                        .on('dragover', function(ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            console.log('dragover');
+                        })
+                        .on('dragleave', function(ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            console.log('dragleave');
+                        })
+                        .on('drop', function(ev) {
+                            ev.preventDefault();
+                            ev.stopPropagation();
+                            console.log('drop');
+                        })
+                        */
+
                 },
+
+                'app-task-list dragstart': function(el, ev) {
+                },
+
                 'i.add-task click': function(el, ev) {
 
                     var taskList = el.closest('.task-list');
@@ -91,11 +119,12 @@ steal(
                     }, 'slow');
 
                 },
+
                 'input.task-list-title-input click, input.task-list-title-input touchstart': function(el, ev) {
                     ev.stopPropagation();
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
-                }
+                },
             }
         });
 })

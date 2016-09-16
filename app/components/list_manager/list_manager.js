@@ -56,6 +56,12 @@ steal(
 
                 'inserted' : function() {
 
+                    // make tasks sortable
+                    $('div.lists-wrapper').sortable({
+                        items: '> app-task-list',
+                        axis: 'y'
+                    });
+
 
                     // init storage
                     if (!store.get('tasklist')) {
