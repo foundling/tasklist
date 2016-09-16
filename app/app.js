@@ -12,6 +12,7 @@ steal(
     'app/assets/styles/z-index.less!',
     'app/assets/styles/icons.less!',
     'app/assets/styles/fonts.less!',
+    'app/assets/styles/drag_and_drop.less!',
 
     'app/assets/styles/colors-default.less!',
     'app/models/colorschemes.js',

@@ -17,6 +17,9 @@ steal(
         ListView,
         taskListStyles
     ){
+        var dragIndex; 
+        var draggedTask;
+
         can.Component.extend({
             tag: 'app-task-list',
             template: ListView,
@@ -62,49 +65,75 @@ steal(
             },
             events: {
                 'inserted': function(el, ev) {
-/*
                     var self = this;
 
                     $('app-task-list')
                         .draggable({
+                            axis: 'y',
                             helper: 'clone',
                             snap: 'app-task-list',
                             stack: 'app-task-list',
-                            scroll: true
-                        })
-                        .on('dragstart', function(ev) {
-                            var taskLists = self.viewModel.attr('taskLists'); 
-                            if (taskLists.length < 2) {
-                                return false;
+                            scroll: true,
+                            drag: function(ev) {
+                                console.log('drag');
+                            },
+                            start: function(ev) {
+                                var taskLists = self.viewModel.attr('taskLists'); 
+                                dragIndex = $(ev.target).index();
+                                if (taskLists.length < 2) {
+                                    return false;
+                                }
+                                console.log('start');
+                            },
+                            stop: function(ev) {
+                                console.log('stop');
                             }
-                            console.log('drag start');
                         });
 
-                    $('app-task-list')
+                    // if target is a ul.task-list, do splice
+                    $('ul.task-list')
                         .droppable({
-                            accept: 'app-task-list'
+                            greedy: true,
+                            tolerance: 'fit',
+                            drop: function(ev) {
+
+                                /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
+                                 * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
+                                 * for droppable.
+                                 */
+                                console.log('drop target: ',ev.target);
+
+                                var dropIndex = $(ev.target).closest('app-task-list').index();
+                                draggedTask = self.viewModel.attr('taskLists.' + dragIndex) 
+
+                                console.log('dropIndex: ', dropIndex);
+                                console.log('draggedTask', draggedTask);
+                                // i'm copying here? 
+                                self.viewModel.attr('taskLists').splice(dropIndex, 0, draggedTask);
+                                self.viewModel.attr('taskLists').splice(dragIndex + 1, 1);
+
+                            }
                         });
-                    $('app-task-list')
-                        .on('dragover', function(ev) {
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                            console.log('dragover');
-                        })
-                        .on('dragleave', function(ev) {
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                            console.log('dragleave');
-                        })
-                        .on('drop', function(ev) {
-                            ev.preventDefault();
-                            ev.stopPropagation();
-                            console.log('drop');
-                        })
-                        */
 
-                },
+                    // if the target is a list-wrapper, put task at end
+                    $('div.lists-wrapper')
+                        .droppable({
+                            greedy: true,
+                            drop: function(ev) {
 
-                'app-task-list dragstart': function(el, ev) {
+                                /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
+                                 * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
+                                 * for droppable.
+                                 */
+                                
+                                console.log('drop target: ',ev.target);
+                                // if the target is a list-wrapper, put task at end
+                                // if target is a ul.task-list, do splice
+                                self.viewModel.attr('taskLists').push(draggedTask);
+                                self.viewModel.attr('taskLists').splice(dragIndex, 1);
+                            }
+                        });
+
                 },
 
                 'i.add-task click': function(el, ev) {
