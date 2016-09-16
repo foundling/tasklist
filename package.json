@@ -2,7 +2,7 @@
   "name": "tasklist",
   "version": "1.0.0",
   "description": "HTML5 mobile-centric tasklist",
-  "main": "app/app.js",
+  "main": "app/main.js",
   "scripts": {
     "build": "steal-tools"
   },

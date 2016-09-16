@@ -25,7 +25,6 @@ steal(
 
                 activeIndex: null,
                 overflow: false,
-                taskLists: null,
                 addNewList: function() {
 
                     var newList = new TaskList({ active: true });
@@ -56,21 +55,7 @@ steal(
 
                 'inserted' : function() {
 
-                    // init storage
-                    if (!store.get('tasklist')) {
-                        console.log('initializing tasklist localstorage for first time');
-                        store.set('tasklist', {
-                            'taskLists': [ new TaskList({}).serialize() ],
-                            'settings': {
-                                colorscheme: 'default'
-                            }
-                        });
-                    } else {
-                        console.log('using existing tasklist localstorage data');
-                    }
-
- 
-                    var taskLists = store.get('tasklist')['taskLists'].map(function(taskList) {
+                    var taskListsFromLocalStorage = store.get('tasklist')['taskLists'].map(function(taskList) {
                         return new TaskList({
                             active: taskList.active,
                             tasks: taskList.tasks.map(function(task) {
@@ -81,11 +66,7 @@ steal(
                             })
                         });
                     });
-
-                    /* set last task list to active */
-                    this.viewModel.attr('taskLists', taskLists);
-                    var targetIndex = this.viewModel.attr('taskLists').length - 1;
-                    this.viewModel.attr('activeIndex', targetIndex);
+                    this.viewModel.attr('taskLists', taskListsFromLocalStorage);
 
                     // init overflow
                     var taskLists = this.viewModel.attr('taskLists');
@@ -113,11 +94,9 @@ steal(
                     var appData = store.get('tasklist');
                     appData.taskLists = taskLists.serialize();
                     store.set('tasklist', appData);
-                    console.log('saving tasklists to local storage ...');
                 },
 
                 'i click': function() {
-                    console.log('click');
                     var taskLists = this.viewModel.attr('taskLists');
 
                     // refactor this. why won't reduce work on the heights array?

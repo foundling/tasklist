@@ -38,26 +38,30 @@ steal(
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
+        return function(taskLists) {
 
-        var ViewModel = can.Map({
-            settingsActive: false,
-            view: '',
-            views: {
-                title:      TitleView,
-                singlelist: SingleListView, 
-                multilist:  MultiListView,
-                settings:   SettingsView,
-            },
-            switchView: function (viewName) {
-                viewName = (typeof viewName === 'function') ?  viewName() : viewName;
-                nextView = this.attr('views')[viewName];
-                nextViewCompiled = nextView(new ViewModel({view: nextView}));
-                $('#app').html(nextViewCompiled);
-            }
-        });
+            var ViewModel = can.Map({
+                settingsActive: false,
+                view: '',
+                views: {
+                    title:      TitleView,
+                    singlelist: SingleListView, 
+                    multilist:  MultiListView,
+                    settings:   SettingsView,
+                },
+                taskLists: taskLists,
+                switchView: function (viewName) {
+                    viewName = (typeof viewName === 'function') ?  viewName() : viewName;
+                    nextView = this.attr('views')[viewName];
+                    nextViewCompiled = nextView(new ViewModel({view: nextView}));
+                    $('#app').html(nextViewCompiled);
+                }
+            });
 
-        var vm = new ViewModel({view: 'title'});
-        var compiledView = TitleView(vm);
-        $('#app').html(compiledView);
+            var vm = new ViewModel({view: 'title'});
+            var compiledView = TitleView(vm);
+            $('#app').html(compiledView);
+
+        };
 
 });
