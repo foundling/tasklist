@@ -13,17 +13,15 @@ steal(
         colorschemes
     ) {
 
+        var defaultAppData;
+
         // localStorage initialization code here
         if (!store.get('tasklist')) {
-            console.log('initializing tasklist localstorage for first time');
-            store.set('tasklist', {
+            defaultAppData = {
                 'taskLists': [ new TaskList({}).serialize() ],
-                'settings': {
-                    colorscheme: colorschemes[0]
-                }
-            });
-        } else {
-            console.log('using existing tasklist localstorage data');
+                'settings': { colorscheme: colorschemes[0] } // first is 'default' 
+            };
+            store.set('tasklist', defaultAppData);
         }
 
         app();
