@@ -33,7 +33,7 @@ steal(
     function(
         can, 
         TitleView, SingleListView, MultiListView, SettingsView, 
-        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles,
+        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles, dragAndDropStyles,
         defaultColors, colorschemes,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
@@ -43,6 +43,7 @@ steal(
             var ViewModel = can.Map({
                 settingsActive: false,
                 view: '',
+                colorscheme: store.get('tasklist').settings.colorscheme,
                 views: {
                     title:      TitleView,
                     singlelist: SingleListView, 
