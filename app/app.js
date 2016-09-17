@@ -13,9 +13,7 @@ steal(
     'app/assets/styles/icons.less!',
     'app/assets/styles/fonts.less!',
     'app/assets/styles/drag_and_drop.less!',
-
     'app/assets/styles/colorschemes.less!',
-    'app/models/colorschemes.js',
 
     'app/components/title_page/title_page.js',
     'app/components/app_container/app_container.js',
@@ -33,8 +31,7 @@ steal(
     function(
         can, 
         TitleView, SingleListView, MultiListView, SettingsView, 
-        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles, dragAndDropStyles,
-        colorschemeStyles, colorschemes,
+        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles, dragAndDropStyles, colorschemeStyles,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
