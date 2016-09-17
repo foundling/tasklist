@@ -14,7 +14,7 @@ steal(
     'app/assets/styles/fonts.less!',
     'app/assets/styles/drag_and_drop.less!',
 
-    'app/assets/styles/colors-default.less!',
+    'app/assets/styles/colorschemes.less!',
     'app/models/colorschemes.js',
 
     'app/components/title_page/title_page.js',
@@ -34,7 +34,7 @@ steal(
         can, 
         TitleView, SingleListView, MultiListView, SettingsView, 
         fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles, dragAndDropStyles,
-        defaultColors, colorschemes,
+        colorschemeStyles, colorschemes,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
