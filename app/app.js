@@ -31,7 +31,7 @@ steal(
     function(
         can, 
         TitleView, SingleListView, MultiListView, SettingsView, 
-        fontAwesomeStyles, appStyles, zIndexeStyles, iconStyles, fontStyles, dragAndDropStyles, colorschemeStyles,
+        fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, colorschemeStyles,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
