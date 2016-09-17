@@ -21,10 +21,10 @@ steal(
                 'inserted': function(el, ev) {
 
                     setTimeout(function() {
-                        $('div.title-view-wrapper').addClass('fade-in-bg'); 
+                        $('div.title-view-wrapper').addClass('red-bg'); 
                         setTimeout(function() {
-                            $('h1.app-content-window-title').addClass('fade-in-text-shadow'); 
-                            $('h1.app-content-window-title').addClass('fade-in-color'); 
+                            $('h1.app-content-window-title').addClass('text-shadow'); 
+                            $('h1.app-content-window-title').addClass('color'); 
                         });
                     }, 0);
 
