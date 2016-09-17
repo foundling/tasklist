@@ -39,7 +39,7 @@ steal(
 
             var ViewModel = can.Map({
                 settingsActive: false,
-                view: '',
+                view: 'title',
                 colorscheme: store.get('tasklist').settings.colorscheme,
                 views: {
                     title:      TitleView,
@@ -55,7 +55,7 @@ steal(
                 }
             });
 
-            var vm = new ViewModel({view: 'title'});
+            var vm = new ViewModel();
             var compiledView = TitleView(vm);
             $('#app').html(compiledView);
 
