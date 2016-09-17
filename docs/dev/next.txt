@@ -1,0 +1,5 @@
+# Next Steps
+
+Solidify drag and drop functionality.
+Pull out all color-related styles from style sheets, rename them if needed and parameterize colorschemes.
+
