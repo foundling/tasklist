@@ -38,7 +38,7 @@ steal(
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
-        return function(taskLists) {
+        return function() {
 
             var ViewModel = can.Map({
                 settingsActive: false,
@@ -49,7 +49,6 @@ steal(
                     multilist:  MultiListView,
                     settings:   SettingsView,
                 },
-                taskLists: taskLists,
                 switchView: function (viewName) {
                     viewName = (typeof viewName === 'function') ?  viewName() : viewName;
                     nextView = this.attr('views')[viewName];

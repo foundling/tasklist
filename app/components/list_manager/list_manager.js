@@ -23,18 +23,9 @@ steal(
             template: ListManagerView, 
             viewModel: {
 
-                activeIndex: null,
                 overflow: false,
                 addNewList: function() {
-
-                    var newList = new TaskList({ active: true });
-                    var taskLists = this.attr('taskLists');  
-                    var activeIndex = this.attr('activeIndex');
-
-                    taskLists.attr(activeIndex + '.active', false);
-                    taskLists.push(newList);
-                    taskLists.attr('activeIndex', taskLists.indexOf(newList));
-
+                    this.attr('taskLists').push(new TaskList({ active: true }));
                 },
 
                 removeList: function(index) {
