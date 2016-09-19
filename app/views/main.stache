@@ -1,0 +1,54 @@
+<app-container {(theme)}="theme">
+
+    {{#is view 'title'}}
+        <app-title-page view="title" />
+    {{/is}}
+
+    {{#is view 'singlelist'}}
+        <app-header></app-header>
+        <app-content-window>
+
+            <app-task-list>
+
+                {{#each tasks}}
+                {{ log }}
+                <app-task {task}="." />
+                {{/each}}
+
+            </app-task-list>
+
+        </app-content-window>
+        <app-dashboard></app-dashboard>
+    {{/is}}
+
+    {{#is view 'multilist'}}
+        <app-header view="multilist"/>
+
+        <!-- inter component communication of overflow acchieved by exporting list manager overflow properties 
+             exported up to app-container and back down to dashboard -->
+        <app-content-window {^overflow}="overflow">
+            <app-list-manager {^overflow}="overflow">
+
+                {{#each taskLists}}
+                <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
+
+                    {{#each tasks}}
+                    <app-task {task}="." {task-list}="taskList" />
+                    {{/each}}
+
+                </app-task-list>
+                {{/each}}
+
+            </app-list-manager>
+        </app-content-window>
+
+        <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
+
+
+    {{/is}}
+
+    {{#is view 'settings'}}
+    <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings" {(theme)}="theme"/>
+    {{/is}}
+
+</app-container>

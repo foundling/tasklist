@@ -1,7 +1,4 @@
-<footer class="dashboard theme-{{ view }}">
-
-{{#is view 'title'}}
-{{/is}}
+<footer class="dashboard">
 
 {{#is view 'multilist'}}
     <i can-click="switchView 'settings'" class="settings fa fa-cog"></i>

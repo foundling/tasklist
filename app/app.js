@@ -56,13 +56,15 @@ steal(
                     viewName = (typeof viewName === 'function') ?  viewName() : viewName;
                     nextView = this.attr('views')[viewName];
                     nextViewCompiled = nextView(new ViewModel({view: nextView}));
-                    $('#app').html(nextViewCompiled);
+
+                    // keep app-container component around to preserve top-level app data state
+                    $('app-container > div').html(nextViewCompiled);
                 }
             });
 
 
             var vm = new ViewModel({});
-            vm.bind('change', function(ev, attr, how, newVal, oldVal) {
+            vm.bind('theme', function(ev, attr, how, newVal, oldVal) {
                 console.log('theme changed');
             });
             var compiledView = TitleView(vm);

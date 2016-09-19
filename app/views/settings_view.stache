@@ -1,7 +1,2 @@
-<app-container {(theme)}="theme">
-
-    <app-settings view="settings" {(theme)}="theme" />
-
-    <app-dashboard view="settings"/>
-
-</app-container>
+<app-settings view="settings" {(theme)}="theme" />
+<app-dashboard view="settings"/>
