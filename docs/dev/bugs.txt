@@ -4,4 +4,4 @@
 4. tasklist data not saving
 5. overflow - the event triggering this detection isn't getting i.fa fa-trash clicks.
 6. fix add task button css 
-7. theme data not persistent. probably not propagating up from settings to app level data.
+7. theme data persistent in local storage but not live bound throughout templates. probably not propagating up from settings to app level data.

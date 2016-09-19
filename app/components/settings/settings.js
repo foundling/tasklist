@@ -4,7 +4,7 @@ steal(
     'jquery',
     'jquery-ui',
     'node_modules/jquery-ui-dist/jquery-ui.css!',
-    'store/store.js',
+    'app/plugins/storage/storage.js',
 
 
     'app/models/themes.js',
@@ -17,7 +17,7 @@ steal(
 
     function(
         can, $, jqueryUI, jqueryUIStyles,
-        store,
+        storage,
         themes,
         converter,
         Clipboard,
@@ -41,7 +41,7 @@ steal(
                 },
                 exportTaskLists: function() {
                     var exportFormat = this.attr('exportFormat');
-                    var exportContent = can.store.get('tasklist')['taskLists'];
+                    var exportContent = storage.get('taskLists');
                     var convertedContent = converter.convert(exportContent, exportFormat);
                     this.attr('exportContent', convertedContent);
                     this.attr('exportModalActive', !this.attr('exportModalActive'));
@@ -68,15 +68,10 @@ steal(
                     var index = data.value;
                     var newTheme = this.viewModel.attr('themes.' + index);
                     this.viewModel.attr('theme', newTheme);
+                    storage.set('settings.theme', newTheme);
 
-                    // refactor this out of the app into a wrapper around store
-                    // and sync the change in settings (and elsewhere) with localstorage
-                    var appData = store.get('tasklist');
-                    appData.settings.theme = newTheme;
-                    store.set('tasklist', appData);
-                    console.log(store.get('tasklist'));
-                    // not exported up chain?
-
+                    // it's possible that the viewModel's theme prop is disconnected
+                    // from the top level component, so fix that.  
 
                 },
                 '{viewModel theme} change': function() {
