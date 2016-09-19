@@ -19,7 +19,6 @@ steal(
             init: function() {
 
                 if (!store.get('tasklist')) {
-                    console.log('initializing tasklist localstorage for first time');
                     store.set('tasklist', {
                         'taskLists': [ 
                             new TaskList({}).serialize() 
@@ -28,9 +27,7 @@ steal(
                             theme: themes[0],
                         }
                     });
-                } else {
-                    console.log('using existing tasklist localstorage data');
-                } 
+                }
             },
 
             clear: function() {

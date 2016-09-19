@@ -1,7 +1,7 @@
 steal(
 
     'can',
-    'store/store.js',
+    'app/plugins/storage/storage.js',
 
     'app/models/task_list.js',
     'app/models/task.js',
@@ -12,7 +12,7 @@ steal(
 
 
     function(
-        can, store,
+        can, storage,
         TaskList, Task,
         ListManagerView, ListManagerStyle
     ) {
@@ -46,7 +46,7 @@ steal(
 
                 'inserted' : function() {
 
-                    var taskListsFromLocalStorage = store.get('tasklist')['taskLists'].map(function(taskList) {
+                    var taskListsFromLocalStorage = storage.get('taskLists').map(function(taskList) {
                         return new TaskList({
                             active: taskList.active,
                             tasks: taskList.tasks.map(function(task) {
@@ -82,9 +82,7 @@ steal(
                 '{taskLists} change': function() {
                     /* update storage */
                     var taskLists = this.viewModel.attr('taskLists');
-                    var appData = store.get('tasklist');
-                    appData.taskLists = taskLists.serialize();
-                    store.set('tasklist', appData);
+                    storage.set('taskLists', taskLists);
                 },
 
                 'i click': function() {

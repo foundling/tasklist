@@ -1,6 +1,7 @@
 steal(
 
     'can',
+    'app/plugins/storage/storage.js',
 
     'app/views/title_view.stache!',
     'app/views/single_list_view.stache!',
@@ -29,19 +30,21 @@ steal(
     'app/plugins/converters/converters.js',
 
     function(
-        can, 
+        can, storage,
         TitleView, SingleListView, MultiListView, SettingsView, 
         fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, themeStyles,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
         return function(storage) {
+
+            // to be removed: debugging in console only
             can.storage = storage;
 
             var ViewModel = can.Map({
                 settingsActive: false,
                 view: 'title',
-                theme: store.get('tasklist').settings.theme,
+                theme: storage.get('settings.theme'),
                 views: {
                     title:      TitleView,
                     singlelist: SingleListView, 
@@ -56,7 +59,6 @@ steal(
                 }
             });
 
-            console.log(store.get('tasklist').settings.theme);
             var vm = new ViewModel();
             var compiledView = TitleView(vm);
             $('#app').html(compiledView);
