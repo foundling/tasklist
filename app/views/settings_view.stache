@@ -1,6 +1,6 @@
-<app-container>
+<app-container {(theme)}="theme">
 
-    <app-settings view="settings" />
+    <app-settings view="settings" {(theme)}="theme" />
 
     <app-dashboard view="settings"/>
 

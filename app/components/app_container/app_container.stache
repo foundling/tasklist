@@ -1,1 +1,1 @@
-<div class="app-container theme-{{theme}}"><content></div> 
+<div class="app-container theme-{{theme.name}}"><content></div> 

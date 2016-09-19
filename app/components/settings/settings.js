@@ -4,6 +4,8 @@ steal(
     'jquery',
     'jquery-ui',
     'node_modules/jquery-ui-dist/jquery-ui.css!',
+    'store/store.js',
+
 
     'app/models/themes.js',
 
@@ -15,6 +17,7 @@ steal(
 
     function(
         can, $, jqueryUI, jqueryUIStyles,
+        store,
         themes,
         converter,
         Clipboard,
@@ -62,9 +65,19 @@ steal(
                 },
 
                 '#theme-slider slide': function(el, ev, data) {
-                    var newTheme = this.viewModel.attr('themes.' + data.value);
+                    var index = data.value;
+                    var newTheme = this.viewModel.attr('themes.' + index);
                     this.viewModel.attr('theme', newTheme);
-                    console.log('theme changed to: ', this.viewModel.attr('theme.name'));
+
+                    // refactor this out of the app into a wrapper around store
+                    // and sync the change in settings (and elsewhere) with localstorage
+                    var appData = store.get('tasklist');
+                    appData.settings.theme = newTheme;
+                    store.set('tasklist', appData);
+                    console.log(store.get('tasklist'));
+                    // not exported up chain?
+
+
                 },
                 '{viewModel theme} change': function() {
                 }
