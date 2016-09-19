@@ -5,3 +5,4 @@
 5. overflow - the event triggering this detection isn't getting i.fa fa-trash clicks.
 6. fix add task button css 
 7. theme data persistent in local storage but not live bound throughout templates. probably not propagating up from settings to app level data.
+REASON: might be due to the lack of persistence of app container between views.
