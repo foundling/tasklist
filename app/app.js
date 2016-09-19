@@ -52,6 +52,7 @@ steal(
                     settings:   SettingsView,
                 },
                 switchView: function (viewName) {
+                    console.log('switching to %s and theme is %s', viewName, this.attr('theme.name'));
                     viewName = (typeof viewName === 'function') ?  viewName() : viewName;
                     nextView = this.attr('views')[viewName];
                     nextViewCompiled = nextView(new ViewModel({view: nextView}));
@@ -59,7 +60,11 @@ steal(
                 }
             });
 
-            var vm = new ViewModel();
+
+            var vm = new ViewModel({});
+            vm.bind('change', function(ev, attr, how, newVal, oldVal) {
+                console.log('theme changed');
+            });
             var compiledView = TitleView(vm);
             $('#app').html(compiledView);
 

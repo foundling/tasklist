@@ -34,7 +34,6 @@ steal(
                 exportFormat: 'markdown', 
                 exportContent: '',
                 cloudProvider: 'Google Drive', 
-                theme: themes[0],
                 themes: themes,
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
@@ -53,10 +52,17 @@ steal(
             events: {
 
                 'inserted': function() {
-                    console.log(this.viewModel);
+
+                    var themeIndex;
+                    var vmThemeName = this.viewModel.attr('theme.name');
+                    themes.forEach(function(theme, index) {
+                        if (theme.name === vmThemeName) {
+                            themeIndex = index; 
+                        } 
+                    });
 
                     $('#theme-slider').slider({
-                        value:  0, 
+                        value:  themeIndex, // index of the viewModel theme in themes model 
                         min:    0,
                         max:    this.viewModel.attr('themes').length - 1,
                         step:   1,
@@ -65,16 +71,11 @@ steal(
                 },
 
                 '#theme-slider slide': function(el, ev, data) {
-                    var index = data.value;
-                    var newTheme = this.viewModel.attr('themes.' + index);
+                    var newThemeIndex = data.value;
+                    var newTheme = this.viewModel.attr('themes.' + newThemeIndex);
                     this.viewModel.attr('theme', newTheme);
                     storage.set('settings.theme', newTheme);
 
-                    // it's possible that the viewModel's theme prop is disconnected
-                    // from the top level component, so fix that.  
-
-                },
-                '{viewModel theme} change': function() {
                 }
             } 
         });

@@ -1,4 +1,4 @@
-<app-container {overflow}="overflow" {theme}="theme">
+<app-container {overflow}="overflow" {(theme)}="theme">
 
     <app-header view="multilist"/>
 
@@ -23,7 +23,7 @@
     <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
 
     {{#if settingsActive}}
-    <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings"/>
+    <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings" {(theme)}="theme"/>
     {{/if}}
 
 </app-container>

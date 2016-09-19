@@ -26,6 +26,7 @@
                     <h1>{{ name }}</h1>
                     <div class="color-chip-wrapper">
                         {{#each colors}}
+                            {{! these need to come from the themes.less defs  }}
                             <div class="color-chip" style="background:{{.}}"></div>
                         {{/each}}
                     </div>
