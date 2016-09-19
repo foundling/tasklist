@@ -55,14 +55,16 @@ steal(
 
         set: function(path, data) {
 
-            data = (data.serialize) ? data.serialize() : data;
             var parts = path.split('.');
-            var target = store.get('tasklist');
+            var appData = store.get('tasklist');
+            var target = appData;
+            data = (data.serialize) ? data.serialize() : data;
 
             while (parts.length > 1) {
                 target = target[ parts.shift() ];
             }
             target[parts[0]] = data;
+            store.set('tasklist', appData);
         }
     };
 });

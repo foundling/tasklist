@@ -1,6 +1,6 @@
 steal(
 
-    'store/store.js', 
+    'app/plugins/storage/storage.js',
     'app/app.js', 
 
     'app/models/task_list.js',
@@ -8,23 +8,14 @@ steal(
     'app/models/themes.js',
 
     function(
-        store, app, 
+        storage,
+        app, 
         TaskList, Task, 
         themes
     ) {
 
-        var defaultAppData;
-
-        // localStorage initialization code here
-        if (!store.get('tasklist')) {
-            appData = {
-                'taskLists': [ new TaskList({}).serialize() ],
-                'settings': { theme: themes[0] } // first is 'default' 
-            };
-            store.set('tasklist', appData);
-        }
-
-        app();
+        storage.init();
+        app(storage);
 
     }
 );

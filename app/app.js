@@ -35,7 +35,8 @@ steal(
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
-        return function() {
+        return function(storage) {
+            can.storage = storage;
 
             var ViewModel = can.Map({
                 settingsActive: false,
