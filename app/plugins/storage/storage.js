@@ -1,46 +1,67 @@
 /*  A wrapper around store.js that provides string path look ups in the canjs style. */
-steal('store/store.js', function(store) {
+steal(
 
-        return {
+    'store/store.js', 
+    'app/models/task_list.js', 
+    'app/models/themes.js',
 
-            init: function() {
+    function(
+        store, 
+        TaskList,
+        themes
 
-                if (!store.get('tasklist')) {
-                    console.log('initializing tasklist localstorage for first time');
-                    store.set('tasklist', {
-                        'taskLists': [ new TaskList({}).serialize() ],
-                        'settings': {
-                            theme: 'default'
-                        }
-                    });
-                } else {
-                    console.log('using existing tasklist localstorage data');
-                } 
-            },
+    ) {
 
-            clear: function() {
-                store.clear();
-            },
+    return {
 
-            get: function(path) {
-                return store.get();
-            },
+        init: function() {
 
-            set: function(path, data) {
+            if (!store.get('tasklist')) {
+                console.log('initializing tasklist localstorage for first time');
+                store.set('tasklist', {
+                    'taskLists': [ 
+                        new TaskList({}).serialize() 
+                    ],
+                    'settings': {
+                        theme: themes[0],
+                    }
+                });
+            } else {
+                console.log('using existing tasklist localstorage data');
+            } 
+        },
 
-                var appData = store.get('tasklist');
-                var ptr = appData; 
-                var seg;
+        clear: function() {
+            store.set('tasklist','');
+        },
 
-                path.reverse();
-                path = path.split('.');
+        get: function(path) {
 
-                while (path) {
-                    seg = path.pop();
-                    ptr = ptr[seg]; 
+            if (!path) {
 
+                return store.get('tasklist');
+
+            } else {
+
+                var parts = path.split('.');
+                var target = store.get('tasklist');
+                while (parts.length) {
+                    target = target[ parts.shift() ];
                 }
+                return target;
 
             }
-        };
+        },
+
+        set: function(path, data) {
+
+            var parts = path.split('.');
+            var target = store.get('tasklist');
+
+            while (parts.length > 1) {
+                target = target[ parts.shift() ];
+            }
+            target[parts[0]] = data;
+        }
+    };
 });
