@@ -10,7 +10,7 @@ steal('store/store.js', function(store) {
                     store.set('tasklist', {
                         'taskLists': [ new TaskList({}).serialize() ],
                         'settings': {
-                            colorscheme: 'default'
+                            theme: 'default'
                         }
                     });
                 } else {

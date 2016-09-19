@@ -5,7 +5,7 @@ steal(
     'jquery-ui',
     'node_modules/jquery-ui-dist/jquery-ui.css!',
 
-    'app/models/colorschemes.js',
+    'app/models/themes.js',
 
     'app/plugins/converters/converters.js',
     'clipboard/dist/clipboard.min.js',
@@ -15,7 +15,7 @@ steal(
 
     function(
         can, $, jqueryUI, jqueryUIStyles,
-        colorschemes,
+        themes,
         converter,
         Clipboard,
         SettingsView
@@ -31,8 +31,8 @@ steal(
                 exportFormat: 'markdown', 
                 exportContent: '',
                 cloudProvider: 'Google Drive', 
-                colorscheme: colorschemes[0],
-                colorschemes: colorschemes,
+                theme: themes[0],
+                themes: themes,
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 },
@@ -50,22 +50,23 @@ steal(
             events: {
 
                 'inserted': function() {
+                    console.log(this.viewModel);
 
-                    $('#colortheme-slider').slider({
+                    $('#theme-slider').slider({
                         value:  0, 
                         min:    0,
-                        max:    this.viewModel.attr('colorschemes').length - 1,
+                        max:    this.viewModel.attr('themes').length - 1,
                         step:   1,
                         animate: 'fast'
                     });
                 },
 
-                '#colortheme-slider slide': function(el, ev, data) {
-                    var newColorscheme = this.viewModel.attr('colorschemes.' + data.value);
-                    this.viewModel.attr('colorscheme', newColorscheme);
-                    console.log('colorscheme changed to: ', this.viewModel.attr('colorscheme.name'));
+                '#theme-slider slide': function(el, ev, data) {
+                    var newTheme = this.viewModel.attr('themes.' + data.value);
+                    this.viewModel.attr('theme', newTheme);
+                    console.log('theme changed to: ', this.viewModel.attr('theme.name'));
                 },
-                '{viewModel colorscheme} change': function() {
+                '{viewModel theme} change': function() {
                 }
             } 
         });

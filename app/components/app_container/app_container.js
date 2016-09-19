@@ -1,18 +1,16 @@
 steal(
 
     'can',
+    './app_container.stache!',
 
     function(
         can, 
-        dashboardView
+        appContainerView
     ) {
 
         can.Component.extend({
             tag: 'app-container',
-            viewModel: {
-            },
-            events: {
-            }
+            template: appContainerView,
         });
 
 });

@@ -13,7 +13,7 @@ steal(
     'app/assets/styles/icons.less!',
     'app/assets/styles/fonts.less!',
     'app/assets/styles/drag_and_drop.less!',
-    'app/assets/styles/colorschemes.less!',
+    'app/assets/styles/themes.less!',
 
     'app/components/title_page/title_page.js',
     'app/components/app_container/app_container.js',
@@ -31,7 +31,7 @@ steal(
     function(
         can, 
         TitleView, SingleListView, MultiListView, SettingsView, 
-        fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, colorschemeStyles,
+        fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, themeStyles,
         TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
         store, converters 
     ) {
@@ -40,7 +40,7 @@ steal(
             var ViewModel = can.Map({
                 settingsActive: false,
                 view: 'title',
-                colorscheme: store.get('tasklist').settings.colorscheme,
+                theme: store.get('tasklist').settings.theme,
                 views: {
                     title:      TitleView,
                     singlelist: SingleListView, 

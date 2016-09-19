@@ -1,7 +1,9 @@
-<app-container {overflow}="overflow">
+<app-container {overflow}="overflow" {theme}="theme">
 
     <app-header view="multilist"/>
 
+    <!-- inter component communication of overflow acchieved by exporting list manager overflow properties 
+         exported up to app-container and back down to dashboard -->
     <app-content-window {^overflow}="overflow">
         <app-list-manager {^overflow}="overflow">
 

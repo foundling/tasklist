@@ -5,23 +5,23 @@ steal(
 
     'app/models/task_list.js',
     'app/models/task.js',
-    'app/models/colorschemes.js',
+    'app/models/themes.js',
 
     function(
         store, app, 
         TaskList, Task, 
-        colorschemes
+        themes
     ) {
 
         var defaultAppData;
 
         // localStorage initialization code here
         if (!store.get('tasklist')) {
-            defaultAppData = {
+            appData = {
                 'taskLists': [ new TaskList({}).serialize() ],
-                'settings': { colorscheme: colorschemes[0] } // first is 'default' 
+                'settings': { theme: themes[0] } // first is 'default' 
             };
-            store.set('tasklist', defaultAppData);
+            store.set('tasklist', appData);
         }
 
         app();

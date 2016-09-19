@@ -1,4 +1,4 @@
-<footer class="dashboard colorscheme-{{ view }}">
+<footer class="dashboard theme-{{ view }}">
 
 {{#is view 'title'}}
 {{/is}}

@@ -1,1 +1,3 @@
-<app-title-page view="title" />
+<app-container>
+    <app-title-page view="title" />
+</app-container>

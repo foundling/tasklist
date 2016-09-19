@@ -18,10 +18,10 @@
 
     <ul>
         <li>
-            <h1>Select a Color Scheme:</h1>
+            <h1>Select a Color Theme:</h1>
 
-            {{#with colorscheme}}
-            <ul class="colorscheme-list">
+            {{#with theme}}
+            <ul class="theme-list">
                 <li>
                     <h1>{{ name }}</h1>
                     <div class="color-chip-wrapper">
@@ -33,7 +33,7 @@
             </ul>
             {{/with}}
         </li>
-        <div id="colortheme-slider"></div>
+        <div id="theme-slider"></div>
 
 
         <li>
