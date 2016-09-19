@@ -55,6 +55,7 @@ steal(
                 }
             });
 
+            console.log(store.get('tasklist').settings.theme);
             var vm = new ViewModel();
             var compiledView = TitleView(vm);
             $('#app').html(compiledView);
