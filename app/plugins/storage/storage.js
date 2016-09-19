@@ -55,6 +55,7 @@ steal(
 
         set: function(path, data) {
 
+            data = (data.serialize) ? data.serialize() : data;
             var parts = path.split('.');
             var target = store.get('tasklist');
 
