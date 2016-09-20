@@ -1,7 +1,9 @@
 steal(
 
     'can',
+    'app/router/router.js',
     'app/plugins/storage/storage.js',
+    'app/plugins/converters/converters.js',
 
     'app/views/title_view.stache!',
     'app/views/single_list_view.stache!',
@@ -26,39 +28,41 @@ steal(
     'app/components/task_list/task_list.js',
     'app/components/task/task.js',
 
-    'store/store.js',
-    'app/plugins/converters/converters.js',
 
     function(
-        can, storage,
+        can, router, storage, converters, 
         TitleView, SingleListView, MultiListView, SettingsView, 
         fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, themeStyles,
-        TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
-        store, converters 
+        TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task
     ) {
         return function(storage) {
 
-            // to be removed: debugging in console only
-            can.storage = storage;
+            can.route(':page', {page: 'landing'});
+            can.route.attr('page', 'title');
+            can.route.ready();
 
             var ViewModel = can.Map({
                 settingsActive: false,
                 view: 'title',
                 theme: storage.get('settings.theme'),
+                // really bad idea to couple the view change and the url change here. 
+                // fwd and back don't always happen when a click happens  
                 views: {
-                    title:      TitleView,
-                    singlelist: SingleListView, 
-                    multilist:  MultiListView,
-                    settings:   SettingsView,
+                    'title':        TitleView,
+                    'singlelist':   SingleListView,
+                    'multilist':    MultiListView,
+                    'settings':     SettingsView
                 },
-                switchView: function (viewName) {
-                    viewName = (typeof viewName === 'function') ?  viewName() : viewName;
-                    nextView = this.attr('views')[viewName];
-                    vm.attr('view', viewName);
-                    //nextViewCompiled = nextView( new ViewModel({view: nextView}) );
+
+                switchView: function (nextViewName) {
+
+                    nextViewName = (typeof nextViewName === 'function') ?  nextViewName() : nextViewName;
+                    nextView = this.attr('views')[nextViewName];
+                    vm.attr('view', nextViewName);
                     nextViewCompiled = nextView(vm);
                     // keep app-container component around to preserve top-level app data state
                     $('app-container > div').html(nextViewCompiled);
+                    can.route.attr('page', this.attr('urls.' + nextViewName));  
                 }
             });
 
