@@ -1,17 +1,21 @@
 @default-bg: whitesmoke;
 @default-title-text: rgb(50,50,50);
 @default-title-text-box-shadow: 1px 3px 0px lightgray;
+@default-tasklist-title-input-editing: aquamarine;
+@default-tasklist-icon1: lightgray;
+@default-tasklist-icon2: lightgray;
 
 app-container {
 
+    // app-container background
     background: @default-bg;
 
-    // title page background
+    // title page - background
     app-title-page div.title-view-wrapper {
         background: @default-bg;
     }
 
-    // title page title
+    // title page  - title
     app-title-page div.title-view-wrapper h1.app-content-window-title {
         color: @default-title-text;
         text-shadow: @default-title-text-box-shadow; 
@@ -23,17 +27,59 @@ app-container {
 
 }
 
-app-task-list ul li input.task-list-title-input {
+app-task-list {
+
+    // tasklist title input
+    input.task-list-title-input {
+        font-size: 1.5em;
+        color: @default-title-text;
+    }
+
+    // tasklist title input::editing
+    input.task-list-title-input.editing {
+        background: @default-tasklist-title-input-editing;
+    }
+
+    // tasklist title - input::expanded
+    ul li.task-list-title.expanded {
+        box-shadow: 0px 4px 0px 0px lightgray;
+    }
+
+    // tasklist expand icon
+    ul li i.toggle-list-expand,
+    ul li i.remove-list {
+        color: @default-tasklist-icon1;
+    }
+
+    // tasklist - remove task
+    ul div i.add-task {
+        color: @default-tasklist-icon1;
+    }
 
 }
 
-app-task-list ul li input.task-list-title-input.editing {
+app-task {
+
+    // task - remove task icon
+    // task - more info icon
+    // task - remove task icon
+    div i.remove-task,
+    div i.more-info,
+     {
+        color: @default-tasklist-icon1;
+    }
 }
+
+app-dashboard {
+    // dashboard - settings icon
+    footer i.settings {
+        color: @default-tasklist-icon2;
+    }
+}
+
+// task title - input::editing
 
 app-task-list ul div.task-list-wrapper {
-}
-
-i.fa {
 }
 
 app-task-list ul div i.add-task,

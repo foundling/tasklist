@@ -6,3 +6,4 @@
 6. fix add task button css 
 7. theme data persistent in local storage but not live bound throughout templates. probably not propagating up from settings to app level data.
 REASON: might be due to the lack of persistence of app container between views.
+8. box shadow on task list not working with expanded.
