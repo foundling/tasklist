@@ -154,6 +154,19 @@ steal(
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
                 },
+                '{viewModel} change': function(map, obj, prop, how, newVal, oldVal) {
+                    // to keep task lists (when contracted) to fit inside space evently,
+                    // need to toggle task list height to auto when expanded.
+                    // otherwise it should be a calc of height / n.
+                    var index = this.viewModel.attr('taskLists').indexOf(this.viewModel.attr('taskList'));
+                    console.log(index);
+                    if (prop === 'open' && newVal) {
+                        $('ul.task-list').eq(index).addClass('height-expanded');
+                    } 
+                    if (prop === 'open' && !newVal) {
+                        $('ul.task-list').eq(index).removeClass('height-expanded');
+                    }
+                }
             }
         });
 })
