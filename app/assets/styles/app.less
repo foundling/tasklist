@@ -3,7 +3,6 @@
 */
 
 html, body {
-    font-family: 'Roboto Slab', 'Arial', sans-serif;
     height: 100%;
     border: 0;
     margin: 0;
@@ -18,6 +17,8 @@ body {
 }
 
 body * {
+    font-family: 'Roboto Slab', 'Arial', sans-serif;
+    user-select: none;
     box-sizing: border-box;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
@@ -34,6 +35,11 @@ li {
 
 .invisible {
     opacity: 0 !important;
+}
+
+input {
+    background: transparent;
+    font-size: 1.5em;
 }
 
 input:focus, 
@@ -64,6 +70,13 @@ app-dashboard {
 
 app-title-page {
     width: 100%;
+    & * { 
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+    }
 }
 
 app-content-window {
@@ -75,7 +88,6 @@ app-header {
     top: 0px;
     left: 0px;
     margin: 0 auto;
-    background: white;
 
     /* flex settings */
     display: flex;
@@ -103,7 +115,6 @@ app-settings {
     height: ~"calc(100% - 80px)";
     top: 0px;
     left: 0px;
-    //background: white;
 
 }
 

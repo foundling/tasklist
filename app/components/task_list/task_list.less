@@ -3,7 +3,6 @@ app-task-list {
     width: 100%;
 
     ul.being-dragged {
-        background: red !important;
     }
 
     ul.task-list {
@@ -13,7 +12,6 @@ app-task-list {
         margin: 0;
         padding: 0;
 
-        background: lightgray;
         border-bottom: 0.3px solid lightgray;
 
         li.task-list-title {
@@ -21,7 +19,6 @@ app-task-list {
             position: relative;
             height: 100%;
             width: 100%;
-            background: white;
             cursor: pointer;
             box-shadow: 0px 4px 0px 0px lightgray;
             /* flex settings */
@@ -30,18 +27,13 @@ app-task-list {
             justify-content: center;
             
             input {
-                background: transparent; 
                 display: inline-block;
                 height: 50px;
                 width: auto;
                 margin-left: 25px + 20px; // 2em + icon margin
                 margin: 30px 10px;
             }
-            input.editing {
-                background: lightgray;
-            }
             input[readonly] {
-                color: black;
             }
         }
 
@@ -51,7 +43,6 @@ app-task-list {
 
         div.task-list-wrapper {
 
-            background: whitesmoke;
             position: relative; 
             margin-top: 4px;
             height: auto;

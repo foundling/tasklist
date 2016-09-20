@@ -1,0 +1,32 @@
+# background
+
+# font color
+
+# title page background 
+app-title-page div.title-view-wrapper
+
+# title page title 
+app-title-page div.title-view-wrapper h1.app-content-window
+
+# multilist page title
+
+# open task list
+app-task-list ul li.task-list-title i.toggle-list-expand
+
+# add a task list
+app-content-window div app-list-manager div i.add-list
+
+# remove task list
+app-task-list ul li.task-list-title i.remove-list
+
+# add a task 
+app-task-list ul div i.add-task
+
+# remove a task
+app-task div.task-wrapper i.remove-task
+
+# single task view ... 
+
+# toggle settings
+app-dashboard footer.dashboard i.settings
+
