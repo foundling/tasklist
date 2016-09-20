@@ -1,13 +1,19 @@
 app-task-list {
+
     height: 25%;
     width: 100%;
+
+    .height-expanded {
+        height: auto !important;
+    }
 
     ul.being-dragged {
     }
 
+
     ul.task-list {
 
-        height: auto;
+        height: ~"calc(100%/5)";
         width: 100%;
         margin: 0;
         padding: 0;
@@ -36,6 +42,12 @@ app-task-list {
             }
         }
 
+        li.task-list-title.expanded {
+
+            & & {
+                height: auto !important;
+            }
+        }
 
         li.task-list-title.active {
         }
