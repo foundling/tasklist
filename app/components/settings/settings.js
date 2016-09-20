@@ -75,9 +75,8 @@ steal(
                     var newTheme = this.viewModel.attr('themes.' + newThemeIndex);
                     this.viewModel.attr('theme', newTheme);
                     storage.set('settings.theme', newTheme);
-
-                }
-            } 
+                },
+            }
         });
 
 });

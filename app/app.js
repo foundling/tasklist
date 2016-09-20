@@ -52,11 +52,11 @@ steal(
                     settings:   SettingsView,
                 },
                 switchView: function (viewName) {
-                    console.log('switching to %s and theme is %s', viewName, this.attr('theme.name'));
                     viewName = (typeof viewName === 'function') ?  viewName() : viewName;
                     nextView = this.attr('views')[viewName];
-                    nextViewCompiled = nextView(new ViewModel({view: nextView}));
-
+                    vm.attr('view', viewName);
+                    //nextViewCompiled = nextView( new ViewModel({view: nextView}) );
+                    nextViewCompiled = nextView(vm);
                     // keep app-container component around to preserve top-level app data state
                     $('app-container > div').html(nextViewCompiled);
                 }
