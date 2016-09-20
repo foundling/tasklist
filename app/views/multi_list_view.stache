@@ -1,7 +1,7 @@
-<app-header view="multilist"/>
-
-<!-- inter component communication of overflow acchieved by exporting list manager overflow properties 
-     exported up to app-container and back down to dashboard -->
+<!-- 
+inter component communication of overflow property (not function) achieved by exporting list manager overflow 
+properties exported up to app-container and back down to dashboard 
+-->
 
 <app-content-window {^overflow}="overflow">
     <app-list-manager {^overflow}="overflow">

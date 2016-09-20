@@ -4,6 +4,5 @@
         <content>
     </div>
 
-    <!-- Try to figure out how to move this into the dashboard -->
     <i can-click="addNewList" class="add-list fa fa-plus"></i>
 </div>
