@@ -1,107 +1,41 @@
-@plant-medium-dark-green: #256F5B;
-@plant-font-very-light-green: #c3e0d8;
-@plant-editing-background: #411111;
-@plant-task-title-font-color: rgb(40,40,40); 
+@default-bg: whitesmoke;
+@default-title-text: rgb(50,50,50);
+@default-title-text-box-shadow: 1px 3px 0px lightgray;
 
-body {
-    background: @plant-medium-dark-green;
-}
+app-container {
 
-app-container div.theme-plant {
+    background: @default-bg;
 
     // title page background
     app-title-page div.title-view-wrapper {
-        background:  @plant-medium-dark-green; 
+        background: @default-bg;
     }
 
     // title page title
     app-title-page div.title-view-wrapper h1.app-content-window-title {
-        color:  @plant-font-very-light-green;
+        color: @default-title-text;
+        text-shadow: @default-title-text-box-shadow; 
     }
 
+    // header 
     app-header header h1 {
-        color: @plant-medium-dark-green; 
     }
 
 }
 
 app-task-list ul li input.task-list-title-input {
-    color:  white;
 
 }
 
 app-task-list ul li input.task-list-title-input.editing {
-    background: @plant-editing-background;
 }
 
-/*
-# background
- 
-# font color
- 
-# title page background
-app-title-page div.title-view-wrapper
+app-task-list ul div.task-list-wrapper {
+}
 
-# title page title
-app-title-page div.title-view-wrapper h1.app-content-window
+i.fa {
+}
 
-# multilist page title
-
-# open task list 
-app-task-list ul li.task-list-title i.toggle-list-expand
-
-# add a task list
-app-content-window div app-list-manager div i.add-list
- 
-# remove task list 
-app-task-list ul li.task-list-title i.remove-list
-
-# add a task     
-app-task-list ul div i.add-task
-
-# remove a task
-app-task div.task-wrapper i.remove-task
-
-# single task view ... 
-
-# toggle settings
-app-dashboard footer.dashboard i.settings
-*/
-
-/*
-        {
-            name: 'default',
-            colors: {
-                icons:  'red',
-                text:   'black',
-                bg:     'white',
-                shadow: 'lightgray'
-            }
-
-        },
-
-        {
-            name: 'plant',
-            colors: {
-                icons:  '#488D7A',
-                text:   '#256F5B',
-                bg:     '#D3E8E2',
-                shadow: '#A2CABF'
-            }
-
-        },
-
-        {
-            name: 'grayscale', 
-            colors: {
-                icons:  '#212020',
-                text:   '#212020',
-                bg:     '#dfdfdf',
-                shadow: '#969292'
-            }
-        }
-
-    ];
-
-});
-*/
+app-task-list ul div i.add-task,
+app-task-list ul div i.more-info {
+}

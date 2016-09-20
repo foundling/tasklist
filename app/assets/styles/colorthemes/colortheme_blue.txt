@@ -1,0 +1,16 @@
+/* LESS - http://lesscss.org style sheet */
+/* Palette color codes */
+/* Palette URL: http://paletton.com/#uid=53t1h1kjbX+9ywqeNZ1ncWurfTNkc56U2ee04-8ykh8Atu7MkbUSX8XWvasUQdhQPeBOr */
+
+/* Feel free to copy&paste color codes to your application */
+
+
+/* MIXINS */
+
+/* As hex codes */
+
+@color-primary-0: #6AC5F6;  /* Main Primary color */
+@color-primary-1: #B5E3FC;
+@color-primary-2: #8CD3F9;
+@color-primary-3: #4CB8F2;
+@color-primary-4: #2DA8EA;

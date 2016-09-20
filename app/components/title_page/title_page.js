@@ -20,6 +20,7 @@ steal(
             events: {
                 'inserted': function(el, ev) {
 
+                    /*
                     setTimeout(function() {
                         $('div.title-view-wrapper').addClass('red-bg'); 
                         setTimeout(function() {
@@ -27,6 +28,7 @@ steal(
                             $('h1.app-content-window-title').addClass('color'); 
                         });
                     }, 0);
+                    */
 
                 },
                 'div.title-view-wrapper click': function(el, ev) {
