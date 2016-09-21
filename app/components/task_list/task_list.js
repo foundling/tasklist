@@ -95,13 +95,14 @@ steal(
 
                                 // add ui fx to helper
                                 // ad ui fx to origin dragged task el
-                                //$(ui.helper).find('ul.task-list').addClass('drag-border');
-                                //$(ev.target).find('ul.task-list').addClass('old-task-position');
+                                $(ui.helper).find('ul.task-list').addClass('dragged-task');
+                                $(ev.target).find('ul.task-list').addClass('old-task-position');
 
                             },
 
                             stop: function(ev, ui) {
                                 $(ui.helper).find('ul.task-list').removeClass('dragged-task');
+                                $(ev.target).find('ul.task-list').remove('old-task-position');
                             }
                         });
 
@@ -123,14 +124,9 @@ steal(
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto another task list.');
+                                // prevent event from bubbling up to clone?
+                                event.stopPropagation();
 
-                                // hack to avoid 2 events being called due to clone helper
-                                if (dropFired) {
-                                    dropFired = false;
-                                    return;
-                                }
-                                dropFired = true;
-                                // end hack
                                 
                             }
                         });
@@ -142,14 +138,8 @@ steal(
                             drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
 
-                                // hack to avoid 2 events being called due to clone helper
-                                // will event.preventDefault or something like that work here?
-                                if (dropFired) {
-                                    dropFired = false;
-                                    return;
-                                }
-                                dropFired = true;
-                                // end hack
+                                // prevent event from bubbling up to clone?
+                                event.stopPropagation();
                             
                                 var taskLists = self.viewModel.attr('taskLists');
                                 var taskList = taskLists.attr(draggedIndex);    
