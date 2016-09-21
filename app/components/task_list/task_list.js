@@ -90,17 +90,16 @@ steal(
                             }
                         });
 
-                    // if target is a ul.task-list, do splice
+                    /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
+                     * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
+                     * for droppable.
+                     */
                     $('ul.task-list')
                         .droppable({
                             greedy: true,
                             tolerance: 'fit',
                             drop: function(ev) {
 
-                                /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
-                                 * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
-                                 * for droppable.
-                                 */
                                 console.log('drop target: ',ev.target);
 
                                 var dropIndex = $(ev.target).closest('app-task-list').index();
