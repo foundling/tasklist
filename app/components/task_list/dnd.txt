@@ -21,3 +21,7 @@ if > 2:
 
 
 
+alternate semantics:
+
+drag immediately splices task and its element. store this in a closure until the drop. insert it then?
+

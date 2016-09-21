@@ -17,8 +17,11 @@ steal(
         ListView,
         taskListStyles
     ){
-        var dragIndex; 
+
         var draggedTask;
+        var draggedIndex;
+        var dropFired;
+        var hiddenTaskEl;
 
         can.Component.extend({
             tag: 'app-task-list',
@@ -70,21 +73,36 @@ steal(
                     /* DRAG ZONES */
                     $('app-task-list')
                         .draggable({
+
                             axis: 'y',
                             helper: 'clone',
                             snap: 'app-task-list',
                             stack: 'app-task-list',
                             scroll: true,
-                            drag: function(ev) {
+
+                            drag: function(ev, ui) {
+                                draggedIndex = $(ev.target).index();
+                                draggedTask = self.viewModel.attr('taskLists').slice(draggedIndex)[0];
+                                console.log(draggedIndex, draggedTask);
+
+                                /* hack: we can't remove the task because jquery throws errors 
+                                * so we hide it, and remove it on the drop.  UUUUUGGGGGLY.
+                                */
                             },
+
                             start: function(ev, ui) {
-                                $(ui.helper).find('ul.task-list').addClass('drag-border');
                                 var taskLists = self.viewModel.attr('taskLists'); 
                                 dragIndex = $(ev.target).index();
                                 if (taskLists.length < 2) {
                                     return false;
                                 }
+
+                                $(ui.helper).find('ul.task-list').addClass('drag-border');
+                                $(ev.target).addClass('hidden-task');
+                                hiddenTaskEl = $(ev.target); 
+                                hiddenTaskEl.addClass('hidden-task');
                             },
+
                             stop: function(ev, ui) {
                                 $(ui.helper).find('ul.task-list').removeClass('drag-border');
                             }
@@ -107,9 +125,20 @@ steal(
                             greedy: true, // prevents event from bubbling up parent lists-wrapper
                             tolerance: 'touch',
                             drop: function(ev, ui) {
-                                var targetTaskList = $(ev.target).parent();
                                 console.log('drop onto another task list.');
-                                console.log(targetTaskList, targetTaskList.index());
+
+                                // hack to avoid 2 events being called due to clone helper
+                                if (dropFired) {
+                                    dropFired = false;
+                                    return;
+                                }
+                                dropFired = true;
+                                // end hack
+                                
+                                self.viewModel.attr('taskLists').push(draggedTask);
+                                self.viewModel.attr('taskLists').splice(draggedIndex, 1);
+
+                                hiddenTaskEl.remove();
                             }
                         });
 
@@ -119,7 +148,20 @@ steal(
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
-                                console.log('dropped onto ', $(ev.target));
+
+                                // hack to avoid 2 events being called due to clone helper
+                                if (dropFired) {
+                                    dropFired = false;
+                                    return;
+                                }
+                                dropFired = true;
+                                // end hack
+                                
+                                self.viewModel.attr('taskLists').push(draggedTask);
+                                self.viewModel.attr('taskLists').splice(draggedIndex, 1);
+
+                                hiddenTaskEl.remove();
+
                             }
                         });
 
