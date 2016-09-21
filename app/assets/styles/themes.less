@@ -1,6 +1,9 @@
 @default-bg: whitesmoke;
+
 @default-title-text: rgb(50,50,50);
-@default-title-text-box-shadow: 1px 3px 0px lightgray;
+@default-title-text-box-shadow: 1px 3px 0px #ff4f4f;
+
+@default-tasklist-bg1: whitesmoke;
 @default-tasklist-title-input-editing: aquamarine;
 @default-tasklist-icon1: lightgray;
 @default-tasklist-icon2: lightgray;
@@ -43,6 +46,10 @@ app-task-list {
     // tasklist title - input::expanded
     ul li.task-list-title.expanded {
         box-shadow: 0px 4px 0px 0px lightgray;
+    }
+
+    ul.task-list div.task-list-wrapper {
+        background: @default-tasklist-bg1;
     }
 
     // tasklist expand icon
