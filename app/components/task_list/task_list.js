@@ -77,7 +77,9 @@ steal(
                             scroll: true,
                             drag: function(ev) {
                             },
-                            start: function(ev) {
+                            start: function(ev, ui) {
+                                $(ui.helper).find('ul.task-list').addClass('drag-border');
+                                console.log($(ev.target));
                                 var taskLists = self.viewModel.attr('taskLists'); 
                                 dragIndex = $(ev.target).index();
                                 if (taskLists.length < 2) {
