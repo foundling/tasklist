@@ -21,7 +21,6 @@ steal(
         var draggedTask;
         var draggedIndex;
         var dropFired;
-        var hiddenTaskEl;
 
         can.Component.extend({
             tag: 'app-task-list',
@@ -81,30 +80,28 @@ steal(
                             scroll: true,
 
                             drag: function(ev, ui) {
-                                draggedIndex = $(ev.target).index();
-                                draggedTask = self.viewModel.attr('taskLists').slice(draggedIndex)[0];
-                                console.log(draggedIndex, draggedTask);
-
-                                /* hack: we can't remove the task because jquery throws errors 
-                                * so we hide it, and remove it on the drop.  UUUUUGGGGGLY.
-                                */
                             },
 
                             start: function(ev, ui) {
+
                                 var taskLists = self.viewModel.attr('taskLists'); 
-                                dragIndex = $(ev.target).index();
                                 if (taskLists.length < 2) {
                                     return false;
                                 }
 
-                                $(ui.helper).find('ul.task-list').addClass('drag-border');
-                                $(ev.target).addClass('hidden-task');
-                                hiddenTaskEl = $(ev.target); 
-                                hiddenTaskEl.addClass('hidden-task');
+                                // get dragged element's index
+                                draggedIndex = $(ev.target).index();
+                                console.log(draggedIndex);
+
+                                // add ui fx to helper
+                                // ad ui fx to origin dragged task el
+                                //$(ui.helper).find('ul.task-list').addClass('drag-border');
+                                //$(ev.target).find('ul.task-list').addClass('old-task-position');
+
                             },
 
                             stop: function(ev, ui) {
-                                $(ui.helper).find('ul.task-list').removeClass('drag-border');
+                                $(ui.helper).find('ul.task-list').removeClass('dragged-task');
                             }
                         });
 
@@ -122,7 +119,7 @@ steal(
 
                     $('ul.task-list')
                         .droppable({
-                            greedy: true, // prevents event from bubbling up parent lists-wrapper
+                            greedy: true, // events don't bubble: provides way to separate two dropzone scopes.
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto another task list.');
@@ -135,10 +132,6 @@ steal(
                                 dropFired = true;
                                 // end hack
                                 
-                                self.viewModel.attr('taskLists').push(draggedTask);
-                                self.viewModel.attr('taskLists').splice(draggedIndex, 1);
-
-                                hiddenTaskEl.remove();
                             }
                         });
 
@@ -150,17 +143,18 @@ steal(
                                 console.log('drop onto task list extra space.');
 
                                 // hack to avoid 2 events being called due to clone helper
+                                // will event.preventDefault or something like that work here?
                                 if (dropFired) {
                                     dropFired = false;
                                     return;
                                 }
                                 dropFired = true;
                                 // end hack
-                                
-                                self.viewModel.attr('taskLists').push(draggedTask);
-                                self.viewModel.attr('taskLists').splice(draggedIndex, 1);
-
-                                hiddenTaskEl.remove();
+                            
+                                var taskLists = self.viewModel.attr('taskLists');
+                                var taskList = taskLists.attr(draggedIndex);    
+                                taskLists.push(taskList);
+                                taskLists.splice(draggedIndex, 1);
 
                             }
                         });
