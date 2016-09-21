@@ -67,6 +67,7 @@ steal(
                 'inserted': function(el, ev) {
                     var self = this;
 
+                    /* DRAG ZONES */
                     $('app-task-list')
                         .draggable({
                             axis: 'y',
@@ -75,7 +76,6 @@ steal(
                             stack: 'app-task-list',
                             scroll: true,
                             drag: function(ev) {
-                                console.log('drag');
                             },
                             start: function(ev) {
                                 var taskLists = self.viewModel.attr('taskLists'); 
@@ -83,53 +83,40 @@ steal(
                                 if (taskLists.length < 2) {
                                     return false;
                                 }
-                                console.log('start');
                             },
                             stop: function(ev) {
-                                console.log('stop');
                             }
                         });
 
-                    /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
+                    /* DROP ZONES */
+
+                    /* Notes: 
+                     
+                     * 1. I can't currently use 'app-task-list' selector for both .draggable and .droppable.
                      * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
                      * for droppable.
+                     
+                     * 2. Note: two drop zones: the list wrapper to add task to end of list and
+                     * ul.task-list as the task to drop on and do the swap etc.
                      */
+
                     $('ul.task-list')
                         .droppable({
+
                             greedy: true,
-                            tolerance: 'fit',
+                            tolerance: 'touch',
+
                             drop: function(ev) {
-
-                                console.log('drop target: ',ev.target);
-
-                                var dropIndex = $(ev.target).closest('app-task-list').index();
-                                draggedTask = self.viewModel.attr('taskLists.' + dragIndex) 
-
-                                console.log('dropIndex: ', dropIndex);
-                                console.log('draggedTask', draggedTask);
-                                // i'm copying here? 
-                                self.viewModel.attr('taskLists').splice(dropIndex, 0, draggedTask);
-                                self.viewModel.attr('taskLists').splice(dragIndex + 1, 1);
-
+                                console.log('drop onto another list');
                             }
                         });
 
                     // if the target is a list-wrapper, put task at end
                     $('div.lists-wrapper')
                         .droppable({
-                            greedy: true,
+                            tolerance: 'touch',
                             drop: function(ev) {
-
-                                /* Note: can't use 'app-task-list' selector for both .draggable and .droppable.
-                                 * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
-                                 * for droppable.
-                                 */
-                                
-                                console.log('drop target: ',ev.target);
-                                // if the target is a list-wrapper, put task at end
-                                // if target is a ul.task-list, do splice
-                                self.viewModel.attr('taskLists').push(draggedTask);
-                                self.viewModel.attr('taskLists').splice(dragIndex, 1);
+                                console.log('drop onto task list extra space.');
                             }
                         });
 
@@ -158,7 +145,6 @@ steal(
                     // need to toggle task list height to auto when expanded.
                     // otherwise it should be a calc of height / n.
                     var index = this.viewModel.attr('taskLists').indexOf(this.viewModel.attr('taskList'));
-                    console.log(index);
                     if (prop === 'open' && newVal) {
                         $('ul.task-list').eq(index).addClass('height-expanded');
                     } 

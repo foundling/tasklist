@@ -1,0 +1,23 @@
+always at least 2 items when dragging by design.
+
+drag semantics: drag onto something means put it where that one is, and move the rest forward. 
+
+if 2:
+    if dragging first and target is the task list wrapper space after the tasks, drop ok.
+    otherwise, no change.
+
+if > 2:
+    
+    get drop index: the target's app-task-list parent's index in app-task-lists.
+
+    dropping on another task:
+        splice rest of tasks into starting index of one above drop target index.
+        assign src to drop dest.
+        splice out src.
+
+    dropping at end of list:
+        push src to end of list
+        splice src from location 
+
+
+
