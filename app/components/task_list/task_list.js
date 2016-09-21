@@ -70,17 +70,14 @@ steal(
                     var self = this;
 
                     /* DRAG ZONES */
-                    $('app-task-list')
+                    $('ul.task-list')
                         .draggable({
 
                             axis: 'y',
                             helper: 'clone',
-                            snap: 'app-task-list',
-                            stack: 'app-task-list',
+                            snap: 'ul.task-list',
+                            stack: 'ul.task-list',
                             scroll: true,
-
-                            drag: function(ev, ui) {
-                            },
 
                             start: function(ev, ui) {
 
@@ -95,14 +92,15 @@ steal(
 
                                 // add ui fx to helper
                                 // ad ui fx to origin dragged task el
-                                $(ui.helper).find('ul.task-list').addClass('dragged-task');
-                                $(ev.target).find('ul.task-list').addClass('old-task-position');
+                                $(ui.helper).addClass('dragged-task');
+                                $(ev.target).addClass('old-task-position');
 
                             },
 
                             stop: function(ev, ui) {
-                                $(ui.helper).find('ul.task-list').removeClass('dragged-task');
-                                $(ev.target).find('ul.task-list').remove('old-task-position');
+                                $(ui.helper).remove();
+                                $(ui.helper).removeClass('dragged-task');
+                                $(ev.target).removeClass('old-task-position');
                             }
                         });
 
@@ -118,16 +116,30 @@ steal(
                      * ul.task-list as the task to drop on and do the swap etc.
                      */
 
-                    $('ul.task-list')
+                    var dropped = 0;
+                    $('app-task-list')
                         .droppable({
                             greedy: true, // events don't bubble: provides way to separate two dropzone scopes.
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto another task list.');
+                                var taskLists = self.viewModel.attr('taskLists');
+
+                                // get ref to task we're moving in can.List
+                                var taskToMove = taskLists.attr(draggedIndex);
+                                // get index in list using target element that has been dropped
+                                var droppedIndex = $(ev.target).index();
+                                // cut out everything from the dropp index to the end, save it  
+                                var tail = taskLists.splice(droppedIndex);
+                                taskLists.push(taskToMove);
+                                for (var i = 0; i < tail.length; ++i) {
+                                    taskLists.push(tail[i]);
+                                }
+                                taskLists.splice(taskLists.indexOf(taskToMove),1);
                             }
                         });
 
-                    $('div.lists-wrapper')
+                    $('div.extra-space')
                         .droppable({
                             greedy: true, // prevents event from bubbling up parent lists-wrapper
                             tolerance: 'touch',

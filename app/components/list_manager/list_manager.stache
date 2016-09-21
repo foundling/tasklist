@@ -1,7 +1,8 @@
 <div class="list-manager">
 
     <div class="lists-wrapper">
-        <content>
+        <content/>
+        <div class="extra-space"></div>
     </div>
 
     <i can-click="addNewList" class="add-list fa fa-plus"></i>
