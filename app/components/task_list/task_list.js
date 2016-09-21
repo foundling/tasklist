@@ -124,10 +124,6 @@ steal(
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto another task list.');
-                                // prevent event from bubbling up to clone?
-                                event.stopPropagation();
-
-                                
                             }
                         });
 
@@ -138,9 +134,6 @@ steal(
                             drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
 
-                                // prevent event from bubbling up to clone?
-                                event.stopPropagation();
-                            
                                 var taskLists = self.viewModel.attr('taskLists');
                                 var taskList = taskLists.attr(draggedIndex);    
                                 taskLists.push(taskList);
