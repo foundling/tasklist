@@ -79,14 +79,14 @@ steal(
                             },
                             start: function(ev, ui) {
                                 $(ui.helper).find('ul.task-list').addClass('drag-border');
-                                console.log($(ev.target));
                                 var taskLists = self.viewModel.attr('taskLists'); 
                                 dragIndex = $(ev.target).index();
                                 if (taskLists.length < 2) {
                                     return false;
                                 }
                             },
-                            stop: function(ev) {
+                            stop: function(ev, ui) {
+                                $(ui.helper).find('ul.task-list').removeClass('drag-border');
                             }
                         });
 
@@ -104,21 +104,22 @@ steal(
 
                     $('ul.task-list')
                         .droppable({
-
-                            greedy: true,
+                            greedy: true, // prevents event from bubbling up parent lists-wrapper
                             tolerance: 'touch',
-
-                            drop: function(ev) {
-                                console.log('drop onto another list');
+                            drop: function(ev, ui) {
+                                var targetTaskList = $(ev.target).parent();
+                                console.log('drop onto another task list.');
+                                console.log(targetTaskList, targetTaskList.index());
                             }
                         });
 
-                    // if the target is a list-wrapper, put task at end
                     $('div.lists-wrapper')
                         .droppable({
+                            greedy: true, // prevents event from bubbling up parent lists-wrapper
                             tolerance: 'touch',
-                            drop: function(ev) {
+                            drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
+                                console.log('dropped onto ', $(ev.target));
                             }
                         });
 
