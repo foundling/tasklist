@@ -2,7 +2,9 @@
 
     <li class="task-list-title {{#if open}}expanded{{/if}}">
 
-        <i class="drag-me fa fa-hand-paper-o"></i>
+        <div class="drag-me">
+            <i class="drag-me-icon fa fa-hand-paper-o"></i>
+        </div>
         <input 
             class="task-list-title-input {{#editing}}editing{{/editing}}"
             value="{{ title }}" 
@@ -13,7 +15,6 @@
             {{#unless editing}}readonly{{/unless}} />
 
         <!--<i can-click="removeList %index" class="remove-list fa fa-trash"></i>-->
-        <i can-click="toggleOpen" class="toggle-list-expand fa fa-arrow-down"></i>
 
     </li>
 
