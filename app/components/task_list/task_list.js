@@ -87,7 +87,7 @@ steal(
                                 }
 
                                 // get dragged element's index
-                                startIndex = $(ev.target).index();
+                                startIndex = $(ev.target).parent().index();
                                 console.log('start: ', startIndex);
 
                                 // add ui fx to helper
