@@ -19,7 +19,7 @@ steal(
     ){
 
         var draggedTask;
-        var draggedIndex;
+        var startIndex;
         var dropFired;
 
         can.Component.extend({
@@ -87,7 +87,8 @@ steal(
                                 }
 
                                 // get dragged element's index
-                                draggedIndex = $(ev.target).index();
+                                startIndex = $(ev.target).index();
+                                console.log('start: ', startIndex);
 
                                 // add ui fx to helper
                                 // ad ui fx to origin dragged task el
@@ -100,6 +101,7 @@ steal(
                                 $(ui.helper).remove();
                                 $(ui.helper).removeClass('dragged-task');
                                 $(ev.target).removeClass('old-task-position');
+                                startIndex = undefined;
                             }
                         });
 
@@ -114,13 +116,16 @@ steal(
                                 var taskLists = self.viewModel.attr('taskLists');
 
                                 // get ref to task we're moving in can.List
-                                var taskToMove = taskLists.attr(draggedIndex);
+                                var taskToMove = taskLists.attr(startIndex);
 
                                 // get index in list using target element that has been dropped
-                                var droppedIndex = $(ev.target).index();
+                                var stopIndex = $(ev.target).index();
+
+                                var direction = stopIndex - startIndex;
+                                console.log('direction: ', direction);
 
                                 // cut out everything from the dropp index to the end, save it  
-                                var tail = taskLists.splice(droppedIndex);
+                                var tail = taskLists.splice(stopIndex);
 
                                 taskLists.push(taskToMove);
                                 for (var i = 0; i < tail.length; ++i) {
@@ -136,11 +141,17 @@ steal(
                             tolerance: 'touch',
                             drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
+                                var taskLists = self.viewModel.attr('taskLists');
+                                if (startIndex === taskLists.length - 1) {
+
+                                    return;
+                                } 
+
 
                                 var taskLists = self.viewModel.attr('taskLists');
-                                var taskList = taskLists.attr(draggedIndex);    
+                                var taskList = taskLists.attr(startIndex);    
                                 taskLists.push(taskList);
-                                taskLists.splice(draggedIndex, 1);
+                                taskLists.splice(startIndex, 1);
 
                             }
                         });
