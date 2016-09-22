@@ -70,6 +70,7 @@ steal(
                     var self = this;
 
                     /* DRAG ZONES */
+
                     $('ul.task-list')
                         .draggable({
 
@@ -114,24 +115,27 @@ steal(
                             drop: function(ev, ui) {
                                 console.log('drop onto another task list.');
                                 var taskLists = self.viewModel.attr('taskLists');
-
-                                // get ref to task we're moving in can.List
                                 var taskToMove = taskLists.attr(startIndex);
-
-                                // get index in list using target element that has been dropped
                                 var stopIndex = $(ev.target).index();
-
                                 var direction = stopIndex - startIndex;
+                                var tail;
                                 console.log('direction: ', direction);
 
-                                // cut out everything from the dropp index to the end, save it  
-                                var tail = taskLists.splice(stopIndex);
+                                if (direction > 0) {
+                                    // cut out everything from the dropp index to the end, save it  
+                                    tail = taskLists.splice(stopIndex);
 
-                                taskLists.push(taskToMove);
-                                for (var i = 0; i < tail.length; ++i) {
-                                    taskLists.push(tail[i]);
+                                    taskLists.push(taskToMove);
+                                    for (var i = 0; i < tail.length; ++i) {
+                                        taskLists.push(tail[i]);
+                                    }
+                                    taskLists.splice(taskLists.indexOf(taskToMove),1);
+                                } else if (direction < 0) {
+                                    taskToMove = taskLists.splice(startIndex, 1)[0];
+                                    taskLists.splice(stopIndex, 0, taskToMove);
+
                                 }
-                                taskLists.splice(taskLists.indexOf(taskToMove),1);
+
                             }
                         });
 
@@ -142,8 +146,8 @@ steal(
                             drop: function(ev, ui) {
                                 console.log('drop onto task list extra space.');
                                 var taskLists = self.viewModel.attr('taskLists');
-                                if (startIndex === taskLists.length - 1) {
 
+                                if (startIndex === taskLists.length - 1) {
                                     return;
                                 } 
 
