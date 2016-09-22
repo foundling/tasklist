@@ -47,13 +47,21 @@ app-task-list {
             align-items: center;
             justify-content: center;
             
+            i.drag-me,
+            i.toggle-list-expand {
+                box-sizing: border-box;
+                background: rgba(127, 255, 212, 0.46);
+                font-size: 2em;
+                padding: 20px;
+            }
             i.drag-me {
                 margin-right: auto;
                 margin-left: 10%;
-                color: lightgray;
-                font-size: 2em;
+                color: darkgray;
             }
             i.toggle-list-expand {
+                margin-left: auto;
+                margin-right: 10%; 
             }
             input {
                 box-sizing: border-box;
@@ -63,8 +71,6 @@ app-task-list {
                 margin: 30px 20px;
             }
             i.remove-list {
-                margin-left: auto;
-                margin-right: 10%; 
             }
 
             input[readonly] {
