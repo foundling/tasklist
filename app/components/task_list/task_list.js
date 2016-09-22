@@ -115,10 +115,13 @@ steal(
 
                                 // get ref to task we're moving in can.List
                                 var taskToMove = taskLists.attr(draggedIndex);
+
                                 // get index in list using target element that has been dropped
                                 var droppedIndex = $(ev.target).index();
+
                                 // cut out everything from the dropp index to the end, save it  
                                 var tail = taskLists.splice(droppedIndex);
+
                                 taskLists.push(taskToMove);
                                 for (var i = 0; i < tail.length; ++i) {
                                     taskLists.push(tail[i]);
