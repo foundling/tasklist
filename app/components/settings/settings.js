@@ -38,6 +38,9 @@ steal(
                 toggleSettings: function() {
                     this.attr('settingsActive', !this.attr('settingsActive'));
                 },
+                resetStorage: function() {
+                    storage.clear();  
+                },
                 exportTaskLists: function() {
                     var exportFormat = this.attr('exportFormat');
                     var exportContent = storage.get('taskLists');

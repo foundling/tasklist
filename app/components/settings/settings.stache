@@ -33,9 +33,12 @@
                 </li>
             </ul>
             {{/with}}
+            <div id="theme-slider"></div>
         </li>
-        <div id="theme-slider"></div>
 
+        <li>
+            <button class="reset-local-storage" can-mousedown="resetStorage" can-click="resetStorage">Reset Local Storage</button>
+        </li>
 
         <li>
             <h1>Export to:</h1>
