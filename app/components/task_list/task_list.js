@@ -88,7 +88,6 @@ steal(
 
                                 // get dragged element's index
                                 draggedIndex = $(ev.target).index();
-                                console.log(draggedIndex);
 
                                 // add ui fx to helper
                                 // ad ui fx to origin dragged task el
@@ -106,17 +105,6 @@ steal(
 
                     /* DROP ZONES */
 
-                    /* Notes: 
-                     
-                     * 1. I can't currently use 'app-task-list' selector for both .draggable and .droppable.
-                     * So I'm using 'app-task-list' for draggable, and it's child 'ul.task-list' 
-                     * for droppable.
-                     
-                     * 2. Note: two drop zones: the list wrapper to add task to end of list and
-                     * ul.task-list as the task to drop on and do the swap etc.
-                     */
-
-                    var dropped = 0;
                     $('app-task-list')
                         .droppable({
                             greedy: true, // events don't bubble: provides way to separate two dropzone scopes.

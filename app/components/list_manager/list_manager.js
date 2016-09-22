@@ -48,6 +48,7 @@ steal(
 
                     var taskListsFromLocalStorage = storage.get('taskLists').map(function(taskList) {
                         return new TaskList({
+                            title: taskList.title,
                             active: taskList.active,
                             tasks: taskList.tasks.map(function(task) {
                                 return new Task({
