@@ -71,7 +71,7 @@ steal(
 
                     /* DRAG ZONES */
 
-                    $('ul.task-list')
+                    $('.drag-me')
                         .draggable({
 
                             axis: 'y',
@@ -88,7 +88,7 @@ steal(
                                 }
 
                                 // get dragged element's index
-                                startIndex = $(ev.target).parent().index();
+                                startIndex = $(ev.target).closest('app-task-list').index();
                                 console.log('start: ', startIndex);
 
                                 // add ui fx to helper
