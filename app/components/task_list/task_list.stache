@@ -1,12 +1,12 @@
 <ul class="task-list">
 
-    <li class="task-list-title">
+    <li class="task-list-title {{#if open}}expanded{{/if}}">
 
         <div class="drag-me">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
         <input 
-            can-click="switchView 'singlelist' ."
+            can-click="toggleOpen"
             class="task-list-title-input {{#editing}}editing{{/editing}}"
             value="{{ title }}" 
             readonly/>
