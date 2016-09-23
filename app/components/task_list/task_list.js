@@ -71,16 +71,19 @@ steal(
 
                     /* DRAG ZONES */
 
-                    $('.drag-me')
+                    $('ul.task-list')
                         .draggable({
 
                             axis: 'y',
-                            helper: 'clone',
+                            helper: function(ev) { 
+                                return $(ev.target).closest('ul.task-list');
+                            },
                             snap: 'ul.task-list',
                             stack: 'ul.task-list',
                             scroll: true,
 
                             start: function(ev, ui) {
+                                console.log(ui.helper);
 
                                 var taskLists = self.viewModel.attr('taskLists'); 
                                 if (taskLists.length < 2) {
@@ -88,7 +91,7 @@ steal(
                                 }
 
                                 // get dragged element's index
-                                startIndex = $(ev.target).closest('app-task-list').index();
+                                startIndex = $(ev.target).parent().index();
                                 console.log('start: ', startIndex);
 
                                 // add ui fx to helper
