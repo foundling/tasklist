@@ -67,6 +67,7 @@ steal(
             },
             events: {
                 'inserted': function(el, ev) {
+console.log('taskList model: ', this.viewModel.attr('taskLists.0'));
                     var self = this;
 
                     /* DRAG ZONES */
@@ -83,8 +84,6 @@ steal(
                             scroll: true,
 
                             start: function(ev, ui) {
-                                console.log($(ev.target));
-                                console.log(ui.helper);
 
                                 var taskLists = self.viewModel.attr('taskLists'); 
                                 if (taskLists.length < 2) {
@@ -93,7 +92,6 @@ steal(
 
                                 // get dragged element's index
                                 startIndex = $(ev.target).parent().index();
-                                console.log('start: ', startIndex);
 
                                 // add ui fx to helper
                                 // ad ui fx to origin dragged task el
@@ -123,7 +121,6 @@ steal(
                                 var tail;
 
                                 console.log('drop onto another task list.');
-                                console.log('direction: ', direction);
 
                                 if (direction > 0) {
                                     // cut out everything from the dropp index to the end, save it  
@@ -187,9 +184,8 @@ steal(
                 'li.task-list-title click': function(el, ev) {
                     var taskListIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskListIndex);
-                    console.log(this.viewModel.attr('%root'));
                     var switchView = this.viewModel.attr('%root').switchView;
-                    switchView.call(this.viewModel.attr('%root'),'singlelist', taskList);
+                    switchView.call(this.viewModel.attr('%root'), 'singlelist', taskList);
                 },
 
                 '{viewModel} change': function(map, obj, prop, how, newVal, oldVal) {

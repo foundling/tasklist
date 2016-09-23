@@ -9,9 +9,11 @@ properties exported up to app-container and back down to dashboard
         {{#each taskLists}}
         <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
 
+<!--
             {{#each tasks}}
             <app-task {task}="." {task-list}="taskList" />
             {{/each}}
+-->
 
         </app-task-list>
         {{/each}}

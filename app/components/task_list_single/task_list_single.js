@@ -63,7 +63,7 @@ steal(
             events: {
 
                 'inserted': function(el, ev) {
-                    console.log('task list single inserted');
+console.log('tasklist single data: ', this.viewModel.attr('taskList')); 
                 },
 
                 'input.task-list-title-input click': function(el, ev) {

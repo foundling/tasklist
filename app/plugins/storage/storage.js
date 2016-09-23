@@ -22,9 +22,6 @@ steal(
                     store.set('tasklist', {
                         'taskLists': [ 
                             new TaskList({title:'A'}).serialize(), 
-                            new TaskList({title:'B'}).serialize(),
-                            new TaskList({title:'C'}).serialize(),
-                            new TaskList({title:'D'}).serialize() 
                         ],
                         'settings': {
                             theme: themes[0],

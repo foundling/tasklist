@@ -25,8 +25,12 @@ steal(
                     var newTitle = text ? text : task.attr('backupText');
                     task.attr('text', newTitle);
                     this.attr('editing', false);
+                    scope.attr('task', task);
                 },
             },
-            events: {}
+            events: {
+                'inserted': function() {
+                }
+            }
         });
 });

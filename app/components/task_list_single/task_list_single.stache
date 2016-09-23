@@ -2,7 +2,7 @@
 
     <li class="task-list-title expanded">
 
-        <div can-click="switchView 'multilist'" class="drag-not-ok can-click">
+        <div can-click="switchView 'multilist'" class="drag-not-ok">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
         <input 
