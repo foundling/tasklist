@@ -102,7 +102,6 @@ steal(
                             },
 
                             stop: function(ev, ui) {
-                                $(ui.helper).remove();
                                 $(ui.helper).removeClass('dragged-task');
                                 $(ev.target).removeClass('old-task-position');
                                 startIndex = undefined;
@@ -116,12 +115,13 @@ steal(
                             greedy: true, // events don't bubble: provides way to separate two dropzone scopes.
                             tolerance: 'touch',
                             drop: function(ev, ui) {
-                                console.log('drop onto another task list.');
                                 var taskLists = self.viewModel.attr('taskLists');
                                 var taskToMove = taskLists.attr(startIndex);
                                 var stopIndex = $(ev.target).index();
                                 var direction = stopIndex - startIndex;
                                 var tail;
+
+                                console.log('drop onto another task list.');
                                 console.log('direction: ', direction);
 
                                 if (direction > 0) {
@@ -136,8 +136,7 @@ steal(
                                 } else if (direction < 0) {
                                     taskToMove = taskLists.splice(startIndex, 1)[0];
                                     taskLists.splice(stopIndex, 0, taskToMove);
-
-                                }
+                                } 
 
                             }
                         });
