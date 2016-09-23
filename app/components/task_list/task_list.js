@@ -183,6 +183,10 @@ steal(
                     var taskIndex = el.closest('app-task-list').index();
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
                 },
+
+                '.drag-handle dragstart': function() {
+                },
+
                 '{viewModel} change': function(map, obj, prop, how, newVal, oldVal) {
                     // to keep task lists (when contracted) to fit inside space evently,
                     // need to toggle task list height to auto when expanded.
@@ -191,13 +195,13 @@ steal(
                     if (prop === 'open' && newVal) {
                         if ($('ul.task-list').length > 1) {
                             $('.drag-handle').draggable('disable');
-                            $('ul.task-list').eq(index + 1).addClass('offset-other-tasks');
+                            $('ul.task-list').eq(index + 1).addClass('offset-other-tasklists');
                         }
                     } 
                     if (prop === 'open' && !newVal) {
                         if ($('ul.task-list').length > 1) {
                             $('.drag-handle').draggable('enable');
-                            $('ul.task-list').eq(index + 1).removeClass('offset-other-tasks');
+                            $('ul.task-list').eq(index + 1).removeClass('offset-other-tasklists');
                         }
                     }
                 }
