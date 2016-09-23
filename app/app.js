@@ -8,23 +8,8 @@ steal(
     'app/views/multi_list_view.stache!',
     'app/views/settings_view.stache!',
 
-    'app/assets/styles/font-awesome-4.6.3/css/font-awesome.min.css!',
-    'app/assets/styles/app.less!',
-    'app/assets/styles/z-index.less!',
-    'app/assets/styles/icons.less!',
-    'app/assets/styles/fonts.less!',
-    'app/assets/styles/drag_and_drop.less!',
-    'app/assets/styles/themes.less!',
-
-    'app/components/title_page/title_page.js',
-    'app/components/app_container/app_container.js',
-    'app/components/header/header.js',
-    'app/components/content_window/content_window.js',
-    'app/components/dashboard/dashboard.js',
-    'app/components/settings/settings.js',
-    'app/components/list_manager/list_manager.js',
-    'app/components/task_list/task_list.js',
-    'app/components/task/task.js',
+    'app/components/all.js',
+    'app/assets/styles/all.js',
 
     'store/store.js',
     'app/plugins/converters/converters.js',
@@ -32,8 +17,8 @@ steal(
     function(
         can, storage,
         TitleView, SingleListView, MultiListView, SettingsView, 
-        fontAwesomeStyles, appStyles, zIndexStyles, iconStyles, fontStyles, dragAndDropStyles, themeStyles,
-        TitlePage, Container, Header, ContentWindow, Dashboard, Settings, ListManager, TaskList, Task,
+        AppComponents,
+        AppStyles,
         store, converters 
     ) {
         return function(storage) {
@@ -43,7 +28,8 @@ steal(
 
             var ViewModel = can.Map({
                 settingsActive: false,
-                view: 'title',
+                view: null, 
+                data: null,
                 theme: storage.get('settings.theme'),
                 views: {
                     title:      TitleView,
@@ -51,17 +37,20 @@ steal(
                     multilist:  MultiListView,
                     settings:   SettingsView,
                 },
-                switchView: function (viewName) {
+                switchView: function (viewName, data) {
                     viewName = (typeof viewName === 'function') ?  viewName() : viewName;
                     nextView = this.attr('views')[viewName];
                     vm.attr('view', viewName);
+                    vm.attr('data', data);
                     nextViewCompiled = nextView(vm);
                     $('app-container > div').html(nextViewCompiled);
+                    console.log(viewName);
+                    console.log(this.attr('view'));
                 }
             });
 
 
-            var vm = new ViewModel({});
+            var vm = new ViewModel({view: 'title'});
             vm.bind('theme', function(ev, attr, how, newVal, oldVal) {
                 console.log('theme changed');
             });
