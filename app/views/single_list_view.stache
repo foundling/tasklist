@@ -1,14 +1,4 @@
-<app-header></app-header>
 <app-content-window>
-
-    <app-task-list>
-
-        {{#each tasks}}
-        {{ log }}
-        <app-task {task}="." />
-        {{/each}}
-
-    </app-task-list>
-
+<!-- something like app-extended-tasklist-view goes here to contain meta data and further info about a tasklist -->
 </app-content-window>
 <app-dashboard></app-dashboard>
