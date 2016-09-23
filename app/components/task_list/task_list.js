@@ -71,7 +71,7 @@ steal(
 
                     /* DRAG ZONES */
 
-                    $('ul.task-list')
+                    $('.drag-me')
                         .draggable({
 
                             axis: 'y',
@@ -83,6 +83,7 @@ steal(
                             scroll: true,
 
                             start: function(ev, ui) {
+                                console.log($(ev.target));
                                 console.log(ui.helper);
 
                                 var taskLists = self.viewModel.attr('taskLists'); 
@@ -189,12 +190,13 @@ steal(
                     var index = this.viewModel.attr('taskLists').indexOf(this.viewModel.attr('taskList'));
                     if (prop === 'open' && newVal) {
                         if ($('ul.task-list').length > 1) {
-
+                            $('.drag-handle').draggable('disable');
                             $('ul.task-list').eq(index + 1).addClass('offset-other-tasks');
                         }
                     } 
                     if (prop === 'open' && !newVal) {
                         if ($('ul.task-list').length > 1) {
+                            $('.drag-handle').draggable('enable');
                             $('ul.task-list').eq(index + 1).removeClass('offset-other-tasks');
                         }
                     }

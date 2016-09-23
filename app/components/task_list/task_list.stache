@@ -2,7 +2,7 @@
 
     <li class="task-list-title {{#if open}}expanded{{/if}}">
 
-        <div class="drag-me">
+        <div class="drag-handle {{#if open}}drag-not-ok{{else}}drag-me drag-ok{{/if}}">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
         <input 

@@ -49,12 +49,13 @@ app-task-list {
             align-items: center;
             justify-content: center;
             
-            div.drag-me {
+
+            div.drag-ok,
+            div.drag-not-ok {
 
                 height: 100%;
                 width: 20%;
                 min-width: 90px;
-                background: rgba(127, 255, 212, 0.46);
 
                 /* flex settings */
                 display: flex;
@@ -66,9 +67,28 @@ app-task-list {
                     box-sizing: border-box;
                     font-size: 2em;
                     padding: ~"calc(10% - 0.5em)";
-                    color: darkgray;
 
                 }
+
+            }
+
+            div.drag-ok {
+
+                background: rgba(127, 255, 212, 0.46);
+
+                i.drag-me-icon {
+                    color: darkgray;
+                }
+                
+            }
+            div.drag-not-ok {
+
+                background: darkgray;
+
+                i.drag-me-icon {
+                    color: white;
+                }
+                
             }
 
             i.toggle-list-expand {
