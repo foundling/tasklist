@@ -188,10 +188,15 @@ steal(
                     // otherwise it should be a calc of height / n.
                     var index = this.viewModel.attr('taskLists').indexOf(this.viewModel.attr('taskList'));
                     if (prop === 'open' && newVal) {
-                        $('ul.task-list').eq(index).addClass('height-expanded');
+                        if ($('ul.task-list').length > 1) {
+
+                            $('ul.task-list').eq(index + 1).addClass('offset-other-tasks');
+                        }
                     } 
                     if (prop === 'open' && !newVal) {
-                        $('ul.task-list').eq(index).removeClass('height-expanded');
+                        if ($('ul.task-list').length > 1) {
+                            $('ul.task-list').eq(index + 1).removeClass('offset-other-tasks');
+                        }
                     }
                 }
             }

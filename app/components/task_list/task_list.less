@@ -9,16 +9,18 @@
     display: none;
 }
 
-app-task-list {
+.offset-other-tasks {
+    margin-top: 80% !important;
+}
 
+
+
+app-task-list {
 
 
     height: 100%;
     width: 100%;
 
-    .height-expanded {
-        height: auto !important;
-    }
 
     &.ui-draggable-dragged {
         border: 1px solid red;
@@ -93,11 +95,26 @@ app-task-list {
         li.task-list-title.active {
         }
 
-        div.task-list-wrapper {
+        li.task-list-wrapper {
 
             position: relative; 
+            background: whitesmoke;
             margin-top: 4px;
-            height: auto;
+            padding-top: 40px;
+            height: 400%;
+            min-height: 400%;
+            max-height: 400%;
+            overflow: scroll;
+
+            i.add-task {
+                position: absolute;
+                top: 27px;
+                /* bottom: 40px; */
+                left: 35px;
+                color: #181818;
+                opacity: 1;
+                font-size: 2em;
+            }
 
         }
 
@@ -119,3 +136,4 @@ app-task-list {
     }
 
 }
+
