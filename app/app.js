@@ -29,31 +29,32 @@ steal(
             var ViewModel = can.Map({
                 settingsActive: false,
                 view: null, 
-                data: null,
                 theme: storage.get('settings.theme'),
+                singleListView: false,
                 views: {
                     title:      TitleView,
                     singlelist: SingleListView, 
                     multilist:  MultiListView,
                     settings:   SettingsView,
                 },
+                toggleSingleListView: function() {
+                    this.attr('singleView', !this.attr('singleView'));
+                },
                 switchView: function (viewName, data) {
-                    viewName = (typeof viewName === 'function') ?  viewName() : viewName;
+                    this.attr('data', data);
                     nextView = this.attr('views')[viewName];
                     vm.attr('view', viewName);
-                    vm.attr('data', data);
                     nextViewCompiled = nextView(vm);
                     $('app-container > div').html(nextViewCompiled);
-                    console.log(viewName);
-                    console.log(this.attr('view'));
+                },
+                setTask: function() {
+                    console.log('set task');
                 }
             });
 
 
+
             var vm = new ViewModel({view: 'title'});
-            vm.bind('theme', function(ev, attr, how, newVal, oldVal) {
-                console.log('theme changed');
-            });
             var compiledView = TitleView(vm);
             $('#app').html(compiledView);
 

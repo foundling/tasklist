@@ -1,4 +1,10 @@
 <app-content-window>
-<!-- something like app-extended-tasklist-view goes here to contain meta data and further info about a tasklist -->
+<app-list-manager {^overflow}="overflow">
+    <app-task-list-single  {task-list}="data" open="true" >
+        {{#each taskList.tasks }}
+            <app-task task="." />
+        {{/each}}
+    </app-task-list-single>
+</app-list-manager>
 </app-content-window>
-<app-dashboard></app-dashboard>
+<app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>

@@ -21,6 +21,7 @@ properties exported up to app-container and back down to dashboard
 
 <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
 
+
 {{#if settingsActive}}
 <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings" {(theme)}="theme"/>
 {{/if}}

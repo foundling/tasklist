@@ -184,7 +184,12 @@ steal(
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
                 },
 
-                '.drag-handle dragstart': function() {
+                'li.task-list-title click': function(el, ev) {
+                    var taskListIndex = el.closest('app-task-list').index();
+                    var taskList = this.viewModel.attr('taskLists.' + taskListIndex);
+                    console.log(this.viewModel.attr('%root'));
+                    var switchView = this.viewModel.attr('%root').switchView;
+                    switchView.call(this.viewModel.attr('%root'),'singlelist', taskList);
                 },
 
                 '{viewModel} change': function(map, obj, prop, how, newVal, oldVal) {

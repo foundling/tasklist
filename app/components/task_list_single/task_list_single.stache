@@ -1,14 +1,15 @@
 <ul class="task-list">
 
-    <li class="task-list-title {{#if open}}expanded{{/if}}">
+    <li class="task-list-title expanded">
 
-        <div class="drag-handle {{#if open}}drag-not-ok{{else}}drag-me drag-ok{{/if}}">
+        <div can-click="switchView 'multilist'" class="drag-not-ok can-click">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
         <input 
+            can-click="editTitle"
             class="task-list-title-input {{#editing}}editing{{/editing}}"
-            value="{{ title }}" 
-            readonly/>
+            value="{{ taskList.title }}" 
+            {{#unless editing}}readonly{{/unless}}/>
 
         <!--<i can-click="removeList %index" class="remove-list fa fa-trash"></i>-->
 
