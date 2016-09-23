@@ -1,18 +1,15 @@
 <ul class="task-list">
 
-    <li class="task-list-title {{#if open}}expanded{{/if}}">
+    <li class="task-list-title">
 
         <div class="drag-me">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
         <input 
+            can-click="switchView 'singlelist' ."
             class="task-list-title-input {{#editing}}editing{{/editing}}"
             value="{{ title }}" 
-            can-value="title"
-            can-focus="editTitle ."
-            can-blur="commitTitle ."
-            can-enter="commitTitle ."
-            {{#unless editing}}readonly{{/unless}} />
+            readonly/>
 
         <!--<i can-click="removeList %index" class="remove-list fa fa-trash"></i>-->
 

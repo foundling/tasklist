@@ -48,10 +48,13 @@ app-task-list {
             justify-content: center;
             
             div.drag-me {
+
                 height: 100%;
                 width: 20%;
+                min-width: 90px;
                 background: rgba(127, 255, 212, 0.46);
 
+                /* flex settings */
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -62,6 +65,7 @@ app-task-list {
                     font-size: 2em;
                     padding: ~"calc(10% - 0.5em)";
                     color: darkgray;
+
                 }
             }
 
@@ -72,7 +76,7 @@ app-task-list {
             input {
                 box-sizing: border-box;
                 display: inline-block;
-                height: 50px;
+                height: 50%;
                 width: 100%;
                 margin: 30px 20px;
             }
