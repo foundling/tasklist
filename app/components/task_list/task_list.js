@@ -181,30 +181,7 @@ console.log('taskList model: ', this.viewModel.attr('taskLists.0'));
                     var taskList = this.viewModel.attr('taskLists.' + taskIndex); 
                 },
 
-                'li.task-list-title click': function(el, ev) {
-                    var taskListIndex = el.closest('app-task-list').index();
-                    var taskList = this.viewModel.attr('taskLists.' + taskListIndex);
-                    var switchView = this.viewModel.attr('%root').switchView;
-                    switchView.call(this.viewModel.attr('%root'), 'singlelist', taskList);
-                },
-
                 '{viewModel} change': function(map, obj, prop, how, newVal, oldVal) {
-                    // to keep task lists (when contracted) to fit inside space evently,
-                    // need to toggle task list height to auto when expanded.
-                    // otherwise it should be a calc of height / n.
-                    var index = this.viewModel.attr('taskLists').indexOf(this.viewModel.attr('taskList'));
-                    if (prop === 'open' && newVal) {
-                        if ($('ul.task-list').length > 1) {
-                            $('.drag-handle').draggable('disable');
-                            $('ul.task-list').eq(index + 1).addClass('offset-other-tasklists');
-                        }
-                    } 
-                    if (prop === 'open' && !newVal) {
-                        if ($('ul.task-list').length > 1) {
-                            $('.drag-handle').draggable('enable');
-                            $('ul.task-list').eq(index + 1).removeClass('offset-other-tasklists');
-                        }
-                    }
                 }
             }
         });

@@ -1,13 +1,16 @@
-<app-content-window>
-    <app-list-manager {^overflow}="overflow">
+<app-container {(single-task-list)}="singleTaskList">
+    <app-content-window {(single-task-list)}="singleTaskList">
+        <app-list-manager {^overflow}="overflow" {(single-task-list)}="singleTaskList">
 
-        <app-task-list-single  {task-list}="singleList" {task-lists}="taskLists" open="true" >
-            {{#each singleList.tasks }}
-                <app-task {(task)}="." {(task-list)}="taskList"/>
-            {{/each}}
-        </app-task-list-single>
+{{ log }}
+            {{#with singleTaskList}}
+            <app-task-list-single {(single-task-list)}="singleTaskList" >
+                    <app-task {(task)}="." open="true" {(single-task-list)}="singleTaskList"/>
+            </app-task-list-single>
+            {{/with}}
 
-    </app-list-manager>
-</app-content-window>
+        </app-list-manager>
+    </app-content-window>
 
-<app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
+    <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
+</app-container>

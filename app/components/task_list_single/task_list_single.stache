@@ -15,7 +15,7 @@
 
     </li>
 
-    <li class="task-list-wrapper {{#unless open}}invisible{{/unless}}">
+    <li class="task-list-wrapper ">
         <i can-click="addTask" class="add-task fa fa-plus"></i>
         <content>
     </li>

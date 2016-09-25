@@ -3,27 +3,27 @@ inter component communication of overflow property (not function) achieved by ex
 properties exported up to app-container and back down to dashboard 
 -->
 
-<app-content-window {^overflow}="overflow">
-    <app-list-manager {^overflow}="overflow">
+<app-container>
+    <app-content-window {^overflow}="overflow">
+        <app-list-manager {^overflow}="overflow">
 
-        {{#each taskLists}}
-        <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false">
+            {{#if singleView}}
 
-<!--
-            {{#each tasks}}
-            <app-task {task}="." {task-list}="taskList" />
-            {{/each}}
--->
+                {{#each taskLists}}
+                <app-task-list {task-lists}="taskLists" {task-list}="." {open}="false" />
+                {{/each}}
 
-        </app-task-list>
-        {{/each}}
+            {{else}}
+                <app-task-list {task-list}="focusedList" {open}="false" />
+            {{/if}}
 
-    </app-list-manager>
-</app-content-window>
+        </app-list-manager>
+    </app-content-window>
 
-<app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
+    <app-dashboard {(settings-active)}="settingsActive" {overflow}="overflow" view="multilist"/>
 
 
-{{#if settingsActive}}
-<app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings" {(theme)}="theme"/>
-{{/if}}
+    {{#if settingsActive}}
+    <app-settings {(settings-active)}="settingsActive" {toggle-settings}="toggleSettings" {(theme)}="theme"/>
+    {{/if}}
+</app-container>

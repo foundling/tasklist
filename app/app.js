@@ -30,6 +30,8 @@ steal(
                 settingsActive: false,
                 theme: storage.get('settings.theme'),
                 view: null, 
+                singleView: false,
+                singleList: null,
                 views: {
                     title:      TitleView,
                     singlelist: SingleListView, 
@@ -39,9 +41,7 @@ steal(
                 toggleSingleListView: function() {
                     this.attr('singleView', !this.attr('singleView'));
                 },
-                switchView: function (viewName, singleList) {
-console.log('switchView singleList arg: ', singleList);
-                    vm.attr('singleList', singleList);
+                switchView: function (viewName) {
                     vm.attr('view', viewName);
                     nextView = this.attr('views')[viewName];
                     nextViewCompiled = nextView(vm);

@@ -1,7 +1,6 @@
 <ul class="task-list">
 
     <li class="task-list-title {{#if open}}expanded{{/if}}">
-
         <div class="drag-handle {{#if open}}drag-not-ok{{else}}drag-me drag-ok{{/if}}">
             <i class="drag-me-icon fa fa-hand-paper-o"></i>
         </div>
@@ -11,12 +10,11 @@
             readonly/>
 
         <!--<i can-click="removeList %index" class="remove-list fa fa-trash"></i>-->
-
     </li>
 
     <li class="task-list-wrapper {{#unless open}}invisible{{/unless}}">
         <i can-click="addTask" class="add-task fa fa-plus"></i>
         <content>
     </li>
-</ul>
 
+</ul>

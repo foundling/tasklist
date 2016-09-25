@@ -28,8 +28,9 @@ steal(
             viewModel: {
                 editing: false,
                 addTask: function(scope) {
-                    var tasks = scope.attr('taskList.tasks');
-                    tasks.push(new Task({}));
+                    var taskList = scope.attr('singleTaskList.tasks');
+                    taskList.push(new Task({}));
+                    console.log(arguments);
                 },
                 removeTask: function(index) {
                     var taskLists = this.attr('taskLists');
